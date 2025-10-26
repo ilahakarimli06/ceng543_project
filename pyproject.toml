@@ -1,0 +1,13 @@
+[project]
+name = "ceng543-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "bert-score>=0.3.13",
+    "datasets>=4.3.0",
+    "faiss-cpu>=1.12.0",
+    "torch>=2.9.0",
+    "transformers>=4.57.1",
+]
