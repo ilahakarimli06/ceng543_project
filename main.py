@@ -25,11 +25,21 @@ def run_sliding(cfg, attention_override=None, model_override=None):
     if attention_override and attention_override != "default":
         out_path = out_path.replace(".csv", f"_{attention_override}.csv")
     if model_override:
-        model_suffix = "longt5" if "long-t5" in model_override.lower() or "longt5" in model_override.lower() else "led"
+        # Detect model family from model name
+        if "bigbird" in model_override.lower():
+            model_suffix = "bigbird"
+        else:
+            model_suffix = "led"
         out_path = out_path.replace(".csv", f"_{model_suffix}.csv")
     
     import os
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    
+    # Determine attention implementation
+    attn_impl = attention_override if attention_override else cfg.get("attention_impl", "default")
+    
+    # Load model ONCE before processing documents (critical for performance)
+    model, tok, metadata = load_model(cfg["model_name"], attn_impl)
     
     data = sample_records(cfg["dataset_path"], cfg["samples"], cfg.get("seed",42))
     for idx, ex in enumerate(data):
@@ -38,7 +48,6 @@ def run_sliding(cfg, attention_override=None, model_override=None):
         t0 = start_prof()
         base_tok = build_tokenizer(cfg["model_name"])
         wins = make_windows(doc, base_tok, cfg["window_size"], cfg["overlap"])
-        model, tok, metadata = load_model(cfg["model_name"], cfg.get("attention_impl","default"))
         pred = generate_with_windows(model, tok, wins, cfg["gen_max_tokens"], cfg.get("global_tokens",0))
         lat, mem = stop_prof(t0)
         mets = text_metrics([pred],[ref])
