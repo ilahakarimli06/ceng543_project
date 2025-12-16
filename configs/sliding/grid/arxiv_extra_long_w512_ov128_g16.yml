@@ -1,0 +1,25 @@
+# Optimized Grid Config 16/42
+# Category: arxiv_extra_long
+# Domain: arxiv
+# Length: extra_long
+# Window Size: 512 tokens
+# Overlap: 128 tokens (25%)
+# Global Tokens: 16
+# Note: Use --attention flag to override attention_impl
+
+method: sliding
+model_name: allenai/led-base-16384
+attention_impl: default
+task: summ
+samples: 60
+gen_max_tokens: 256
+ctx_budget: 16000
+seed: 42
+domain: arxiv
+length_category: extra_long
+category: arxiv_extra_long
+dataset_path: src/data/cleaned/cleaned_extra_long_examples_arxiv.jsonl
+window_size: 512
+overlap: 128
+global_tokens: 16
+out_csv: results/grid/arxiv_extra_long/led_w512_ov128_g16.csv

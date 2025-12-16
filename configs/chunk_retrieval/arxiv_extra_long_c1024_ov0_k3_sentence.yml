@@ -1,0 +1,31 @@
+# Sample Chunk Retrieval Config - ArXiv Extra Long
+# Chunk size: 1024 tokens
+# Overlap: 0 tokens (0%)
+# Top-K: 3 chunks
+# Segmentation: sentence (sentence-aligned)
+
+method: chunk_retrieval
+model_name: allenai/led-base-16384
+attention_impl: default
+task: summ
+samples: 60
+gen_max_tokens: 256
+ctx_budget: 16000
+seed: 42
+
+# Domain/category
+domain: arxiv
+length_category: extra_long
+category: arxiv_extra_long
+dataset_path: src/data/cleaned/cleaned_extra_long_examples_arxiv.jsonl
+
+# Chunk retrieval parameters
+chunk_size: 1024
+overlap: 0
+segmentation_method: sentence
+embedding_model: sentence-transformers/all-MiniLM-L6-v2
+top_k: 3
+query_strategy: first_tokens
+
+# Output
+out_csv: results/chunk_retrieval/arxiv_extra_long/led_c1024_ov0_k3_sentence.csv

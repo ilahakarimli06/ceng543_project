@@ -1,0 +1,25 @@
+# Optimized Grid Config 40/42
+# Category: longform_extra_long
+# Domain: longform
+# Length: extra_long
+# Window Size: 1024 tokens
+# Overlap: 256 tokens (25%)
+# Global Tokens: 64
+# Note: Use --attention flag to override attention_impl
+
+method: sliding
+model_name: allenai/led-base-16384
+attention_impl: default
+task: summ
+samples: 60
+gen_max_tokens: 256
+ctx_budget: 16000
+seed: 42
+domain: longform
+length_category: extra_long
+category: longform_extra_long
+dataset_path: src/data/cleaned/cleaned_extra_long_examples_longform.jsonl
+window_size: 1024
+overlap: 256
+global_tokens: 64
+out_csv: results/grid/longform_extra_long/led_w1024_ov256_g64.csv
