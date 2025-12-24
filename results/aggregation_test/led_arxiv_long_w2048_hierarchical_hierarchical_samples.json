@@ -1,0 +1,231 @@
+{
+  "config": {
+    "model": "allenai/led-base-16384",
+    "model_family": "LED",
+    "attention": "default",
+    "window_size": 2048,
+    "overlap": 0,
+    "global_tokens": 0,
+    "aggregation": "hierarchical",
+    "category": "aggregation_test"
+  },
+  "summary_stats": {
+    "total_samples": 30,
+    "avg_rougeL": 0.13442670376687288,
+    "avg_bertscore": 0.7970216135183971,
+    "min_rougeL": 0.0,
+    "min_bertscore": 0.7158674001693726
+  },
+  "samples": [
+    {
+      "sample_id": 0,
+      "doc_id": "dev_arxiv_749",
+      "source_preview": "electronic mach - zehnder interferometer ( mzi ) @xcite can be realized with the edge states of the quantum hall liquids ( qhls ) . \n together with the quantum antidots @xcite , mzis in the regime of the fractional quantum hall effect ( fqhe ) are expected @xcite to be useful for observation of the fractional statistics of fqhe quasiparticles . \n in contrast to fractional quasiparticle charge , which has been confirmed in several experiments @xcite , there is no commonly accepted observation of ",
+      "source_length": 44926,
+      "reference": "we have studied the zero - temperature statistics of the charge transfer between the two edges of quantum hall liquids of , in general , different filling factors , @xmath0 , with @xmath1 , forming mach - zehnder interferometer . general expression for the cumulant generating function in the large - time limit is obtained for symmetric interferometer with equal propagation times along the two edges between the contacts and constant bias voltage . the low - voltage limit of the generating function can be interpreted in terms of the regular poisson process of electron tunneling , while its leading large - voltage asymptotics is proven to coincide with the solution of kinetic equation describing quasiparticle transitions between the @xmath2 states of the interferometer with different effective flux through it , where @xmath3 . for @xmath4 , this dynamics reflects both the fractional charge @xmath5 and the fractional statistical angle @xmath6 of the tunneling quasiparticles . explicit expressions for the second ( shot noise ) and third cumulants are obtained , and their voltage dependence is analyzed .",
+      "generated": "the transition from electron tunneling at low voltages to tunneling of anyonic quasiparticles of the fractional charge @xmath5 and statistical angle @xmath5 and statistical angle @xmath5 and statistical angle @xmath5 and statistical angle @xmath5 . field . � this field undergoes successive scattering at the two contacts by the tunneling terms of the lagrangian . � one can extend eq . � ( [ p1 ] ) for @xmath73 to include the parameter @xmath70 through the substitution @xmath74 . � the applied voltage can be introduced at first as a shift of the incoming field of one of the edges : @xmath41 . as one can see from eqs . � ( [ phi- ] ) , such a shift translates into the shift of the tunneling field @xmath42 . � the thermodynamic bethe ansatz solution of the tunneling model was developed @xcite for a single - point tunneling contact with @xmath43 by application of one - particle boundary @xmath44-matrices @xcite to a distribution of the bosonic field excitations ( kinks , antikinks , and breathers ) introduced through the massless limit of",
+      "metrics": {
+        "rougeL": 0.18649517684887462,
+        "bertscore_f1": 0.8302028775215149,
+        "latency": 3.4615259170532227
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 1,
+      "doc_id": "dev_arxiv_777",
+      "source_preview": "various mathematical problems can be formulated as finding a common fixed point of finitely many firmly nonexpansive mappings . \n these include , for instance , the convex feasibility problem  @xcite , which consists of finding a point in the intersection of a finite number of closed convex sets , or the problem of finding a common zero of a finite family of maximal monotone operators  @xcite . \n firmly nonexpansive mappings were introduced by bruck  @xcite in order to study sunny nonexpansive r",
+      "source_length": 40733,
+      "reference": "in this paper we provide a unified treatment of some convex minimization problems , which allows for a better understanding and , in some cases , improvement of results in this direction proved recently in spaces of curvature bounded above . for this purpose , we analyze the asymptotic behavior of compositions of finitely many firmly nonexpansive mappings in the setting of @xmath0-uniformly convex geodesic spaces focusing on asymptotic regularity and convergence results . + _ keywords : _ firmly nonexpansive mapping , convex optimization , convex feasibility problem , @xmath0-uniformly convex geodesic space , cat@xmath1 space @xmath2departamento de anlisis matemtico - imus , universidad de sevilla , apdo . de correos 1160 , 41080 sevilla , spain + @xmath3department of mathematics , babe - bolyai university , koglniceanu 1 , 400084 cluj - napoca , romania + @xmath4simion stoilow institute of mathematics of the romanian academy , research group of the project pd-3 - 0152 , + p.o . box 1 - 764 , ro-014700 bucharest , romania + + e - mail addresses : dariza@us.es ( d. ariza - ruiz ) , glopez@us.es ( g. lpez - acedo ) , anicolae@math.ubbcluj.ro ( a. nicolae )",
+      "generated": "mathematical problems can be formulated as finding a common fixed point of finitely many firmly nonexpansive mappings .  embodiments these include , for instance , the convex feasibility problem  @xcite , which consists of finding a point in the intersection of a finite number of closed convex sets , or the problem of finding a common zero of a finite family of maximal monotone operators  @xcite .  embodiments the minimization problem ( [ def - fct - min ] ) was studied in this setting in @xcite .  embodiments the goal of this work is to create a suitable theoretical framework so that previous results can be better understood and in some cases improved . to this end  embodiments a basic example of firmly nonexpansive mappings is the metric projection of a finite number of firmly nonexpansive mappings in @xmath5 space and @xmath271 nonempty , closed and convex , lower semi - continuous and proper .     [ minpro2 ] let @xmath7 be a complete cat@xmath5 space and @xmath271 nonempty , closed and convex , lower semi - continuous and proper . to this end  embodiments a basic example of firmly nonexpansive mappings is the metric",
+      "metrics": {
+        "rougeL": 0.15662650602409636,
+        "bertscore_f1": 0.7997462749481201,
+        "latency": 3.0235347747802734
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 2,
+      "doc_id": "dev_arxiv_307",
+      "source_preview": "recently , there has been a wide interest in relativistic potentials involving mixtures of vector and scalar potentials with opposite signs . \n the interest lies on attempts to explain the pseudospin symmetry in nuclear physics . \n @xcite , using a dirac hamiltonian with scalar @xmath1 and vector @xmath2 potentials quadratic in space coordinates , found a harmonic - oscillator - like second order equation which can be solved analytically for @xmath3 , as considered before by kukulin _ \n @xcite ,",
+      "source_length": 60142,
+      "reference": "we solve the generalized relativistic harmonic oscillator in 1 + 1 dimensions , i.e. , including a linear pseudoscalar potential and quadratic scalar and vector potentials which have equal or opposite signs . we consider positive and negative quadratic potentials and discuss in detail their bound - state solutions for fermions and antifermions . the main features of these bound states are the same as the ones of the generalized three - dimensional relativistic harmonic oscillator bound states . the solutions found for zero pseudoscalar potential are related to the spin and pseudospin symmetry of the dirac equation in 3 + 1 dimensions . we show how the charge conjugation and @xmath0 chiral transformations relate the several spectra obtained and find that for massless particles the spin and pseudospin symmetry related problems have the same spectrum , but different spinor solutions . finally , we establish a relation of the solutions found with single - particle states of nuclei described by relativistic mean - field theories with scalar , vector and isoscalar tensor interactions and discuss the conditions in which one may have both nucleon and antinucleon bound states .",
+      "generated": ", there has been a wide interest in relativistic potentials involving mixtures of vector and scalar potentials with opposite signs . � the interest lies on attempts to explain the pseudospin symmetry in nuclear physics . � this approach is equivalent to consider fermions in 3 + 1 dimensions which are restricted to move in one direction @xcite . � we explore the spectra when it is possible to obtain analytical solutions , _ � i.e. _ , in the particular cases when @xmath5 can be obtained from the @xmath6 . as referred before , if the pseudocalar term is turned off , these cases correspond , respectively , to have exact spin and pseudospin symmetry in 3 + 1 dimensions . � we explore all the possible signs of the quadratic ( @xmath15 or @xmath16 ) and linear ( pseudoscalar ) potentials , thus paying attention to bound states of fermions and antifermions as well . � we compare both cases @xmath9 and @xmath6 . � these conclusions are quite general and do not depend on the number of dimensions so that they remain true in 3 + 1 dimensions . � also , most of the features of the 1 + 1 spectra",
+      "metrics": {
+        "rougeL": 0.19130434782608693,
+        "bertscore_f1": 0.8555463552474976,
+        "latency": 3.3992631435394287
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 3,
+      "doc_id": "dev_arxiv_667",
+      "source_preview": "one of the main characteristics of field theories defined in noncommutative space is the infrared / ultraviolet ( ir / uv ) mixing , which , even in models without massless particles , leads to the appearance of infrared divergences and , as a consequence , to the breakdown of the perturbative scheme in many renormalizable models ( see @xcite for recent reviews ) . \n the presence of infrared divergences in ordinary field theory signals that one may be expanding around a point of nonanaliticity o",
+      "source_length": 47368,
+      "reference": "we investigate possible extensions of the ( 2 + 1 ) dimensional @xmath0 model to the noncommutative space . up to the leading nontrivial order of @xmath1 , we prove that the model restricted to the left fundamental representation of the gauge group is renormalizable and does not have dangerous infrared divergences . in contrast , if the basic field @xmath2 transforms in accord with the adjoint representation , infrared singularities are present in the two point function of the auxiliary gauge field and also in the leading correction to the self - energy of the @xmath2 field . these infrared divergences may produce nonintegrable singularities leading at higher orders to a breakdown of the @xmath1 expansion . gauge invariance of the renormalization procedure is also discussed .",
+      "generated": "\\pi ) ^{3}}\\frac{1}{k^{2}-m^{2 } } \\sin ^{2}(k\\wedge p)\\right].\\label{n11}\\end{aligned}\\ ] ]",
+      "metrics": {
+        "rougeL": 0.014925373134328358,
+        "bertscore_f1": 0.7398967146873474,
+        "latency": 3.139634609222412
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 4,
+      "doc_id": "dev_arxiv_11",
+      "source_preview": "how is the orbit of a photon that is affected by the field of a binary system ? this is a three- body problem with gravitational interactions . adding one body to the famous two- body problem of a photon in a gravitational field brings a remarkable complexity to the problem . \n it is however believed that in a complete treatment of such motions and with todays highly accurate astronomical observations in hand , these effects must be taken into account . \n this subject has been a field of interes",
+      "source_length": 34463,
+      "reference": "we examine the motion of a photon in the gravitational field of a binary system . the equations of motion are geodesic equations in a schwarzchild background with a tidal force . we specialize the equations to that of an edge - on binary and use the method of osculating elements to integrate them . this work helps to identify a binary system through the gravitational light deflection of one member in the gravitational field of the other member . it is found that the effects of the companion body on a photon passing the edge of the star can be potentially detected by astrometric satellites with @xmath0as precision , if the ratio of the schwarzchid radius to the star radius , @xmath1 . two different cumulative effects on the photon path are identified . = 1",
+      "generated": "11}+{{\\cal e}}_{22}=-\\frac{m}{r_{o}^3}-1\\xmath10 $ ] , where @xmath11 is the closest distance to the main body that the photon could reach , if it were an isolated body .     in this paper , we find that the total deflection angle depends on the second body position and varies from a minimum equal to @xmath9 $ ] to a maximum @xmath10 $ ] , where @xmath11 is the closest distance to the main body that the photon could reach , if it were an isolated body .     in this paper , the structure of this paper is as follows : in section ii , we start with the metric describing the tidal environment around a gravitating body .    in section iii , we find the tidally perturbed metric in schwarzchild coordinates by a coordinate transformation ( from harmonic coordinates ) .    in section iv , we find the tidally perturbed metric in schwarzchild coordinates by a coordinate transformation ( from harmonic coordinates ) .    in section iv , we find the tidally perturbed metric in schwarzchild coordinates by a coordinate transformation ( from",
+      "metrics": {
+        "rougeL": 0.15862068965517243,
+        "bertscore_f1": 0.8116752505302429,
+        "latency": 2.9277844429016113
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 5,
+      "doc_id": "dev_arxiv_647",
+      "source_preview": "the study of the velocity gradient tensor in fully developed turbulence has lead to interesting findings and has contributed to improved understanding of many statistical and geometrical properties of turbulent flows . in particular , recent progress has been made in the study of the lagrangian dynamics and modeling of the velocity gradient tensor ( see ref . \n @xcite for an overview of the subject ) . \n this tensor is given by @xmath1 , where * u * is the velocity vector . \n taking a spatial gr",
+      "source_length": 42695,
+      "reference": "the lagrangian dynamics of the velocity gradient tensor * a * in isotropic and homogeneous turbulence depend on the joint action of the self - streching term and the pressure hessian . existing closures for pressure effects in terms of * a * are unable to reproduce one important statistical role played by the anisotropic part of the pressure hessian , namely the redistribution of the probabilities towards enstrophy production dominated regions . as a step towards elucidating the required properties of closures , we study several synthetic velocity fields and how well they reproduce anisotropic pressure effects . it is found that synthetic ( i ) gaussian , ( ii ) multifractal and ( iii ) minimal turnover lagrangian map ( mtlm ) incompressible velocity fields reproduce many features of real pressure fields that are obtained from numerical simulations of the navier stokes equations , including the redistribution towards enstrophy - production regions . the synthetic fields include both spatially local , and nonlocal , anisotropic pressure effects . however , we show that the local effects appear to be the most important ones : by assuming that the pressure hessian is local in space , an expression in terms of the hessian of the second invariant @xmath0 of the velocity gradient tensor can be obtained . this term is found to be well correlated with the true pressure hessian both in terms of eigenvalue magnitudes and eigenvector alignments .",
+      "generated": "iscale lagrangian map approach to synthesize non - gaussian turbulent vector fields , phys . TextColor fluids * 18 * , 075104 ( 2006 ) , phys . TextColor fluids * 18 * , 075104 ( 2006 ) . c , recent progress has been made in the study of the lagrangian dynamics and modeling of the velocity gradient tensor ( see ref . \u001c @xcite for an overview of the subject ) . \u001c this tensor is given by @xmath1 , where * u * is the velocity vector . \u001c taking a spatial gradient of the navier - stokes equations , the following transport equation for * a * is obtained : @xmath2 where @xmath3 stands for the lagrangian time derivative , @xmath4 is the kinematic viscosity and @xmath5 is the pressure hessian . \u001c the first term @xmath6 is the self - stretching term . \u001c the second type is called ` multifractal ' @xcite , and consists of a gaussian field whose vorticity field is amplified by means of the ` fluid deformation closure ' and made consistent with multifractality s long - range correlations in physical space @xcite",
+      "metrics": {
+        "rougeL": 0.17827298050139279,
+        "bertscore_f1": 0.8215343952178955,
+        "latency": 2.9728262424468994
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 6,
+      "doc_id": "dev_arxiv_728",
+      "source_preview": "extragalactic jets are thought to play an important role in providing a heating mechanism in the center of cool core ( cc ) clusters of galaxies . \n cc clusters exhibit a falling temperature and increasing gas density towards their center ( for a review see @xcite ) . the high temperature ( few million kelvin ) intracluster gas ( icg ) cools mainly via thermal bremsstrahlung and line emission , the cooling time being proportional to the inverse of the gas density . \n the cooling times in the den",
+      "source_length": 38152,
+      "reference": "radio observations suggest that 3c 75 , located in the dumbbell shaped galaxy ngc 1128 at the center of abell 400 , hosts two colliding jets . motivated by this source , we perform three - dimensional hydrodynamical simulations using a modified version of the gpu - accelerated adaptive - mesh - refinement hydrodynamical parallel code ( _ gamer _ ) to study colliding extragalactic jets . we find that colliding jets can be cast into two categories : 1 ) bouncing jets , in which case the jets bounce off each other keeping their identities , and 2 ) merging jets , when only one jet emerges from the collision . under some conditions the interaction causes the jets to break up into oscillating filaments of opposite helicity , with consequences for their downstream stability . when one jet is significantly faster than the other and the impact parameter is small , the jets merge ; the faster jet takes over the slower one . in the case of merging jets , the oscillations of the filaments , in projection , may show a feature which resembles a double helix , similar to the radio image of 3c 75 . thus we interpret the morphology of 3c 75 as a consequence of the collision of two jets with distinctly different speeds at a small impact parameter , with the faster jet breaking up into two oscillating filaments .",
+      "generated": "75 .      the western jet from the northern agn appears to collide with , and merge into , the northern jet from the southern agn appears to collide with , and merge into , the northern jet from the southern agn which does not seem to change its course significantly . {e : euler3 }   , \\end{aligned}\\ ] ] where @xmath6 , @xmath7 , and @xmath8 are the mass density , the thermal pressure , and the total energy density of the gas , @xmath9 , where @xmath10 is the internal energy density , @xmath11 and @xmath12 are the components of the flow velocity vector , @xmath14 , and @xmath15 take a value of 1 , 2 , or 3 . .   the first column illustrates bouncing of two fast jets with wavelengths in the range of 10 - 20 kpc , which is compatible to the expected wavelength of the reflection modes .    in the 3rd column in figure  [ f : test3356projz ] we show the total energy projected to the @xmath28 plane from our colliding jet simulations with fixed jet velocities : v@xmath75 = v",
+      "metrics": {
+        "rougeL": 0.18630136986301374,
+        "bertscore_f1": 0.7951533794403076,
+        "latency": 2.901794910430908
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 7,
+      "doc_id": "dev_arxiv_584",
+      "source_preview": "in most of the cosmological studies , dark matter particles are treated as collisionless particles . \n for instance , to describe the cosmological density evolution , collisionless boltzmann equation is adopted . in cosmological n - body simulations , a group of collisionless dark matter particles , \n are represented by a single collisionless particle in the computer from the coarse - grained point of view . in the treatment by the boltzmann equation , in which the distribution function is defin",
+      "source_length": 36540,
+      "reference": "flat density cores have been obtained for a limited number of clusters of galaxies by strong gravitational lensing . using a phenomenological equation of state ( eos ) describing the full - to - partial degeneracy , we integrate the equation of hydrostatic equilibrium . the eos is based on an assumption that the local kinetic energy of a classical particle induced by the gravity dissolves the quantum statistical degeneracy . the density profile is uniquely determined by four parameters , the central density , @xmath0 , the properties of a fermion , namely , the mass , @xmath1 , and statistical weight , @xmath2 , and the ratio of the total matter density and fermion density , @xmath3 . as a case study , we model the column density and 2d encircled mass profiles of a1689 , whose column density profile has been observationally obtained by broadhurst et al . , using gravitational lensing . the column density and 2d encircled profiles at the core , are reasonably reproduced for models with a limited range of particle properties . in the case that previously unknown fermions with spin 1/2 dominate the dark matter , the acceptable particle mass range is between 2 and 4 ev . in the case that the dark matter consists of the mixture of degenerate relic neutrinos and classical collisionless cold dark matter particles , the mass range of neutrinos is between 1 and 2 ev , if the ratio of the two kinds of dark matter particles is fixed to its cosmic value . both the pure fermionic dark matter models and neutrino - cdm - mixture models reproduce the observations equally well .",
+      "generated": "profile is that it has a flat top . for instance , if we use the observed column density profile eq.([cpl ] ) out to @xmath442.8 mpc , regardless of the strength of weak lensing signals , the core radius in units of @xmath28 , and power - law index , change to 1.25 , and -3.71 , respectively . note that the power - law index of our choice , -3.41 , is closer to that of an nfw profile of -3 , than -3.71 . weight for the three neutrino species , @xmath104 both for majorana and dirac neutrinos as long as we consider light relic neutrinos . although a dirac particle has two helicity states , only right - handed particles were populated in the thermal equilibrium of the early universe and the current number density of left - handed particles are expected to be negligible @xcite .    the current number density of each neutrino species , @xmath104 both for majorana and dirac neutrinos as long as we consider light relic neutrinos . although a dirac particle has two helicity states , only right - handed particles were populated in the thermal equilibrium of",
+      "metrics": {
+        "rougeL": 0.16075650118203308,
+        "bertscore_f1": 0.8148425221443176,
+        "latency": 2.9104814529418945
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 8,
+      "doc_id": "dev_arxiv_21",
+      "source_preview": "within the shubnikov phase of type ii superconductors the applied magnetic field enters the sample in the form of flux lines . \n the standard mean - field type calculation@xcite shows that in an isotropic material two straight vortices repel at all distance scales , with an interaction strength @xmath1 , @xmath2 being the basic energy scale in the vortex matter , @xmath3 is the zero - order modified bessel function , @xmath0 is the inter - vortex distance , and @xmath4 the magnetic penetration l",
+      "source_length": 43501,
+      "reference": "we present a new approach to calculate the attractive long range vortex - vortex interaction of the van der waals type present in anisotropic and layered superconductors . the mapping of the statistical mechanics of vortex lines onto the imaginary time quantum mechanics of two dimensional charged bosons allows us to define a 2d casimir problem : two half - spaces of ( dilute ) vortex matter separated by a gap of width @xmath0 are mapped to two dielectric half - planes of charged bosons interacting via a massive gauge field . we determine the attractive casimir force between the two half - planes and show , that it agrees with the pairwise summation of the van der waals force between vortices previously found by blatter and geshkenbein [ phys . rev . lett . * 77 * , 4958 ( 1996 ) ] . 2",
+      "generated": "shubnikov phase of type ii superconductors the applied magnetic field enters the sample in the form of flux lines . field and @xmath4 denoting the london penetration depth . in order to acquaint for the vortices ,",
+      "metrics": {
+        "rougeL": 0.1509433962264151,
+        "bertscore_f1": 0.8103974461555481,
+        "latency": 2.9744489192962646
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 9,
+      "doc_id": "dev_arxiv_672",
+      "source_preview": "vector auto \n regressive ( var ) models play an important role in contemporary macro  economics , being an example of an approach called the `` dynamic stochastic general equilibrium '' ( dsge ) , which is superseding traditional large  scale macro  econometric forecasting methodologies  @xcite . \n the motivation behind them is based on the assertion that more recent values of a variable are more likely to contain useful information about its future movements than the older ones . on the other h",
+      "source_length": 47868,
+      "reference": "we apply random matrix theory to derive spectral density of large sample covariance matrices generated by multivariate @xmath0 , @xmath1 and @xmath2 processes . in particular , we consider a limit where the number of random variables @xmath3 and the number of consecutive time measurements @xmath4 are large but the ratio @xmath5 is fixed . in this regime the underlying random matrices are asymptotically equivalent to free random variables ( frv ) . we apply the frv calculus to calculate the eigenvalue density of the sample covariance for several varma type processes . we explicitly solve the @xmath6 case and demonstrate a perfect agreement between the analytical result and the spectra obtained by monte carlo simulations . the proposed method is purely algebraic and can be easily generalized to and .",
+      "generated": "a comparably big number of time snapshots , so that we may approximately talk about the `` thermodynamical limit , '' @xmath34 on the other hand , it is exactly this limit in which the frv calculus ( see the subsection below for its brief elucidation ) can be applied ; hence , the challenge of de  noising is somewhat counterbalanced by the computationally powerful frv techniques .    on the other hand , we are aware of the fact that any study of a ( real symmetric @xmath36 ) random matrix @xmath37 will most surely include a fundamental question about the average values of its ( real ) eigenvalues .    on the other hand , we do not resort to using this addition formula , even though our problem could be approached through it as well .       on the other hand , we are aware of the fact that in the original mathematical formulations  @xcite of these frames , a slightly different language is employed : instead of the @xmath3transform , the `` @xmath47transform '' is found convenient , , while in place of the blue s function , one engages the `` @xmath48transform , '' .      on the other hand",
+      "metrics": {
+        "rougeL": 0.14482758620689656,
+        "bertscore_f1": 0.8188539743423462,
+        "latency": 2.9985625743865967
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 21,
+      "doc_id": "dev_arxiv_365",
+      "source_preview": "the spectral lines of the multiplet of neutral helium at 10830   are of great diagnostic value for investigating the dynamic and magnetic properties of plasma structures in the solar chromosphere and corona . \n this is because their polarization is sensitive to the presence of atomic level polarization and to the joint action of the hanle and zeeman effects ( e.g. trujillo bueno & asensio ramos , 2007 ) , which makes these lines especially sensitive to the strongest fields found in solar active ",
+      "source_length": 42160,
+      "reference": "two of the most attractive spectral windows for spectropolarimetric investigations of the physical properties of the plasma structures in the solar chromosphere and corona are the ones provided by the spectral lines of the he i 10830 and 5876 ( or d@xmath0 ) multiplets , whose polarization signals are sensitive to the hanle and zeeman effects . however , in order to be able to carry out reliable diagnostics , it is crucial to have a good physical understanding of the sensitivity of the observed spectral line radiation to the various competing driving mechanisms . here we report a series of off - the - limb non - lte calculations of the he i d@xmath0 and 10830 emission profiles , focusing our investigation on their sensitivity to the euv coronal irradiation and the model atmosphere used in the calculations . we show in particular that the intensity ratio of the blue to the red components in the emission profiles of the he i 10830 multiplet turns out to be a good candidate as a diagnostic tool for the coronal irradiance . measurements of this observable as a function of the distance to the limb and its confrontation with radiative transfer modeling might give us valuable information on the physical properties of the solar atmosphere and on the amount of euv radiation at relevant wavelengths penetrating the chromosphere from above .",
+      "generated": "jones 1997 ) .",
+      "metrics": {
+        "rougeL": 0.0,
+        "bertscore_f1": 0.7596378922462463,
+        "latency": 3.0047638416290283
+      },
+      "selection_reason": "worst_rouge"
+    },
+    {
+      "sample_id": 10,
+      "doc_id": "dev_arxiv_620",
+      "source_preview": "in time - reversal experiments a signal emitted by a localized source is recorded at an array of transducers . \n it is then re - emitted into the medium reversed in time , that is , the part of the signal that is recorded first is sent back last . because of the time - reversibility of the wave equation the back - propagated signal refocuses approximately at the location of the original source because the array is limited in size . \n a striking experimental observation is that the presence of in",
+      "source_length": 41377,
+      "reference": "we analyze the self - averaging properties of time - reversed solutions of the paraxial wave equation with random coefficients , which we take to be markovian in the direction of propagation . this allows us to construct an approximate martingale for the phase space wigner transform of two wave fields . using a priori @xmath0-bounds available in the time - reversal setting , we prove that the wigner transform in the high frequency limit converges in probability to its deterministic limit , which is the solution of a transport equation .",
+      "generated": "})}{(2\\pi)^d } e^{is({\\mathbf k}+{\\mathbf p}/2)\\cdot { \\mathbf k}^d } e^{is({\\mathbf q}+{\\mathbf p}/2)\\cdot { \\mathbf k}^d } e^{is({\\mathbf q}+{\\mathbf p}/2)\\cdot { \\mathbf k}^d } e^{is({\\mathbf q}+{\\mathbf p}/2)\\cdot { \\mathbf k}^d } e^{is({\\mathbf q}+{\\mathbf p}/2)\\cdot { \\mathbf k}^d } e^{is({\\mathbf q}+{\\mathbf p}2-\\cdot { \\mathbf k}^d } e^{is({\\mathbf q}+{\\mathbf p}2-\\cdot { \\mathbf k}^d } e^{is({\\mathbf q}+{\\mathbf p}2-\\cdot { \\mathbf k}^d } e^{is({\\mathbf q}+{\\mathbf",
+      "metrics": {
+        "rougeL": 0.011111111111111112,
+        "bertscore_f1": 0.7158674001693726,
+        "latency": 3.090014934539795
+      },
+      "selection_reason": "worst_rouge"
+    },
+    {
+      "sample_id": 12,
+      "doc_id": "dev_arxiv_794",
+      "source_preview": "a massive star ends its life as a supernova ( sn ) explosion . \n this leaves behind a supernova remnant ( snr ) and sometimes creates a rapidly rotating pulsar . \n a pulsar can produce an outflow of a magnetic field and relativistic particles referred to as a pulsar wind . \n the interaction between such a pulsar wind and the ambient medium , i.e.  the sn ejecta for pulsars embedded in snrs , results in a termination shock , beyond which the shocked wind materials inflate a broadband synchrotron ",
+      "source_length": 42413,
+      "reference": "pulsar wind nebulae ( pwne ) are suggested to be acceleration sites of cosmic rays in the galaxy . while the magnetic field plays an important role in the acceleration process , previous observations of magnetic field configurations of pwne are rare , particularly for evolved systems . we present a radio polarization study of the `` snail '' pwn inside the supernova remnant g327.1@xmath01.1 using the australia telescope compact array . this pwn is believed to have been recently crushed by the supernova ( sn ) reverse shock . the radio morphology is composed of a main circular body with a finger - like protrusion . we detected a strong linear polarization signal from the emission , which reflects a highly ordered magnetic field in the pwn and is in contrast to the turbulent environment with a tangled magnetic field generally expected from hydrodynamical simulations . this could suggest that the characteristic turbulence scale is larger than the radio beam size . we built a toy model to explore this possibility , and found that a simulated pwn with a turbulence scale of about one - eighth to one - sixth of the nebula radius and a pulsar wind filling factor of 5075% provides the best match to observations . this implies substantial mixing between the sn ejecta and pulsar wind material in this system .",
+      "generated": "ong kong government under hku 709713p .  acknowledges partial support from nasa contract nas8 - 03060 .  acknowledges partial support from nasa contract nas8 - 03060 .  acknowledges partial support from nasa contract nas8 - 03060 .  acknowledges partial support from nasa contract nas8 - 03060 .  acknowledges partial support from nasa contract nas8 - 03060 .  acknowledges partial support from nasa contract nas8 - 03060 .  acknowledges partial support from nasa contract nas8 - 03060 .  acknowledges partial support from nasa contract nas8 - 03060 .  acknowledges partial support from nasa contract nas8 - 03060 .  acknowledges partial support from nasa contract nas8 - 03060 .  acknowledges partial support from nasa contract nas8 - 03060 .  acknowledges partial support from nasa contract nas8 - 03060 .  acknowledges partial support from nasa contract nas8 - 03060 .  acknowledges partial support from nasa contract nas8 - 03060 . � the flux densities of the pwn are @xmath72 , @xmath17 , @xmath20 , @xmath73 , and @x",
+      "metrics": {
+        "rougeL": 0.035398230088495575,
+        "bertscore_f1": 0.7429742813110352,
+        "latency": 3.028271198272705
+      },
+      "selection_reason": "worst_rouge"
+    },
+    {
+      "sample_id": 16,
+      "doc_id": "dev_arxiv_649",
+      "source_preview": "the most widely accepted mechanism for the formation of planets is the core accretion model @xcite . in this model , dust grains grow rapidly to form kilometre - sized planetesimals that then coagulate to form a rocky core @xcite which , if sufficiently massive , may then accrete a gaseous envelope to from a gas giant planet @xcite . \n an alternative suggestion @xcite is that gas giant planets may form via direct gravitational collapse in discs that are sufficiently massive so as to sustain a gr",
+      "source_length": 36858,
+      "reference": "it is now reasonably clear that disc fragmentation can only operate in the outer parts of protostellar discs ( @xmath0 au ) . it is also expected that any object that forms via disc fragmentation will have an initial mass greater than that of jupiter . however , whether or not such a process actually operates , or can play a significant role in the formation of planetary - mass objects , is still unclear . we do have a few examples of directly imaged objects that may have formed in this way , but we have yet to constrain how often disc fragmentation may actually form such objects . what we want to consider here is whether or not we can constrain the likely population of planetary - mass objects formed via disc fragmentation by considering how a population of objects at large radii ( @xmath1 ) au - if they do exist - would evolve under perturbations from more distant stellar companions . we find that there is a specific region of parameter space to which such objects would be scattered and show that the known exoplanets in that region have properties more consistent with that of the bulk exoplanet population , than with having been formed via disc fragmentation at large radii . along with the scarcity of directly - imaged objects at large radii , our results provide a similar , but independent , constraint on the frequency of objects formed via disc fragmentation . [ firstpage ] planets and satellites : formation - planets and satellites : general - planets and satellites : gaseous planets - stars : formation - ( stars : ) brown dwarfs",
+      "generated": "df grateful acknowledges support from the ecogal erc advanced grant .     kuiper g. , 1951 , in hynek j.a . ,     the author acknowledges the proceedings of a topical symposium , commemorating the 50th anniversary of the yerkes observatory and half a century of progress in astrophysics , mcgraw - hill , new york , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357 , p. 357",
+      "metrics": {
+        "rougeL": 0.058201058201058205,
+        "bertscore_f1": 0.7582963705062866,
+        "latency": 2.9340317249298096
+      },
+      "selection_reason": "worst_rouge"
+    },
+    {
+      "sample_id": 28,
+      "doc_id": "dev_arxiv_631",
+      "source_preview": "the precise test of semiclassical approximations in the presence of chaos is of grest interest to establish the limits of applicability of periodic orbit theory and its resummations . \n this test can be done in model systems both on approximations to the spectrum or to the stationary states . for the calculation of the spectrum \n the most efficient tool in this respect seems to be the spectral determinant @xcite and several calculations @xcite have demonstrated that , given enough periodic orbit",
+      "source_length": 29254,
+      "reference": "we obtain a semiclassical expression for the projector onto eigenfunctions by means of the fredholm theory . we express the projector in the coherent state basis , thus obtaining the semiclassical husimi representation of the stadium eigenfunctions , which is written in terms of classical invariants : periodic points , their monodromy matrices and maslov indices . pacs numbers : 05.45.+b , 03.65.sq , 03.40.kf 20.5 cm 1.5 cm",
+      "generated": "12 zeroes adding several hundreds of gaussians , each of which is a phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase of the phase",
+      "metrics": {
+        "rougeL": 0.06289308176100629,
+        "bertscore_f1": 0.7254787087440491,
+        "latency": 2.935901165008545
+      },
+      "selection_reason": "worst_bertscore"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+# FAISS Benchmark v2 - Quick Test
+# Rapid validation with global index
+
+method: faiss_benchmark_v2
+dataset_path: src/data/cleaned/cleaned_extra_long_examples_arxiv.jsonl
+samples: 60
+seed: 42
+
+# Chunking
+chunk_size: 384
+overlap: 128
+segmentation_method: fixed
+
+# Retrieval
+k_coarse: 50
+k_final: 5
+ground_truth_top_n: 3
+query_strategy: first_tokens
+
+# No reranking for quick test
+use_reranking: false
+
+# Single embedding model
+embedding_models:
+  - sentence-transformers/all-MiniLM-L6-v2
+
+# Summarization
+summarization_model: google/bigbird-pegasus-large-arxiv
+gen_max_tokens: 256
+
+# Minimal index configs
+index_configs:
+  - type: flat
+  - type: ivf
+    nlist: 32
+  - type: ivf_pq
+    nlist: 32
+    M: 48
+    nbits: 8
+
+nprobe_values:
+  - 4
+  - 8
+
+out_dir: results/faiss_benchmark_v2/quick_test
+cache_dir: cache/faiss_benchmark_v2

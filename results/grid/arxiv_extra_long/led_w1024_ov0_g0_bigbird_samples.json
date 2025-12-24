@@ -26,7 +26,7 @@
       "metrics": {
         "rougeL": 0.06846533217290399,
         "bertscore_f1": 0.8529782891273499,
-        "latency": 15.064788103103638
+        "latency": 9.454200029373169
       },
       "selection_reason": "first_10"
     },
@@ -40,7 +40,7 @@
       "metrics": {
         "rougeL": 0.05749932194195824,
         "bertscore_f1": 0.8426967859268188,
-        "latency": 16.39453887939453
+        "latency": 9.865312814712524
       },
       "selection_reason": "first_10"
     },
@@ -54,7 +54,7 @@
       "metrics": {
         "rougeL": 0.04882154882154883,
         "bertscore_f1": 0.8349428176879883,
-        "latency": 14.915265798568726
+        "latency": 9.86089015007019
       },
       "selection_reason": "first_10"
     },
@@ -68,7 +68,7 @@
       "metrics": {
         "rougeL": 0.0560462991166616,
         "bertscore_f1": 0.8443136215209961,
-        "latency": 13.212817430496216
+        "latency": 8.49547553062439
       },
       "selection_reason": "first_10"
     },
@@ -82,7 +82,7 @@
       "metrics": {
         "rougeL": 0.05551567360612586,
         "bertscore_f1": 0.8344779014587402,
-        "latency": 15.858517408370972
+        "latency": 10.115840435028076
       },
       "selection_reason": "first_10"
     },
@@ -96,7 +96,7 @@
       "metrics": {
         "rougeL": 0.05920663114268799,
         "bertscore_f1": 0.8386453986167908,
-        "latency": 13.16214632987976
+        "latency": 8.957437992095947
       },
       "selection_reason": "first_10"
     },
@@ -110,7 +110,7 @@
       "metrics": {
         "rougeL": 0.03903345724907063,
         "bertscore_f1": 0.850935697555542,
-        "latency": 17.275984048843384
+        "latency": 10.968870878219604
       },
       "selection_reason": "first_10"
     },
@@ -124,7 +124,7 @@
       "metrics": {
         "rougeL": 0.028807456047447572,
         "bertscore_f1": 0.8395042419433594,
-        "latency": 17.762378692626953
+        "latency": 12.208492517471313
       },
       "selection_reason": "first_10"
     },
@@ -138,7 +138,7 @@
       "metrics": {
         "rougeL": 0.04334975369458128,
         "bertscore_f1": 0.8481373190879822,
-        "latency": 13.282050371170044
+        "latency": 8.66447901725769
       },
       "selection_reason": "first_10"
     },
@@ -152,7 +152,7 @@
       "metrics": {
         "rougeL": 0.03063457330415755,
         "bertscore_f1": 0.8146596550941467,
-        "latency": 13.315180540084839
+        "latency": 8.734256029129028
       },
       "selection_reason": "first_10"
     },
@@ -166,7 +166,7 @@
       "metrics": {
         "rougeL": 0.02606695629951444,
         "bertscore_f1": 0.8402538895606995,
-        "latency": 10.912082433700562
+        "latency": 10.139951944351196
       },
       "selection_reason": "worst_rouge"
     },
@@ -180,7 +180,7 @@
       "metrics": {
         "rougeL": 0.026434558349451968,
         "bertscore_f1": 0.8266550302505493,
-        "latency": 13.440174102783203
+        "latency": 8.636849164962769
       },
       "selection_reason": "worst_rouge"
     },
@@ -194,7 +194,7 @@
       "metrics": {
         "rougeL": 0.02901292967518133,
         "bertscore_f1": 0.8171700239181519,
-        "latency": 15.791163682937622
+        "latency": 10.099512577056885
       },
       "selection_reason": "worst_rouge"
     },
@@ -208,7 +208,7 @@
       "metrics": {
         "rougeL": 0.030612244897959186,
         "bertscore_f1": 0.8330374956130981,
-        "latency": 16.731115579605103
+        "latency": 10.281494140625
       },
       "selection_reason": "worst_rouge"
     },
@@ -222,7 +222,7 @@
       "metrics": {
         "rougeL": 0.057645631067961174,
         "bertscore_f1": 0.813740074634552,
-        "latency": 14.666364192962646
+        "latency": 9.40889310836792
       },
       "selection_reason": "worst_bertscore"
     },
@@ -236,7 +236,7 @@
       "metrics": {
         "rougeL": 0.035659391331079,
         "bertscore_f1": 0.8142269253730774,
-        "latency": 15.941730737686157
+        "latency": 10.359704971313477
       },
       "selection_reason": "worst_bertscore"
     },
@@ -250,7 +250,7 @@
       "metrics": {
         "rougeL": 0.031090384188318897,
         "bertscore_f1": 0.8166768550872803,
-        "latency": 16.713830709457397
+        "latency": 11.460764408111572
       },
       "selection_reason": "worst_bertscore"
     }

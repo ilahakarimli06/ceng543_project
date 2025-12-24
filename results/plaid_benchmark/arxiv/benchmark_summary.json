@@ -1,0 +1,162 @@
+{
+  "config": {
+    "method": "plaid_benchmark",
+    "dataset_path": "src/data/cleaned/cleaned_extra_long_examples_arxiv.jsonl",
+    "samples": 60,
+    "seed": 42,
+    "chunk_size": 384,
+    "overlap": 128,
+    "segmentation_method": "fixed",
+    "top_k": 10,
+    "ground_truth_top_n": 5,
+    "query_strategy": "first_tokens",
+    "colbert_model": "bert-base-uncased",
+    "max_token_length": 512,
+    "plaid_configs": [
+      {
+        "tokens_per_chunk": 64,
+        "M": 96,
+        "nbits": 8
+      },
+      {
+        "tokens_per_chunk": 48,
+        "M": 96,
+        "nbits": 8
+      },
+      {
+        "tokens_per_chunk": 32,
+        "M": 96,
+        "nbits": 8
+      },
+      {
+        "tokens_per_chunk": 32,
+        "M": 48,
+        "nbits": 8
+      },
+      {
+        "tokens_per_chunk": 24,
+        "M": 48,
+        "nbits": 8
+      }
+    ],
+    "summarization_model": "google/bigbird-pegasus-large-arxiv",
+    "gen_max_tokens": 512,
+    "out_dir": "results/plaid_benchmark",
+    "cache_dir": "cache/plaid_benchmark"
+  },
+  "plaid_configs": [
+    {
+      "tokens_per_chunk": 64,
+      "M": 96,
+      "nbits": 8
+    },
+    {
+      "tokens_per_chunk": 48,
+      "M": 96,
+      "nbits": 8
+    },
+    {
+      "tokens_per_chunk": 32,
+      "M": 96,
+      "nbits": 8
+    },
+    {
+      "tokens_per_chunk": 32,
+      "M": 48,
+      "nbits": 8
+    },
+    {
+      "tokens_per_chunk": 24,
+      "M": 48,
+      "nbits": 8
+    }
+  ],
+  "num_documents": 60,
+  "aggregated_results": [
+    {
+      "colbert_model": "bert-base-uncased",
+      "tokens_per_chunk": 24,
+      "M": 48,
+      "nbits": 8,
+      "recall_at_1": 0.0433,
+      "recall_at_5": 0.1967,
+      "recall_at_10": 0.38,
+      "recall_at_20": 0.38,
+      "mrr": 0.4003,
+      "retrieval_latency_ms": 16.8305,
+      "plaid_index_size_mb": 0.2422,
+      "size_reduction_ratio": 365.4963,
+      "compression_ratio": 377.5754,
+      "downstream_rouge_l": 0.2392,
+      "downstream_bertscore": 0.8385
+    },
+    {
+      "colbert_model": "bert-base-uncased",
+      "tokens_per_chunk": 32,
+      "M": 48,
+      "nbits": 8,
+      "recall_at_1": 0.06,
+      "recall_at_5": 0.25,
+      "recall_at_10": 0.4133,
+      "recall_at_20": 0.4133,
+      "mrr": 0.4631,
+      "retrieval_latency_ms": 17.5064,
+      "plaid_index_size_mb": 0.3232,
+      "size_reduction_ratio": 273.8995,
+      "compression_ratio": 282.7566,
+      "downstream_rouge_l": 0.2336,
+      "downstream_bertscore": 0.8408
+    },
+    {
+      "colbert_model": "bert-base-uncased",
+      "tokens_per_chunk": 32,
+      "M": 96,
+      "nbits": 8,
+      "recall_at_1": 0.0467,
+      "recall_at_5": 0.25,
+      "recall_at_10": 0.4133,
+      "recall_at_20": 0.4133,
+      "mrr": 0.4483,
+      "retrieval_latency_ms": 14.9988,
+      "plaid_index_size_mb": 0.4422,
+      "size_reduction_ratio": 200.2074,
+      "compression_ratio": 204.825,
+      "downstream_rouge_l": 0.2419,
+      "downstream_bertscore": 0.8437
+    },
+    {
+      "colbert_model": "bert-base-uncased",
+      "tokens_per_chunk": 48,
+      "M": 96,
+      "nbits": 8,
+      "recall_at_1": 0.06,
+      "recall_at_5": 0.2267,
+      "recall_at_10": 0.4367,
+      "recall_at_20": 0.4367,
+      "mrr": 0.4724,
+      "retrieval_latency_ms": 15.8531,
+      "plaid_index_size_mb": 0.6635,
+      "size_reduction_ratio": 133.4139,
+      "compression_ratio": 136.4243,
+      "downstream_rouge_l": 0.2326,
+      "downstream_bertscore": 0.8383
+    },
+    {
+      "colbert_model": "bert-base-uncased",
+      "tokens_per_chunk": 64,
+      "M": 96,
+      "nbits": 8,
+      "recall_at_1": 0.0467,
+      "recall_at_5": 0.2167,
+      "recall_at_10": 0.43,
+      "recall_at_20": 0.43,
+      "mrr": 0.3941,
+      "retrieval_latency_ms": 15.9028,
+      "plaid_index_size_mb": 0.8852,
+      "size_reduction_ratio": 99.9959,
+      "compression_ratio": 102.2262,
+      "downstream_rouge_l": 0.2398,
+      "downstream_bertscore": 0.8403
+    }
+  ]
+}

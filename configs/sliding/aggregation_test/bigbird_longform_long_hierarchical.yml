@@ -1,0 +1,18 @@
+# Aggregation Test: BigBird + longform_long + hierarchical
+method: sliding
+model_name: google/bigbird-pegasus-large-arxiv
+attention_impl: default
+task: summ
+samples: 30
+gen_max_tokens: 256
+ctx_budget: 4096
+seed: 42
+domain: longform
+length_category: long
+category: aggregation_test
+dataset_path: src/data/cleaned/cleaned_long_examples_longform.jsonl
+window_size: 1024
+overlap: 256
+global_tokens: 0
+aggregation: hierarchical
+out_csv: results/aggregation_test/bigbird_longform_long_hierarchical.csv

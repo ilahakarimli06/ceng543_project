@@ -1,0 +1,337 @@
+{
+  "config": {
+    "model": "google/long-t5-tglobal-base",
+    "model_family": "LongT5",
+    "attention": "default",
+    "chunk_size": 1024,
+    "overlap": 0,
+    "segmentation_method": "fixed",
+    "top_k": 3,
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "query_strategy": "first_tokens",
+    "category": "arxiv_extra_long"
+  },
+  "summary_stats": {
+    "total_samples": 17,
+    "avg_rougeL": 0.1340024338880987,
+    "avg_bertscore": 0.8040603820015403,
+    "min_rougeL": 0.06686930091185411,
+    "min_bertscore": 0.7641165256500244,
+    "avg_num_chunks": 25.470588235294116,
+    "avg_context_tokens": 2941.294117647059
+  },
+  "samples": [
+    {
+      "sample_id": 0,
+      "doc_id": "dev_longform_219",
+      "source_preview": "the early universe is a good laboratory for high - energy physics because the temperature can be much higher than the reach of the accelerator experiments .\nthus we may be able to probe high - energy physics by observing some relics of the hot early universe .\nthe anisotropy of the cosmic microwave background ( cmb ) carries rich information on the primordial density perturbation , which is considered to be generated during inflationary era .\nhence the precise observation of cmb gives a clue to ",
+      "source_length": 66581,
+      "num_chunks": 23,
+      "retrieved_chunk_indices": [
+        0,
+        14,
+        8
+      ],
+      "retrieved_chunk_scores": [
+        0.8666207790374756,
+        0.6408926248550415,
+        0.5548776388168335
+      ],
+      "context_tokens": 3001,
+      "reference": "we study the effects of various phenomena which may have happened in the early universe on the spectrum of inflationary gravitational waves . the phenomena include phase transitions , entropy productions from non - relativistic matter , the production of dark radiation , and decoupling of dark matter / radiation from thermal bath . these events can create several characteristic signatures in the inflationary gravitational wave spectrum , which may be direct probes of the history of the early universe and the nature of high - energy physics . ut-13 - 27 + july , 2013 + 1.0 in * * inflationary gravitational waves + and the evolution of the early universe .5 in ryusuke jinno , takeo moroi and kazunori nakayama 0.25 in _ department of physics , university of tokyo , tokyo 113 - 0033 , japan _ .5 in",
+      "generated": "in particular , some ( well - motivated ) models of cosmological phase transition , including the pq phase transition , in general lead to complicated structures in the gw spectrum , which might be detectable in future space - based gw detectors @xcite . the dimensionless power spectrum @xmath347 of some perturbation @xmath348)$ ] which obeys a homogeneous and isotropic distribution is defined as @xmath349)delta(mb[x ] ' ) = int fracd3k(2pi)3 ei mb[k]cdotmb[x ] p_delta(k ) = int fracdkk delta2(k ) fracsin(kr)kr,endaligned ] ] where @xmath350-mb[x]'|$ ] and the bracket means taking ensemble average , which we assume to be the same as spacial average . the dimensionless power spectrum @xmath347 of some perturbation @xmath348)$ ] which obeys a homogeneous and isotropic distribution is defined as @xmath349)delta(mb[x ] ' ) = int fracd3k(2pi)3 ei mb[k]cdotmb[x ] p_delta(k ) = int fracdkk delta2(k ) fracsin(kr)kr,endaligned ] ] where @xmath350-mb[x",
+      "metrics": {
+        "rougeL": 0.11940298507462685,
+        "bertscore_f1": 0.7641165256500244,
+        "latency": 6.036511659622192
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 1,
+      "doc_id": "dev_longform_488",
+      "source_preview": "for the last two decades copula modelling has emerged as a major research area of statistics . by definition ,\na bivariate copula function @xmath0 is the joint cumulative distribution function ( often abbreviated to ` cdf ' below ) of a bivariate random vector whose marginals are uniform over @xmath1 $ ] , i.e. , @xmath2 ^ 2 \\to [ 0,1 ] : ( u , v ) \\to c(u , v ) = \\p(u \\leq u , v \\leq v),\\ ] ] where @xmath3}$ ] , @xmath4}$ ] .\ncopulas arise naturally in statistics and probability as a mere conse",
+      "source_length": 75486,
+      "num_chunks": 25,
+      "retrieved_chunk_indices": [
+        0,
+        2,
+        22
+      ],
+      "retrieved_chunk_scores": [
+        0.8622194528579712,
+        0.6741840839385986,
+        0.6152924299240112
+      ],
+      "context_tokens": 3050,
+      "reference": "copula modelling has become ubiquitous in modern statistics . here , the problem of nonparametrically estimating a copula density is addressed . arguably the most popular nonparametric density estimator , the kernel estimator is not suitable for the unit - square - supported copula densities , mainly because it is heavily affected by boundary bias issues . in addition , most common copulas admit unbounded densities , and kernel methods are not consistent in that case . in this paper , a kernel - type copula density estimator is proposed . it is based on the idea of transforming the uniform marginals of the copula density into normal distributions via the probit function , estimating the density in the transformed domain , which can be accomplished without boundary problems , and obtaining an estimate of the copula density through back - transformation . although natural , a raw application of this procedure was , however , seen not to perform very well in the earlier literature . here , it is shown that , if combined with local likelihood density estimation methods , the idea yields very good and easy to implement estimators , fixing boundary issues in a natural way and able to cope with unbounded copula densities . the asymptotic properties of the suggested estimators are derived , and a practical way of selecting the crucially important smoothing parameters is devised . finally , extensive simulation studies and a real data analysis evidence their excellent performance compared to their main competitors . * keywords : * copula density ; transformation kernel density estimator ; boundary bias ; unbounded density ; local likelihood density estimation .",
+      "generated": "by definition , a bivariate copula function @xmath0 is the joint cumulative distribution function ( often abbreviated to cdf ' below ) of a bivariate random vector whose marginals are uniform over @xmath1 $ ] , i.e. first , the _ probability - integral transform _ result , establishing that for any continuous variable @xmath5 with distribution @xmath6 , @xmath7$ ] , and second , _ sklar s theorem _ @xcite , stating that for any continuous bivariate distribution whose cdf is @xmath8 , there exists a unique function @xmath0 such that @xmath9 where @xmath6 and @xmath10 are the marginals of @xmath8 . first , the _ probability - integral transform _ result , establishing that for any continuous variable @xmath5 with distribution @xmath6 , @xmath7$ ] , and second , _ sklar s theorem _ @xcite , stating that for any continuous bivariate distribution whose cdf is @xmath8 , there exists a unique function @xmath0 such that @xmath9 where @xmath6 and @xmath10 are the marginals of @xmath8 . first , the _ probability - integral transform _ result , establishing that for any continuous variable @xmath5 with distribution @xmath6 , @xmath7",
+      "metrics": {
+        "rougeL": 0.11311053984575836,
+        "bertscore_f1": 0.7678728699684143,
+        "latency": 5.487297058105469
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 2,
+      "doc_id": "dev_longform_186",
+      "source_preview": "although the idea that the universe could have experienced a bounce in its remote past is old  @xcite , it has recently come under new scrutiny  @xcite with the advent of string motivated scenarios of the pre big bang kind  @xcite .\nthe main reason for this renewed interest is the fact that the most popular extensions of the standard model of high energy physics , such as string or m theory , when applied to cosmology , _ i.e.  _ in a four dimensional time dependent background , can lead to solu",
+      "source_length": 69783,
+      "num_chunks": 21,
+      "retrieved_chunk_indices": [
+        0,
+        9,
+        19
+      ],
+      "retrieved_chunk_scores": [
+        0.8070968389511108,
+        0.593126654624939,
+        0.5708479881286621
+      ],
+      "context_tokens": 3072,
+      "reference": "we clarify the properties of the behavior of classical cosmological perturbations when the universe experiences a bounce . this is done in the simplest possible case for which gravity is described by general relativity and the matter content has a single component , namely a scalar field in a closed geometry . we show in particular that the spectrum of scalar perturbations can be affected by the bounce in a way that may depend on the wave number , even in the large scale limit . this may have important implications for string motivated models of the early universe .",
+      "generated": "in fact , in that regard , the situation is the opposite of inflation : during the final stages of inflation , one can safely assume flat spatial sections because the three - curvature is getting more and more negligible as time passes , whereas even though the curvature may be negligible either in the remote past or in the future of the bounce , it has almost certainly no reason to be so in general . with the general framework thus clarified , let us turn to the evolution of the scalar gravitational perturbations through the bounce by means of evaluating the effective potential for the variable @xmath96 related with the bardeen potential through eq . the quartic approximation is extremely close to the exact solution , exemplifying its accuracy , while the quadratic approximation appears to be at best qualitatively correct.,width=340 ] the effective potential for the variable bouncing scenarios and inflation , namely the need for a high curvature phase , which we have seen may drastically modify the physical predictions . the quartic approximation is extremely close to the exact solution , exemplifying its accuracy , while the quadratic approximation appears to be at best qualitatively correct.,width=340 ] the effective potential for the variable bouncing scenarios and inflation , namely the need for a high curvature phase , which we have seen may drastically modify the physical predictions . the quartic approximation is extremely close to the exact solution , exemplifying its accuracy , while the quadratic approximation appears to be at best qualitatively correct.,width=340",
+      "metrics": {
+        "rougeL": 0.1373134328358209,
+        "bertscore_f1": 0.8095601797103882,
+        "latency": 5.800980567932129
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 3,
+      "doc_id": "dev_longform_216",
+      "source_preview": "systems biology is an emerging academic field aiming at system - level understanding of biological systems . \n recent progress in molecular biology has enabled us to gain information on the interactions among the underlying molecules from comprehensive experimental data sets . in general , a system - level understanding of a biological system can be derived from insight into four key properties : ( 1 ) the system 's structure , ( 2 ) the system dynamics , ( 3 ) the control method , and ( 4 ) the",
+      "source_length": 73047,
+      "num_chunks": 26,
+      "retrieved_chunk_indices": [
+        0,
+        1,
+        7
+      ],
+      "retrieved_chunk_scores": [
+        0.8659104108810425,
+        0.5036417841911316,
+        0.37768495082855225
+      ],
+      "context_tokens": 3064,
+      "reference": "we propose a molecular - level control system view of the gene mutations in dna replication from the finite field concept . by treating dna sequences as state variables , chemical mutagens and radiation as control inputs , one cell cycle as a step increment , and the measurements of the resulting dna sequence as outputs , we derive system equations for both deterministic and stochastic discrete - time , finite - state systems of different scales . defining the cost function as a summation of the costs of applying mutagens and the off - trajectory penalty , we solve the deterministic and stochastic optimal control problems by dynamic programming algorithm . in addition , given that the system is completely controllable , we find that the global optimum of both base - to - base and codon - to - codon deterministic mutations can always be achieved within a finite number of steps .",
+      "generated": "proposition 5for large - scale deterministic system , u k , v k , c k , c k satisfy conditions below.if e i x k = 0 , then i k.if e i x k = 0 , c k = 0 or c k = [ 1 0 0 0 0 ] , then i k.for all i k , u k is either 0 or a row unit vector and c k = 0.for all i k , c k is either 0 a row unit vector and u k = 0.for all i k , v k is either 0 or a row unit vector and b k = 0.for all i k , b k is either 0 or a row unit vector and v k = 0.for all i , k , 1 i n , k 0 , u k + c k is either 0 or a unit row vector and v k + b k is either 0 or a unit row vector . for large - scale deterministic system , u k , v k , c k , c k satisfy conditions below.if e i x k = 0 , then i k.if e i x k = 0 , c k = 0 or c k = [ 1 0 0 0 0 ] , then",
+      "metrics": {
+        "rougeL": 0.06686930091185411,
+        "bertscore_f1": 0.7676804661750793,
+        "latency": 5.943202972412109
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 4,
+      "doc_id": "dev_longform_723",
+      "source_preview": "inositol phosphates are important intracellular \n messengers that \n play a vital role in many cellular functions including cell growth , \n migration , differentiation , apoptosis , and endocytosis . to facilitate biochemical investigations , it is vital that efficient \n routes to these naturally occurring inositol phosphates are established . \n as the demand for key synthetic intermediates increases , so does \n the need for differentially protected entities having free hydroxyl \n groups at speci",
+      "source_length": 69555,
+      "num_chunks": 31,
+      "retrieved_chunk_indices": [
+        0,
+        8,
+        7
+      ],
+      "retrieved_chunk_scores": [
+        0.8504657745361328,
+        0.7008184194564819,
+        0.4670330882072449
+      ],
+      "context_tokens": 3073,
+      "reference": "acid hydrolysis of myo - inositol 1,3,5-orthoesters , apart from orthoformates , exclusively affords the corresponding 2-o - acyl myo - inositol products via a 1,2-bridged five - membered ring dioxolanylium ion intermediate observed by nmr spectroscopy . these c-2-substituted inositol derivatives provide valuable precursors for rapid and highly efficient routes to 2-o - acyl inositol 1,3,4,5,6-pentakisphosphates and myo - inositol 1,3,4,5,6-pentakisphosphate with biologically interesting and anticancer properties . deuterium incorporation into the -methylene group of such alkyl ester products ( 2-o - c(o)cd2r ) , when the analogous alkyl orthoester is treated with deuterated acid , is established utilizing the novel orthoester myo - inositol 1,3,5-orthobutyrate as an example . such deuterated ester products provide intermediates for deuterium - labeled synthetic analogues . investigation into this selective formation of 2-o - ester products and the deuterium incorporation is presented with proposed mechanisms from nmr experiments .",
+      "generated": "myo - inositol 1,3,5-orthoesters have been extensively utilized as synthetic precursors for such inositol derivatives , since the o-1 , o-3 , and o-5 atoms can be protected in a single step leaving o-2 , o-4 , and o-6 for further manipulation ( scheme 1 ) . although , having observed only a small amount of deuterium exchanged product and no such exchange in the starting material when tri - o - bn orthoacetate 13 was treated with deuterated acid , this suggests that when the c-2 hydroxyl group is protected , the equilibrium may lie quite far on the side of the 1,3-dioxan-2-ylium ion 37 due to the rapid interconvertion between the starting material 13 and the ion 37 . treatment of 4 in deuterated tfa for 24 h followed by the addition of water in the subsequent hydrolysis gave the 2-o - c(o)cd2ch2ch3myo - inositol as the major product ( over 92% ) with trace amounts of 2-o - butanoate 7 and 2-o - c(o)chdch2ch3myo - inositol , perhaps arising due to adventitious water . no deuterium exchange was observed by h nmr spectroscopy over 9 days ; only decomposition and migration products were seen by h nmr spectroscopy , further proving that deuter ium incorporation only takes place via the keten",
+      "metrics": {
+        "rougeL": 0.1883656509695291,
+        "bertscore_f1": 0.8454567193984985,
+        "latency": 5.931792259216309
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 5,
+      "doc_id": "dev_longform_644",
+      "source_preview": "high oxygen \\documentclass[12pt]{minimal } \n \\usepackage{amsmath } \n \\usepackage{wasysym } \n \\usepackage{amsfonts } \n \\usepackage{amssymb } \n \\usepackage{amsbsy } \n \\usepackage{upgreek } \n \\usepackage{mathrsfs } \n \\setlength{\\oddsidemargin}{-69pt } \n \\begin{document } \n } { } $ ( { \\rm o}_{2})$\\end{document } therapy ( hyperoxia ) is a necessary treatment of low blood \\documentclass[12pt]{minimal } \n \\usepackage{amsmath } \n \\usepackage{wasysym } \n \\usepackage{amsfonts } \n \\usepackage{amssymb } \n",
+      "source_length": 70809,
+      "num_chunks": 28,
+      "retrieved_chunk_indices": [
+        0,
+        6,
+        26
+      ],
+      "retrieved_chunk_scores": [
+        0.6465435028076172,
+        0.6384086012840271,
+        0.5830769538879395
+      ],
+      "context_tokens": 1957,
+      "reference": "recently , we demonstrated the utility of optical fluorometry to detect a change in the redox status of mitochondrial autofluorescent coenzymes nicotinamide adenine dinucleotide ( nadh ) and oxidized form of flavin adenine dinucleotide \\documentclass[12pt]{minimal } \\usepackage{amsmath } \\usepackage{wasysym } \\usepackage{amsfonts } \\usepackage{amssymb } \\usepackage{amsbsy } \\usepackage{upgreek } \\usepackage{mathrsfs } \\setlength{\\oddsidemargin}{-69pt } \\begin{document } } { } $ ( { \\rm fadh}_{2})$\\end{document } ( fad ) , as a measure of mitochondrial function in isolated perfused rat lungs ( ipl ) . the objective of this paper was to utilize optical fluorometry to evaluate the effect of rat exposure to hyperoxia ( \\documentclass[12pt]{minimal } \\usepackage{amsmath } \\usepackage{wasysym } \\usepackage{amsfonts } \\usepackage{amssymb } \\usepackage{amsbsy } \\usepackage{upgreek } \\usepackage{mathrsfs } \\setlength{\\oddsidemargin}{-69pt } \\begin{document } } { } $ { > } { 95\\%}~{\\rm o}_{2}$\\end{document } for 48 h ) on lung tissue mitochondrial redox status of nadh and fad in a nondestructive manner in ipl . surface nadh and fad signals were measured before and after lung perfusion with perfusate containing rotenone ( rot , complex i inhibitor ) , potassium cyanide ( kcn , complex iv inhibitor ) , and/or pentachlorophenol ( pcp , uncoupler ) . rot- or kcn - induced increase in nadh signal is considered a measure of complex i activity , and kcn - induced decrease in fad signal is considered a measure of complex ii activity . the results show that hyperoxia decreased complex i and ii activities by 63% and 55% , respectively , when compared to lungs of rats exposed to room air ( normoxic rats ) . mitochondrial complex i and ii activities in lung homogenates were also lower ( 77% and 63% , respectively ) for hyperoxic than for normoxic lungs . these results suggest that the mitochondrial matrix is more reduced in hyperoxic lungs than in normoxic lungs , and demonstrate the ability of optical fluorometry to detect a change in mitochondrial redox state of hyperoxic lungs prior to histological changes characteristic of hyperoxia .",
+      "generated": "thus , a minimally invasive method to detect pulmonary injury in an individual patient exposed to high fractions of documentclass[12pt]minimal usepackageamsmath usepackagewasysym usepackageamsfonts usepackageamssymb usepackageamsbsy usepackageupgreek usepackagemathrsf greek usepackagemathrsfs setlengthoddsidemargin-69pt begindocument $ rm o_2$enddocument , 6% documentclass[12pt]minimal usepackageamsmath usepackagewasysym usepackageamsfonts usepackageamssymb usepackageamsbsy usepackageupgreek usepackagemathrsfs setlengthoddsidemargin-69pt begindocument $ rm co_2$enddocument , balance documentclass[12pt]minimal usepackageamsmath usepackagewasysym usepackageamsfonts usepackageamssymb usepackageamsbsy usepackageupgreek usepackagemathrsfs setlengthoddsidemargin-69pt begindocument $ rm co_2$enddocument , balance documentclass[12pt]minimal usepackageamsmath usepackagewasysym usepackageamsfonts usepackageamssymb usepackageamsbsy usepackageupgreek usepackagemathrsfs setlengthoddsidemargin-69pt",
+      "metrics": {
+        "rougeL": 0.08488063660477453,
+        "bertscore_f1": 0.7873160243034363,
+        "latency": 5.469623565673828
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 6,
+      "doc_id": "dev_longform_572",
+      "source_preview": "supersymmetry and supersymmetry breaking are central ideas both in contemporary particle physics and in mathematical physics . in this paper\n, we argue that for a large new class of d - brane models there exists a simple geometric criterion which determines whether supersymmetry breaking occurs .\nthe models of interest are based on calabi - yau singularities with d - branes placed at or near the singularity . by taking a large volume limit ,\nit is possible to decouple gravity from the theory , a",
+      "source_length": 65092,
+      "num_chunks": 22,
+      "retrieved_chunk_indices": [
+        0,
+        1,
+        8
+      ],
+      "retrieved_chunk_scores": [
+        0.8720201253890991,
+        0.7092020511627197,
+        0.6474151611328125
+      ],
+      "context_tokens": 3048,
+      "reference": "we conjecture a geometric criterion for determining whether supersymmetry is spontaneously broken in certain string backgrounds . these backgrounds contain wrapped branes at calabi - yau singularites with obstructions to deformation of the complex structure . we motivate our conjecture with a particular example : the @xmath0 quiver gauge theory corresponding to a cone over the first del pezzo surface , @xmath1 . this setup can be analyzed using ordinary supersymmetric field theory methods , where we find that gaugino condensation drives a deformation of the chiral ring which has no solutions . we expect this breaking to be a general feature of any theory of branes at a singularity with a smaller number of possible deformations than independent anomaly - free fractional branes . hep - th/0505029 + nsf - kitp-05 - 27 supersymmetry breaking from a calabi - yau singularity + d. berenstein@xmath2 , c. p. herzog@xmath3 , p. ouyang@xmath2 , and s. pinansky@xmath2 + + may 2005",
+      "generated": "given a set of ordinary and fractional branes probing a calabi - yau singularity , supersymmetry breaking by obstructed geometry ( susy - bog ) occurs when the singularity admits fewer deformations than the number of ( anomaly free ) independent fractional branes that one can add to the system . perhaps the prototypical example of a calabi - yau singularity with fractional branes is the conifold singularity , in the setups of klebanov and witten @xcite ( see also @xcite ) , and its generalization to the warped deformed conifold geometry of klebanov and strassler ( ks ) @xcite . the ks solution is an example of a space with no obstruction to deformation , and in this case chiral symmetry breaking and confinement in the strongly coupled dual gauge theory may be identified with the deformation in a precise way . type iib string theory propagating in @xmath12 , where @xmath13 is a particular u(1 ) bundle over @xmath1 , is equivalent to a superconformal @xmath14 gauge theory whose field content and superpotential were later derived in @xcite using techniques from toric geometry ( see fig . ignoring strong coupling effects from the other gauge groups , the quantum modified superpotential is @xcite w = m2 v1 - m1 v2 + n ( ) 1/n [ quantumw ] where we have defined the mesonic operators @xmath",
+      "metrics": {
+        "rougeL": 0.12209302325581395,
+        "bertscore_f1": 0.8305429816246033,
+        "latency": 5.839179039001465
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 7,
+      "doc_id": "dev_longform_304",
+      "source_preview": "a link map is a ( continuous ) map @xmath3 from a union of spheres into another sphere such that @xmath4 for @xmath5 .\ntwo link maps are said to be link homotopic if they are connected by a homotopy through link maps , and the set of link homotopy classes of link maps as above is denoted @xmath6 .\nit is a familiar result that @xmath7 is classified by the linking number , and in his foundational work milnor @xcite described invariants of @xmath8 which classified @xmath9 .\nthese invariants ( the @",
+      "source_length": 75724,
+      "num_chunks": 30,
+      "retrieved_chunk_indices": [
+        0,
+        1,
+        11
+      ],
+      "retrieved_chunk_scores": [
+        0.870073676109314,
+        0.6759744882583618,
+        0.6246826648712158
+      ],
+      "context_tokens": 2949,
+      "reference": "it is an open problem whether kirk s @xmath0 invariant is the complete obstruction to a link map @xmath1 being link homotopically trivial . with the objective of constructing counterexamples , li proposed a link homotopy invariant @xmath2 that is defined on the kernel of @xmath0 and also obstructs link nullhomotopy . we show that @xmath2 is determined by @xmath0 , and is a strictly weaker invariant .",
+      "generated": "to a link map @xmath27 , where we use signs to distinguish component 2-spheres , kirk defined a pair of integer polynomials @xmath28 such that each component is invariant under link homotopy of @xmath29 , determines @xmath30 and vanishes if @xmath29 is link homotopic to a link map that embeds _ either _ component . when @xmath33 , after a link homotopy the restricted map @xmath34-20$relaxsmallsetminus$ mspace-4mu f(s2_mp)$ ] may be equipped with a collection of whitney disks , and @xmath35 obstructs embedding by counting weighted intersections between @xmath36 and the interiors of these disks . the link homotopy invariants investigated in this paper are closely related to the algebraic intersection numbers '' @xmath58 lemma 4.2 of @xcite , we may assume after a link homotopy that one component of a link map is of the form of this model of an unknotted immersion . moreover , if for any @xmath386 and @xmath387 the loop @xmath388 bounds a 2-disk in @xmath215 that intersects @xmath50 exactly once , then we may choose @xmath389 so that @xmath390 for each @xmath277 , the double points @xmath391 and @xmath392 of @xmath145 lie",
+      "metrics": {
+        "rougeL": 0.1810699588477366,
+        "bertscore_f1": 0.8316717147827148,
+        "latency": 6.196455240249634
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 8,
+      "doc_id": "dev_longform_250",
+      "source_preview": "astronomical source counts often suffer from a problem that multiple sources are located in a single beam of the observational instrument .\nthe obtained number counts will then be different from true ones , because the apparent position and flux of the sources are changed by blending of other , usually fainter sources .\nthis is called the source confusion , and the resulting measurement error is referred to as the confusion noise .    in its early stage ,\nconfusion problem has been investigated ",
+      "source_length": 67619,
+      "num_chunks": 26,
+      "retrieved_chunk_indices": [
+        0,
+        10,
+        9
+      ],
+      "retrieved_chunk_scores": [
+        0.9054898619651794,
+        0.6900156140327454,
+        0.6595560312271118
+      ],
+      "context_tokens": 2889,
+      "reference": "source confusion has been a long - standing problem in the astronomical history . in the previous formulation of the confusion problem , sources are assumed to be distributed homogeneously on the sky . this fundamental assumption is , however , not realistic in many applications . in this work , by making use of the point field theory , we derive general analytic formulae for the confusion problems with arbitrary distribution and correlation functions . as a typical example , we apply these new formulae to the source confusion of infrared galaxies . we first calculate the confusion statistics for power - law galaxy number counts as a test case . when the slope of differential number counts , @xmath0 , is steep , the confusion limits becomes much brighter and the probability distribution function ( pdf ) of the fluctuation field is strongly distorted . then we estimate the pdf and confusion limits based on the realistic number count model for infrared galaxies . the gradual flattening of the slope of the source counts makes the clustering effect rather mild . clustering effects result in an increase of the limiting flux density with @xmath1% . in this case , the peak probability of the pdf decreases up to @xmath2 % and its tail becomes heavier . though the effects are relatively small , they will be strong enough to affect the estimation of galaxy evolution from number count or fluctuation statistics . we also comment on future submillimeter observations .",
+      "generated": "here we express the second - order cumulant formulae as a function of signal strength @xmath39 : @xmath123 ,fracdbm xh(bm x)ds ,,endaligned ] ] for unclustered sources , and @xmath124 fracdbm xh(bm x)ds + int_s_1int_s_2 s_1s_2 int_omega_rm bint_omega_rm b mathfraknleft[fracs_1h(bm x_1)right ] mathfraknleft[fracs_2h(bm x_2)right ] w_2fracdbm x_1h(bm x_1 ) fracdbm x_2h(bm x_2 ) ds_1ds_2 ,.endaligned ] ] for clustered sources . here we express the second - order cumulant formulae as a function of signal strength @xmath39 : @xmath123 ,fracdbm xh(bm x)ds ,,endaligned ] ] for unclustered sources , and @xmath124 fracdbm xh(bm x)ds + int_s_1int_s_2 s_1s_2 int_omega_rm bint_omega_rm b mathfraknleft[fracs_1h(bm",
+      "metrics": {
+        "rougeL": 0.07323943661971831,
+        "bertscore_f1": 0.7686911225318909,
+        "latency": 5.832322359085083
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 9,
+      "doc_id": "dev_longform_79",
+      "source_preview": "stellar systems composed of two or more stars ( binaries , multiples ) are known to exist in a wide range of configurations .\nthey range from tight spectroscopic binaries with orbital periods of days to years and separations under 10 au @xcite , to marginally bound _ wide binaries _ with orbital periods @xmath14 yr and separations up to 20,000 au ( 0.1 parsec ) or more @xcite . the frequency of stellar binaries , and the statistics of their physical properties ( periods , mass ratios , eccentric",
+      "source_length": 74195,
+      "num_chunks": 23,
+      "retrieved_chunk_indices": [
+        0,
+        15,
+        2
+      ],
+      "retrieved_chunk_scores": [
+        0.8680084943771362,
+        0.6941691637039185,
+        0.6513223052024841
+      ],
+      "context_tokens": 3072,
+      "reference": "we perform a search for faint , common proper motion companions of _ hipparcos _ stars using the recently published _ lspm - north catalog _ of stars with proper motion @xmath0 yr@xmath1 . our survey uncovers a total of 521 systems with angular separations @xmath2 , with 15 triples and 1 quadruple . our new list of wide systems with _ hipparcos _ primaries includes 130 systems identified here for the first time , including 44 in which the secondary star has @xmath3 . our census is statistically complete for secondaries with angular separations @xmath4 and apparent magnitudes @xmath5 . overall , we find that at least @xmath6 of nearby ( @xmath7 pc ) _ hipparcos _ stars have distant stellar companions with projected orbital separations @xmath8 au . we observe that the distribution in orbital separations is consistent with pik s law @xmath9 only up to separation @xmath10 au , beyond which it follows a more steeply decreasing power law @xmath11 with @xmath12 . we also find that the luminosity function of the secondaries is significantly different from that of the single stars field population , showing a relative deficiency in low - luminosity ( @xmath13 ) objects . the observed trends suggest either a formation mechanism biased against low - mass companions , or a disruption over time of systems with low gravitational binding energy .",
+      "generated": "they range from tight spectroscopic binaries with orbital periods of days to years and separations under 10 au @xcite , to marginally bound _ wide binaries _ with orbital periods @xmath14 yr and separations up to 20,000 au ( 0.1 parsec ) or more @xcite . our second attempt to modelize the distribution of orbital separations uses a power - law of the form : @xmath199 given that the mean projected separation in a sample of systems with random orbital plane orientations is @xmath200 , then statistically the distribution in projected separations @xmath158 also follows : @xmath201 if we plot the distribution along @xmath180 we have : @xmath202 the specific form of the equation for which @xmath36 is the well - known _ pik s law _ , and yields a distribution which is uniform in @xmath180 . the flattening of the distribution below @xmath203 au , which is also hinted at in the cg04 data , is not much of a surprise since the @xmath204 power law can not possibly extend to much smaller orbital separations or the multiplicity fraction might take unphysical values . the flattening of the distribution below @xmath203 au , which is also hinted at in the cg04 data , is not much of a surprise since the @xmath204 power law can not possibly extend to much smaller orbital separations or the multiplicity fraction might take unphysical values .",
+      "metrics": {
+        "rougeL": 0.1642512077294686,
+        "bertscore_f1": 0.8328977823257446,
+        "latency": 5.693170785903931
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 12,
+      "doc_id": "dev_longform_798",
+      "source_preview": "much has been learned about the properties of qso host galaxies since they were first imaged almost three decades ago ( kristian  1973 ) .\nearly results include establishing a positive correlation between host and nuclear qso luminosities ( hutchings , crampton , & campbell  1984 ) and indications of a morphological difference between radio - loud and radio - quiet qsos , with the former more likely to be in elliptical hosts and the latter in spiral hosts ( malkan , margon , & chanan  1984 ) .\nb",
+      "source_length": 64864,
+      "num_chunks": 22,
+      "retrieved_chunk_indices": [
+        0,
+        15,
+        13
+      ],
+      "retrieved_chunk_scores": [
+        0.8564618825912476,
+        0.7885538339614868,
+        0.7326177954673767
+      ],
+      "context_tokens": 3071,
+      "reference": "we present some results from our _ hst _ archival image study of 71 qso host galaxies . the objects are selected to have @xmath0 and total absolute magnitude @xmath1 in our adopted cosmology ( @xmath2 km s@xmath3 mpc@xmath3 , @xmath4 , @xmath5 ) . the aim of this initial study is to investigate the composition of the sample with respect to host morphology and radio loudness , as well as derive the qso host galaxy luminosity function . we have analyzed available wfpc2 images in @xmath6 or @xmath7 band ( @xmath8 in one case ) , using a uniform set of procedures . the host galaxies span a narrow range of luminosities and are exceptionally bright , much more so than normal galaxies , usually @xmath9 . the qsos are almost equally divided among three subclasses : radio - loud qsos with elliptical hosts , radio - quiet qsos with elliptical hosts , and radio - quiet qsos with spiral hosts . radio - loud qsos with spiral hosts are extremely rare . using a weighting procedure , we derive the combined luminosity function of qso host galaxies . we find that the luminosity function of qso hosts differs in shape from that of normal galaxies but that they coincide at the highest luminosities . the ratio of the number of quasar hosts to the number of normal galaxies at a luminosity @xmath10 is @xmath11 , where @xmath12 corresponds to @xmath13 , and a qso is defined to be an object with total nuclear plus host light @xmath14 . this ratio can be interpreted as the probability that a galaxy with luminosity @xmath10 will host a qso at redshift @xmath15 .",
+      "generated": "we have collected and reanalyzed wide - band archival images of 71 qsos with @xmath17 mag ( total nuclear @xmath18 host light ) and redshifts @xmath19 we have taken an inclusive approach in our sample selection , imposing no additional selection criteria on the qsos besides those of total absolute magnitude and redshift , while some of the previous work on qso hosts has focused on specific classes of qsos : radio loud ( lehnert et al . 00 23 11.1&@xmath1800 35 16.5 & lbqs 0020@xmath180018 & 0.423 & pc1 & f675w & 1200 & 19.30 & 19.34 & -22.45 & -22.77 & e & q & 5450 + 00 24 03.7&@xmath5402 45 27.8 & lbqs 0021@xmath540301 & 0.422 & pc1 & f675w & 1200 & 19.03 & 19.10 & -22.74 & -23.03 & e & q & 5450 + 00 24 32.5&@xmath5429 28 55.5 & mrc 0022@xmath54297 & 0.406 & pc1 & f336w & 2100 & ... & ... & ... & ... & ... & ... & ...",
+      "metrics": {
+        "rougeL": 0.09207161125319693,
+        "bertscore_f1": 0.7996036410331726,
+        "latency": 5.737468004226685
+      },
+      "selection_reason": "worst_rouge"
+    },
+    {
+      "sample_id": 10,
+      "doc_id": "dev_longform_130",
+      "source_preview": "coupling a two - level system ( tls ) to a harmonic oscillator has attracted a lot of attention in various fields of physics .\nexamples are two - level quantum dots in photonic crystal nanocavities @xcite , a quantum dot exciton in a microcavity @xcite , or single atoms with a large dipole moment interacting with photons in a microwave cavity @xcite . within the framework of quantum computation two prominent solid - state realizations of a qubit - oscillator system\nare found : a cooper - pair bo",
+      "source_length": 72324,
+      "num_chunks": 33,
+      "retrieved_chunk_indices": [
+        0,
+        5,
+        8
+      ],
+      "retrieved_chunk_scores": [
+        0.7677010297775269,
+        0.46266263723373413,
+        0.4545130729675293
+      ],
+      "context_tokens": 2845,
+      "reference": "we consider the dissipative dynamics of a qubit coupled to a nonlinear oscillator ( no ) embedded in an ohmic environment . by treating the nonlinearity up to first order and applying van vleck perturbation theory up to second order in the qubit - no coupling , we derive an analytical expression for the eigenstates and eigenfunctions of the coupled qubit - no system beyond the rotating wave approximation . in the regime of weak coupling to the thermal bath , analytical expressions for the time evolution of the qubit s populations are derived : they describe a multiplicity of damped oscillations superposed to a complex relaxation part toward thermal equilibrium . the long - time dynamics is characterized by a single relaxation rate , which is maximal when the qubit is tuned to one of the resonances with the nonlinear oscillator .",
+      "generated": "within the framework of quantum computation two prominent solid - state realizations of a qubit - oscillator system are found : a cooper - pair box @xcite coupled to a transmission line resonator @xcite and the josephson flux qubit @xcite read - out by a dc - squid@xcite . + for the case @xmath193 : @xmath194,nonumber langle jrm e|tildey|(j+1)rm erangle&=&sqrtj+1left[1+(j+1)l_no(alpha)-right.nonumber & & left.l_lo1(g2)+l_no1rm e(j,alpha , g2)right],endaligned ] ] @xmath195nonumber, langle jrm e|tildey|(j+1)rm grangle&=&sqrtj+1left[l_lo1-(g2)+right.nonumber & & left.l_no1-(alpha , g2)(j+1)right],endaligned ] ] @xmath195nonumber, langle jrm e|tildey|(j+1)rm grangle&=&sqrtj+1left[l_lo1-(g2)+right.nonumber & & left.l_no1-(alpha , g2)(j+1)right",
+      "metrics": {
+        "rougeL": 0.10852713178294573,
+        "bertscore_f1": 0.7770013213157654,
+        "latency": 5.916257381439209
+      },
+      "selection_reason": "worst_rouge"
+    }
+  ]
+}

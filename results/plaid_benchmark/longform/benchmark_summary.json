@@ -1,0 +1,162 @@
+{
+  "config": {
+    "method": "plaid_benchmark",
+    "dataset_path": "src/data/cleaned/cleaned_extra_long_examples_longform.jsonl",
+    "samples": 17,
+    "seed": 42,
+    "chunk_size": 384,
+    "overlap": 128,
+    "segmentation_method": "fixed",
+    "top_k": 10,
+    "ground_truth_top_n": 5,
+    "query_strategy": "first_tokens",
+    "colbert_model": "bert-base-uncased",
+    "max_token_length": 512,
+    "plaid_configs": [
+      {
+        "tokens_per_chunk": 64,
+        "M": 96,
+        "nbits": 8
+      },
+      {
+        "tokens_per_chunk": 48,
+        "M": 96,
+        "nbits": 8
+      },
+      {
+        "tokens_per_chunk": 32,
+        "M": 96,
+        "nbits": 8
+      },
+      {
+        "tokens_per_chunk": 32,
+        "M": 48,
+        "nbits": 8
+      },
+      {
+        "tokens_per_chunk": 24,
+        "M": 48,
+        "nbits": 8
+      }
+    ],
+    "summarization_model": "google/bigbird-pegasus-large-arxiv",
+    "gen_max_tokens": 512,
+    "out_dir": "results/plaid_benchmark/longform",
+    "cache_dir": "cache/plaid_benchmark"
+  },
+  "plaid_configs": [
+    {
+      "tokens_per_chunk": 64,
+      "M": 96,
+      "nbits": 8
+    },
+    {
+      "tokens_per_chunk": 48,
+      "M": 96,
+      "nbits": 8
+    },
+    {
+      "tokens_per_chunk": 32,
+      "M": 96,
+      "nbits": 8
+    },
+    {
+      "tokens_per_chunk": 32,
+      "M": 48,
+      "nbits": 8
+    },
+    {
+      "tokens_per_chunk": 24,
+      "M": 48,
+      "nbits": 8
+    }
+  ],
+  "num_documents": 17,
+  "aggregated_results": [
+    {
+      "colbert_model": "bert-base-uncased",
+      "tokens_per_chunk": 24,
+      "M": 48,
+      "nbits": 8,
+      "recall_at_1": 0.0471,
+      "recall_at_5": 0.1529,
+      "recall_at_10": 0.2824,
+      "recall_at_20": 0.2824,
+      "mrr": 0.3714,
+      "retrieval_latency_ms": 17.8299,
+      "plaid_index_size_mb": 0.246,
+      "size_reduction_ratio": 361.5877,
+      "compression_ratio": 373.5172,
+      "downstream_rouge_l": 0.2029,
+      "downstream_bertscore": 0.8288
+    },
+    {
+      "colbert_model": "bert-base-uncased",
+      "tokens_per_chunk": 32,
+      "M": 48,
+      "nbits": 8,
+      "recall_at_1": 0.0471,
+      "recall_at_5": 0.1529,
+      "recall_at_10": 0.3059,
+      "recall_at_20": 0.3059,
+      "mrr": 0.3665,
+      "retrieval_latency_ms": 18.6433,
+      "plaid_index_size_mb": 0.3278,
+      "size_reduction_ratio": 271.3646,
+      "compression_ratio": 280.1384,
+      "downstream_rouge_l": 0.192,
+      "downstream_bertscore": 0.8195
+    },
+    {
+      "colbert_model": "bert-base-uncased",
+      "tokens_per_chunk": 32,
+      "M": 96,
+      "nbits": 8,
+      "recall_at_1": 0.0588,
+      "recall_at_5": 0.1765,
+      "recall_at_10": 0.2588,
+      "recall_at_20": 0.2588,
+      "mrr": 0.3815,
+      "retrieval_latency_ms": 16.3462,
+      "plaid_index_size_mb": 0.4484,
+      "size_reduction_ratio": 198.3618,
+      "compression_ratio": 202.9363,
+      "downstream_rouge_l": 0.2116,
+      "downstream_bertscore": 0.829
+    },
+    {
+      "colbert_model": "bert-base-uncased",
+      "tokens_per_chunk": 48,
+      "M": 96,
+      "nbits": 8,
+      "recall_at_1": 0.0235,
+      "recall_at_5": 0.1294,
+      "recall_at_10": 0.3176,
+      "recall_at_20": 0.3176,
+      "mrr": 0.2976,
+      "retrieval_latency_ms": 16.9228,
+      "plaid_index_size_mb": 0.6733,
+      "size_reduction_ratio": 132.1004,
+      "compression_ratio": 135.0787,
+      "downstream_rouge_l": 0.2019,
+      "downstream_bertscore": 0.8276
+    },
+    {
+      "colbert_model": "bert-base-uncased",
+      "tokens_per_chunk": 64,
+      "M": 96,
+      "nbits": 8,
+      "recall_at_1": 0.0471,
+      "recall_at_5": 0.1529,
+      "recall_at_10": 0.3059,
+      "recall_at_20": 0.3059,
+      "mrr": 0.3644,
+      "retrieval_latency_ms": 19.5618,
+      "plaid_index_size_mb": 0.8976,
+      "size_reduction_ratio": 99.108,
+      "compression_ratio": 101.3191,
+      "downstream_rouge_l": 0.2006,
+      "downstream_bertscore": 0.8327
+    }
+  ]
+}

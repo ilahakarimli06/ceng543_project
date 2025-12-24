@@ -1,0 +1,1090 @@
+======================================================================
+🔬 FAISS Index Benchmark v2 - Global Index Architecture
+======================================================================
+
+📁 Dataset: src/data/dev_arxiv.jsonl
+📊 Samples: 60
+🔧 Chunk size: 384, Overlap: 128
+🎯 k_coarse: 100, k_final: 10
+🔄 Reranking: ✗ disabled
+📝 Summarization: google/bigbird-pegasus-large-arxiv
+🔍 Embedding models: ['sentence-transformers/all-MiniLM-L6-v2', 'BAAI/bge-base-en-v1.5']
+📦 Index configs: 7 types × 3 nprobe
+
+📥 Loading 60 samples...
+
+📦 Chunking all documents (size=384, overlap=128)...
+Chunking documents:   0%|          | 0/60 [00:00<?, ?it/s]Token indices sequence length is longer than the specified maximum sequence length for this model (4581 > 4096). Running this sequence through the model will result in indexing errors
+Chunking documents:  10%|█         | 6/60 [00:00<00:00, 57.57it/s]Chunking documents:  20%|██        | 12/60 [00:00<00:00, 54.07it/s]Chunking documents:  32%|███▏      | 19/60 [00:00<00:00, 57.55it/s]Chunking documents:  43%|████▎     | 26/60 [00:00<00:00, 59.16it/s]Chunking documents:  53%|█████▎    | 32/60 [00:00<00:00, 56.56it/s]Chunking documents:  63%|██████▎   | 38/60 [00:00<00:00, 56.95it/s]Chunking documents:  73%|███████▎  | 44/60 [00:00<00:00, 55.79it/s]Chunking documents:  83%|████████▎ | 50/60 [00:00<00:00, 55.26it/s]Chunking documents:  93%|█████████▎| 56/60 [00:01<00:00, 46.66it/s]Chunking documents: 100%|██████████| 60/60 [00:01<00:00, 52.19it/s]
+2025-12-23 07:43:21,633 INFO [sentence_transformers.SentenceTransformer] Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+   ✓ Total chunks: 2199 from 60 documents
+   ✓ Avg chunks/doc: 36.6
+
+🤖 Loading summarization model: google/bigbird-pegasus-large-arxiv...
+✓ Using BigBird-Pegasus with block_sparse attention
+🚀 Compiling model with torch.compile for H100...
+✓ Model compiled successfully
+   ✓ Model loaded (family: BigBird-Pegasus)
+
+======================================================================
+🔄 Embedding Model: sentence-transformers/all-MiniLM-L6-v2
+======================================================================
+   ✓ Loaded on cuda:0
+
+📊 Embedding 2199 chunks...
+   ✓ Embedded and cached: (2199, 384)
+
+🎯 Computing ground-truth (ROUGE-L oracle)...
+Ground-truth:   0%|          | 0/60 [00:00<?, ?it/s]2025-12-23 07:43:24,760 INFO [absl] Using default tokenizer.
+Ground-truth:   2%|▏         | 1/60 [00:00<00:07,  7.68it/s]2025-12-23 07:43:24,890 INFO [absl] Using default tokenizer.
+Ground-truth:   3%|▎         | 2/60 [00:00<00:12,  4.63it/s]2025-12-23 07:43:25,166 INFO [absl] Using default tokenizer.
+Ground-truth:   5%|▌         | 3/60 [00:00<00:14,  3.96it/s]2025-12-23 07:43:25,463 INFO [absl] Using default tokenizer.
+2025-12-23 07:43:25,517 INFO [absl] Using default tokenizer.
+Ground-truth:   8%|▊         | 5/60 [00:01<00:12,  4.36it/s]2025-12-23 07:43:25,886 INFO [absl] Using default tokenizer.
+Ground-truth:  10%|█         | 6/60 [00:01<00:16,  3.33it/s]2025-12-23 07:43:26,362 INFO [absl] Using default tokenizer.
+Ground-truth:  12%|█▏        | 7/60 [00:02<00:22,  2.36it/s]2025-12-23 07:43:27,085 INFO [absl] Using default tokenizer.
+Ground-truth:  13%|█▎        | 8/60 [00:02<00:21,  2.43it/s]2025-12-23 07:43:27,466 INFO [absl] Using default tokenizer.
+Ground-truth:  15%|█▌        | 9/60 [00:02<00:17,  2.85it/s]2025-12-23 07:43:27,675 INFO [absl] Using default tokenizer.
+Ground-truth:  17%|█▋        | 10/60 [00:03<00:14,  3.43it/s]2025-12-23 07:43:27,826 INFO [absl] Using default tokenizer.
+Ground-truth:  18%|█▊        | 11/60 [00:03<00:13,  3.76it/s]2025-12-23 07:43:28,030 INFO [absl] Using default tokenizer.
+2025-12-23 07:43:28,046 INFO [absl] Using default tokenizer.
+Ground-truth:  22%|██▏       | 13/60 [00:03<00:09,  4.85it/s]2025-12-23 07:43:28,303 INFO [absl] Using default tokenizer.
+2025-12-23 07:43:28,385 INFO [absl] Using default tokenizer.
+Ground-truth:  25%|██▌       | 15/60 [00:03<00:09,  4.74it/s]2025-12-23 07:43:28,739 INFO [absl] Using default tokenizer.
+Ground-truth:  27%|██▋       | 16/60 [00:04<00:09,  4.68it/s]2025-12-23 07:43:28,963 INFO [absl] Using default tokenizer.
+2025-12-23 07:43:29,037 INFO [absl] Using default tokenizer.
+Ground-truth:  30%|███       | 18/60 [00:04<00:06,  6.26it/s]2025-12-23 07:43:29,111 INFO [absl] Using default tokenizer.
+Ground-truth:  32%|███▏      | 19/60 [00:04<00:07,  5.24it/s]2025-12-23 07:43:29,414 INFO [absl] Using default tokenizer.
+Ground-truth:  33%|███▎      | 20/60 [00:04<00:06,  5.75it/s]2025-12-23 07:43:29,534 INFO [absl] Using default tokenizer.
+Ground-truth:  35%|███▌      | 21/60 [00:04<00:06,  6.11it/s]2025-12-23 07:43:29,667 INFO [absl] Using default tokenizer.
+2025-12-23 07:43:29,758 INFO [absl] Using default tokenizer.
+Ground-truth:  38%|███▊      | 23/60 [00:05<00:06,  5.65it/s]2025-12-23 07:43:30,058 INFO [absl] Using default tokenizer.
+Ground-truth:  40%|████      | 24/60 [00:05<00:07,  5.12it/s]2025-12-23 07:43:30,314 INFO [absl] Using default tokenizer.
+Ground-truth:  42%|████▏     | 25/60 [00:05<00:06,  5.32it/s]2025-12-23 07:43:30,480 INFO [absl] Using default tokenizer.
+Ground-truth:  43%|████▎     | 26/60 [00:05<00:06,  5.29it/s]2025-12-23 07:43:30,672 INFO [absl] Using default tokenizer.
+Ground-truth:  45%|████▌     | 27/60 [00:06<00:09,  3.57it/s]2025-12-23 07:43:31,196 INFO [absl] Using default tokenizer.
+Ground-truth:  47%|████▋     | 28/60 [00:06<00:08,  3.57it/s]2025-12-23 07:43:31,475 INFO [absl] Using default tokenizer.
+2025-12-23 07:43:31,534 INFO [absl] Using default tokenizer.
+Ground-truth:  50%|█████     | 30/60 [00:07<00:06,  4.53it/s]2025-12-23 07:43:31,769 INFO [absl] Using default tokenizer.
+Ground-truth:  52%|█████▏    | 31/60 [00:07<00:05,  5.10it/s]2025-12-23 07:43:31,888 INFO [absl] Using default tokenizer.
+Ground-truth:  53%|█████▎    | 32/60 [00:07<00:04,  5.65it/s]2025-12-23 07:43:32,009 INFO [absl] Using default tokenizer.
+Ground-truth:  55%|█████▌    | 33/60 [00:07<00:05,  5.24it/s]2025-12-23 07:43:32,237 INFO [absl] Using default tokenizer.
+Ground-truth:  57%|█████▋    | 34/60 [00:07<00:06,  4.25it/s]2025-12-23 07:43:32,589 INFO [absl] Using default tokenizer.
+Ground-truth:  58%|█████▊    | 35/60 [00:08<00:05,  4.31it/s]2025-12-23 07:43:32,813 INFO [absl] Using default tokenizer.
+Ground-truth:  60%|██████    | 36/60 [00:08<00:05,  4.03it/s]2025-12-23 07:43:33,101 INFO [absl] Using default tokenizer.
+Ground-truth:  62%|██████▏   | 37/60 [00:08<00:04,  4.81it/s]2025-12-23 07:43:33,211 INFO [absl] Using default tokenizer.
+Ground-truth:  63%|██████▎   | 38/60 [00:08<00:05,  4.35it/s]2025-12-23 07:43:33,494 INFO [absl] Using default tokenizer.
+Ground-truth:  65%|██████▌   | 39/60 [00:08<00:04,  5.15it/s]2025-12-23 07:43:33,603 INFO [absl] Using default tokenizer.
+Ground-truth:  67%|██████▋   | 40/60 [00:09<00:06,  3.28it/s]2025-12-23 07:43:34,171 INFO [absl] Using default tokenizer.
+Ground-truth:  68%|██████▊   | 41/60 [00:09<00:04,  4.02it/s]2025-12-23 07:43:34,286 INFO [absl] Using default tokenizer.
+Ground-truth:  70%|███████   | 42/60 [00:09<00:03,  4.88it/s]2025-12-23 07:43:34,389 INFO [absl] Using default tokenizer.
+Ground-truth:  72%|███████▏  | 43/60 [00:09<00:03,  4.81it/s]2025-12-23 07:43:34,603 INFO [absl] Using default tokenizer.
+Ground-truth:  73%|███████▎  | 44/60 [00:10<00:03,  4.58it/s]2025-12-23 07:43:34,847 INFO [absl] Using default tokenizer.
+2025-12-23 07:43:34,940 INFO [absl] Using default tokenizer.
+Ground-truth:  77%|███████▋  | 46/60 [00:10<00:02,  5.95it/s]2025-12-23 07:43:35,064 INFO [absl] Using default tokenizer.
+Ground-truth:  78%|███████▊  | 47/60 [00:10<00:02,  5.94it/s]2025-12-23 07:43:35,234 INFO [absl] Using default tokenizer.
+Ground-truth:  80%|████████  | 48/60 [00:11<00:03,  3.53it/s]2025-12-23 07:43:35,842 INFO [absl] Using default tokenizer.
+2025-12-23 07:43:35,893 INFO [absl] Using default tokenizer.
+Ground-truth:  83%|████████▎ | 50/60 [00:11<00:02,  4.27it/s]2025-12-23 07:43:36,178 INFO [absl] Using default tokenizer.
+Ground-truth:  85%|████████▌ | 51/60 [00:11<00:02,  3.99it/s]2025-12-23 07:43:36,483 INFO [absl] Using default tokenizer.
+Ground-truth:  87%|████████▋ | 52/60 [00:11<00:02,  3.93it/s]2025-12-23 07:43:36,749 INFO [absl] Using default tokenizer.
+Ground-truth:  88%|████████▊ | 53/60 [00:12<00:01,  3.59it/s]2025-12-23 07:43:37,095 INFO [absl] Using default tokenizer.
+Ground-truth:  90%|█████████ | 54/60 [00:12<00:01,  3.99it/s]2025-12-23 07:43:37,272 INFO [absl] Using default tokenizer.
+Ground-truth:  92%|█████████▏| 55/60 [00:12<00:01,  3.76it/s]2025-12-23 07:43:37,577 INFO [absl] Using default tokenizer.
+Ground-truth:  93%|█████████▎| 56/60 [00:13<00:01,  2.32it/s]2025-12-23 07:43:38,416 INFO [absl] Using default tokenizer.
+Ground-truth:  95%|█████████▌| 57/60 [00:13<00:01,  2.83it/s]2025-12-23 07:43:38,580 INFO [absl] Using default tokenizer.
+Ground-truth:  97%|█████████▋| 58/60 [00:14<00:00,  3.13it/s]2025-12-23 07:43:38,820 INFO [absl] Using default tokenizer.
+Ground-truth:  98%|█████████▊| 59/60 [00:14<00:00,  2.61it/s]2025-12-23 07:43:39,352 INFO [absl] Using default tokenizer.
+Ground-truth: 100%|██████████| 60/60 [00:14<00:00,  3.02it/s]Ground-truth: 100%|██████████| 60/60 [00:14<00:00,  4.05it/s]
+
+📦 Building FLAT index...
+   ✓ Index built: 2199 vectors, 3.22 MB
+
+   Testing nprobe=1...
+   flat/nprobe=1:   0%|          | 0/60 [00:00<?, ?it/s]2025-12-23 07:43:46,169 INFO [absl] Using default tokenizer.
+Some weights of RobertaModel were not initialized from the model checkpoint at roberta-large and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+   flat/nprobe=1:   2%|▏         | 1/60 [00:07<07:25,  7.54s/it]2025-12-23 07:43:53,670 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:   3%|▎         | 2/60 [00:14<06:47,  7.03s/it]2025-12-23 07:44:00,191 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:   5%|▌         | 3/60 [00:20<06:26,  6.79s/it]2025-12-23 07:44:02,525 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:   7%|▋         | 4/60 [00:23<04:41,  5.03s/it]2025-12-23 07:44:05,390 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:   8%|▊         | 5/60 [00:25<03:53,  4.25s/it]2025-12-23 07:44:12,034 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  10%|█         | 6/60 [00:32<04:33,  5.07s/it]2025-12-23 07:44:18,826 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  12%|█▏        | 7/60 [00:39<04:58,  5.63s/it]2025-12-23 07:44:25,618 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  13%|█▎        | 8/60 [00:46<05:12,  6.00s/it]2025-12-23 07:44:28,360 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  15%|█▌        | 9/60 [00:48<04:13,  4.97s/it]2025-12-23 07:44:31,178 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  17%|█▋        | 10/60 [00:51<03:35,  4.31s/it]2025-12-23 07:44:34,804 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  18%|█▊        | 11/60 [00:55<03:20,  4.10s/it]2025-12-23 07:44:41,360 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  20%|██        | 12/60 [01:01<03:52,  4.85s/it]2025-12-23 07:44:42,931 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  22%|██▏       | 13/60 [01:03<03:01,  3.85s/it]2025-12-23 07:44:45,152 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  23%|██▎       | 14/60 [01:05<02:34,  3.36s/it]2025-12-23 07:44:51,667 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  25%|██▌       | 15/60 [01:12<03:14,  4.32s/it]2025-12-23 07:44:58,280 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  27%|██▋       | 16/60 [01:18<03:40,  5.01s/it]2025-12-23 07:45:00,438 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  28%|██▊       | 17/60 [01:20<02:58,  4.14s/it]2025-12-23 07:45:01,403 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  30%|███       | 18/60 [01:21<02:13,  3.19s/it]2025-12-23 07:45:05,114 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  32%|███▏      | 19/60 [01:25<02:17,  3.35s/it]2025-12-23 07:45:11,621 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  33%|███▎      | 20/60 [01:32<02:52,  4.30s/it]2025-12-23 07:45:14,671 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  35%|███▌      | 21/60 [01:35<02:32,  3.92s/it]2025-12-23 07:45:17,684 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  37%|███▋      | 22/60 [01:38<02:18,  3.65s/it]2025-12-23 07:45:24,290 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  38%|███▊      | 23/60 [01:44<02:47,  4.54s/it]2025-12-23 07:45:26,849 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  40%|████      | 24/60 [01:47<02:21,  3.94s/it]2025-12-23 07:45:33,415 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  42%|████▏     | 25/60 [01:53<02:45,  4.73s/it]2025-12-23 07:45:35,560 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  43%|████▎     | 26/60 [01:56<02:14,  3.95s/it]2025-12-23 07:45:42,111 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  45%|████▌     | 27/60 [02:02<02:36,  4.74s/it]2025-12-23 07:45:48,678 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  47%|████▋     | 28/60 [02:09<02:49,  5.29s/it]2025-12-23 07:45:49,757 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  48%|████▊     | 29/60 [02:10<02:04,  4.02s/it]2025-12-23 07:45:51,211 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  50%|█████     | 30/60 [02:11<01:37,  3.25s/it]2025-12-23 07:45:53,702 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  52%|█████▏    | 31/60 [02:14<01:27,  3.02s/it]2025-12-23 07:46:00,156 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  53%|█████▎    | 32/60 [02:20<01:53,  4.06s/it]2025-12-23 07:46:06,725 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  55%|█████▌    | 33/60 [02:27<02:09,  4.81s/it]2025-12-23 07:46:10,328 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  57%|█████▋    | 34/60 [02:30<01:55,  4.44s/it]2025-12-23 07:46:14,341 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  58%|█████▊    | 35/60 [02:34<01:47,  4.32s/it]2025-12-23 07:46:18,300 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  60%|██████    | 36/60 [02:38<01:41,  4.21s/it]2025-12-23 07:46:21,698 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  62%|██████▏   | 37/60 [02:42<01:31,  3.96s/it]2025-12-23 07:46:23,519 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  63%|██████▎   | 38/60 [02:44<01:13,  3.32s/it]2025-12-23 07:46:30,113 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  65%|██████▌   | 39/60 [02:50<01:30,  4.31s/it]2025-12-23 07:46:36,716 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  67%|██████▋   | 40/60 [02:57<01:39,  5.00s/it]2025-12-23 07:46:40,637 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  68%|██████▊   | 41/60 [03:01<01:28,  4.67s/it]2025-12-23 07:46:47,159 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  70%|███████   | 42/60 [03:07<01:34,  5.23s/it]2025-12-23 07:46:49,198 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  72%|███████▏  | 43/60 [03:09<01:12,  4.27s/it]2025-12-23 07:46:54,128 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  73%|███████▎  | 44/60 [03:14<01:11,  4.47s/it]2025-12-23 07:46:55,633 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  75%|███████▌  | 45/60 [03:16<00:53,  3.57s/it]2025-12-23 07:46:57,783 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  77%|███████▋  | 46/60 [03:18<00:44,  3.15s/it]2025-12-23 07:47:00,325 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  78%|███████▊  | 47/60 [03:20<00:38,  2.97s/it]2025-12-23 07:47:03,532 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  80%|████████  | 48/60 [03:24<00:36,  3.04s/it]2025-12-23 07:47:05,100 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  82%|████████▏ | 49/60 [03:25<00:28,  2.60s/it]2025-12-23 07:47:10,180 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  83%|████████▎ | 50/60 [03:30<00:33,  3.34s/it]2025-12-23 07:47:12,960 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  85%|████████▌ | 51/60 [03:33<00:28,  3.18s/it]2025-12-23 07:47:14,460 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  87%|████████▋ | 52/60 [03:34<00:21,  2.67s/it]2025-12-23 07:47:20,960 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  88%|████████▊ | 53/60 [03:41<00:26,  3.82s/it]2025-12-23 07:47:23,189 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  90%|█████████ | 54/60 [03:43<00:20,  3.34s/it]2025-12-23 07:47:26,906 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  92%|█████████▏| 55/60 [03:47<00:17,  3.46s/it]2025-12-23 07:47:29,782 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  93%|█████████▎| 56/60 [03:50<00:13,  3.28s/it]2025-12-23 07:47:32,671 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  95%|█████████▌| 57/60 [03:53<00:09,  3.16s/it]2025-12-23 07:47:39,493 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  97%|█████████▋| 58/60 [04:00<00:08,  4.27s/it]2025-12-23 07:47:46,400 INFO [absl] Using default tokenizer.
+   flat/nprobe=1:  98%|█████████▊| 59/60 [04:06<00:05,  5.06s/it]2025-12-23 07:47:50,137 INFO [absl] Using default tokenizer.
+   flat/nprobe=1: 100%|██████████| 60/60 [04:10<00:00,  4.66s/it]   flat/nprobe=1: 100%|██████████| 60/60 [04:10<00:00,  4.18s/it]
+
+📦 Building IVF index...
+  ⚠️ Adjusted nlist from 64 to 56 (need 39*nlist training points)
+   ✓ Index built: 2199 vectors, 3.32 MB
+
+   Testing nprobe=4...
+   ivf/nprobe=4:   0%|          | 0/60 [00:00<?, ?it/s]2025-12-23 07:47:56,835 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:   2%|▏         | 1/60 [00:06<06:32,  6.66s/it]2025-12-23 07:48:03,564 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:   3%|▎         | 2/60 [00:13<06:29,  6.71s/it]2025-12-23 07:48:10,405 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:   5%|▌         | 3/60 [00:20<06:25,  6.76s/it]2025-12-23 07:48:12,786 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:   7%|▋         | 4/60 [00:22<04:41,  5.03s/it]2025-12-23 07:48:15,711 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:   8%|▊         | 5/60 [00:25<03:54,  4.27s/it]2025-12-23 07:48:22,450 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  10%|█         | 6/60 [00:32<04:36,  5.12s/it]2025-12-23 07:48:29,157 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  12%|█▏        | 7/60 [00:38<04:58,  5.63s/it]2025-12-23 07:48:35,762 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  13%|█▎        | 8/60 [00:45<05:09,  5.95s/it]2025-12-23 07:48:38,476 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  15%|█▌        | 9/60 [00:48<04:11,  4.93s/it]2025-12-23 07:48:41,255 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  17%|█▋        | 10/60 [00:51<03:33,  4.26s/it]2025-12-23 07:48:47,869 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  18%|█▊        | 11/60 [00:57<04:04,  4.99s/it]2025-12-23 07:48:54,555 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  20%|██        | 12/60 [01:04<04:24,  5.50s/it]2025-12-23 07:48:56,136 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  22%|██▏       | 13/60 [01:05<03:22,  4.31s/it]2025-12-23 07:48:58,396 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  23%|██▎       | 14/60 [01:08<02:49,  3.69s/it]2025-12-23 07:49:04,944 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  25%|██▌       | 15/60 [01:14<03:25,  4.56s/it]2025-12-23 07:49:11,625 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  27%|██▋       | 16/60 [01:21<03:48,  5.20s/it]2025-12-23 07:49:13,840 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  28%|██▊       | 17/60 [01:23<03:04,  4.29s/it]2025-12-23 07:49:14,833 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  30%|███       | 18/60 [01:24<02:18,  3.30s/it]2025-12-23 07:49:17,822 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  32%|███▏      | 19/60 [01:27<02:11,  3.21s/it]2025-12-23 07:49:24,497 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  33%|███▎      | 20/60 [01:34<02:50,  4.26s/it]2025-12-23 07:49:27,669 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  35%|███▌      | 21/60 [01:37<02:33,  3.92s/it]2025-12-23 07:49:30,722 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  37%|███▋      | 22/60 [01:40<02:19,  3.66s/it]2025-12-23 07:49:37,371 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  38%|███▊      | 23/60 [01:47<02:48,  4.56s/it]2025-12-23 07:49:39,975 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  40%|████      | 24/60 [01:49<02:22,  3.97s/it]2025-12-23 07:49:46,632 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  42%|████▏     | 25/60 [01:56<02:47,  4.78s/it]2025-12-23 07:49:48,847 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  43%|████▎     | 26/60 [01:58<02:16,  4.01s/it]2025-12-23 07:49:55,464 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  45%|████▌     | 27/60 [02:05<02:38,  4.79s/it]2025-12-23 07:50:02,089 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  47%|████▋     | 28/60 [02:11<02:51,  5.34s/it]2025-12-23 07:50:03,186 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  48%|████▊     | 29/60 [02:12<02:05,  4.06s/it]2025-12-23 07:50:04,688 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  50%|█████     | 30/60 [02:14<01:38,  3.30s/it]2025-12-23 07:50:07,565 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  52%|█████▏    | 31/60 [02:17<01:31,  3.17s/it]2025-12-23 07:50:14,177 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  53%|█████▎    | 32/60 [02:23<01:57,  4.21s/it]2025-12-23 07:50:18,473 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  55%|█████▌    | 33/60 [02:28<01:54,  4.23s/it]2025-12-23 07:50:22,088 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  57%|█████▋    | 34/60 [02:31<01:45,  4.05s/it]2025-12-23 07:50:26,146 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  58%|█████▊    | 35/60 [02:35<01:41,  4.05s/it]2025-12-23 07:50:30,102 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  60%|██████    | 36/60 [02:39<01:36,  4.02s/it]2025-12-23 07:50:33,076 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  62%|██████▏   | 37/60 [02:42<01:25,  3.70s/it]2025-12-23 07:50:34,908 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  63%|██████▎   | 38/60 [02:44<01:09,  3.14s/it]2025-12-23 07:50:37,488 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  65%|██████▌   | 39/60 [02:47<01:02,  2.97s/it]2025-12-23 07:50:44,214 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  67%|██████▋   | 40/60 [02:54<01:22,  4.10s/it]2025-12-23 07:50:48,122 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  68%|██████▊   | 41/60 [02:57<01:16,  4.04s/it]2025-12-23 07:50:54,648 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  70%|███████   | 42/60 [03:04<01:26,  4.79s/it]2025-12-23 07:50:56,711 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  72%|███████▏  | 43/60 [03:06<01:07,  3.97s/it]2025-12-23 07:51:01,803 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  73%|███████▎  | 44/60 [03:11<01:08,  4.31s/it]2025-12-23 07:51:03,758 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  75%|███████▌  | 45/60 [03:13<00:53,  3.60s/it]2025-12-23 07:51:05,976 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  77%|███████▋  | 46/60 [03:15<00:44,  3.18s/it]2025-12-23 07:51:08,607 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  78%|███████▊  | 47/60 [03:18<00:39,  3.02s/it]2025-12-23 07:51:11,931 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  80%|████████  | 48/60 [03:21<00:37,  3.11s/it]2025-12-23 07:51:13,538 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  82%|████████▏ | 49/60 [03:23<00:29,  2.66s/it]2025-12-23 07:51:18,688 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  83%|████████▎ | 50/60 [03:28<00:34,  3.41s/it]2025-12-23 07:51:21,515 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  85%|████████▌ | 51/60 [03:31<00:29,  3.23s/it]2025-12-23 07:51:28,269 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  87%|████████▋ | 52/60 [03:38<00:34,  4.29s/it]2025-12-23 07:51:34,886 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  88%|████████▊ | 53/60 [03:44<00:34,  4.99s/it]2025-12-23 07:51:37,107 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  90%|█████████ | 54/60 [03:46<00:24,  4.15s/it]2025-12-23 07:51:40,705 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  92%|█████████▏| 55/60 [03:50<00:19,  3.99s/it]2025-12-23 07:51:43,460 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  93%|█████████▎| 56/60 [03:53<00:14,  3.62s/it]2025-12-23 07:51:46,244 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  95%|█████████▌| 57/60 [03:56<00:10,  3.37s/it]2025-12-23 07:51:52,909 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  97%|█████████▋| 58/60 [04:02<00:08,  4.36s/it]2025-12-23 07:51:59,526 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  98%|█████████▊| 59/60 [04:09<00:05,  5.04s/it]2025-12-23 07:52:06,225 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4: 100%|██████████| 60/60 [04:16<00:00,  5.53s/it]   ivf/nprobe=4: 100%|██████████| 60/60 [04:16<00:00,  4.27s/it]
+
+   Testing nprobe=8...
+   ivf/nprobe=8:   0%|          | 0/60 [00:00<?, ?it/s]2025-12-23 07:52:12,803 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:   2%|▏         | 1/60 [00:06<06:28,  6.58s/it]2025-12-23 07:52:19,465 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:   3%|▎         | 2/60 [00:13<06:24,  6.64s/it]2025-12-23 07:52:26,107 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:   5%|▌         | 3/60 [00:19<06:17,  6.63s/it]2025-12-23 07:52:28,387 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:   7%|▋         | 4/60 [00:22<04:34,  4.91s/it]2025-12-23 07:52:31,219 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:   8%|▊         | 5/60 [00:24<03:49,  4.17s/it]2025-12-23 07:52:37,852 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  10%|█         | 6/60 [00:31<04:30,  5.01s/it]2025-12-23 07:52:44,576 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  12%|█▏        | 7/60 [00:38<04:55,  5.57s/it]2025-12-23 07:52:51,219 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  13%|█▎        | 8/60 [00:45<05:07,  5.91s/it]2025-12-23 07:52:53,971 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  15%|█▌        | 9/60 [00:47<04:10,  4.91s/it]2025-12-23 07:52:56,733 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  17%|█▋        | 10/60 [00:50<03:32,  4.25s/it]2025-12-23 07:53:03,310 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  18%|█▊        | 11/60 [00:57<04:03,  4.97s/it]2025-12-23 07:53:06,543 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  20%|██        | 12/60 [01:00<03:32,  4.43s/it]2025-12-23 07:53:08,122 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  22%|██▏       | 13/60 [01:01<02:47,  3.57s/it]2025-12-23 07:53:10,384 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  23%|██▎       | 14/60 [01:04<02:26,  3.18s/it]2025-12-23 07:53:16,877 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  25%|██▌       | 15/60 [01:10<03:08,  4.18s/it]2025-12-23 07:53:23,509 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  27%|██▋       | 16/60 [01:17<03:36,  4.92s/it]2025-12-23 07:53:25,679 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  28%|██▊       | 17/60 [01:19<02:55,  4.08s/it]2025-12-23 07:53:26,665 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  30%|███       | 18/60 [01:20<02:12,  3.15s/it]2025-12-23 07:53:29,139 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  32%|███▏      | 19/60 [01:22<02:00,  2.95s/it]2025-12-23 07:53:35,715 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  33%|███▎      | 20/60 [01:29<02:41,  4.05s/it]2025-12-23 07:53:38,766 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  35%|███▌      | 21/60 [01:32<02:25,  3.74s/it]2025-12-23 07:53:41,861 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  37%|███▋      | 22/60 [01:35<02:14,  3.55s/it]2025-12-23 07:53:48,492 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  38%|███▊      | 23/60 [01:42<02:45,  4.48s/it]2025-12-23 07:53:51,047 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  40%|████      | 24/60 [01:44<02:20,  3.90s/it]2025-12-23 07:53:57,620 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  42%|████▏     | 25/60 [01:51<02:44,  4.70s/it]2025-12-23 07:53:59,816 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  43%|████▎     | 26/60 [01:53<02:14,  3.95s/it]2025-12-23 07:54:06,400 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  45%|████▌     | 27/60 [02:00<02:36,  4.74s/it]2025-12-23 07:54:12,913 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  47%|████▋     | 28/60 [02:06<02:48,  5.27s/it]2025-12-23 07:54:13,996 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  48%|████▊     | 29/60 [02:07<02:04,  4.01s/it]2025-12-23 07:54:15,460 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  50%|█████     | 30/60 [02:09<01:37,  3.25s/it]2025-12-23 07:54:17,960 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  52%|█████▏    | 31/60 [02:11<01:27,  3.02s/it]2025-12-23 07:54:24,457 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  53%|█████▎    | 32/60 [02:18<01:54,  4.07s/it]2025-12-23 07:54:31,086 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  55%|█████▌    | 33/60 [02:24<02:10,  4.84s/it]2025-12-23 07:54:34,682 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  57%|█████▋    | 34/60 [02:28<01:56,  4.46s/it]2025-12-23 07:54:38,695 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  58%|█████▊    | 35/60 [02:32<01:48,  4.33s/it]2025-12-23 07:54:42,658 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  60%|██████    | 36/60 [02:36<01:41,  4.22s/it]2025-12-23 07:54:45,022 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  62%|██████▏   | 37/60 [02:38<01:24,  3.66s/it]2025-12-23 07:54:46,819 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  63%|██████▎   | 38/60 [02:40<01:08,  3.10s/it]2025-12-23 07:54:49,381 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  65%|██████▌   | 39/60 [02:43<01:01,  2.94s/it]2025-12-23 07:54:56,097 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  67%|██████▋   | 40/60 [02:49<01:21,  4.08s/it]2025-12-23 07:55:00,013 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  68%|██████▊   | 41/60 [02:53<01:16,  4.03s/it]2025-12-23 07:55:06,626 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  70%|███████   | 42/60 [03:00<01:26,  4.81s/it]2025-12-23 07:55:08,702 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  72%|███████▏  | 43/60 [03:02<01:07,  3.98s/it]2025-12-23 07:55:13,755 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  73%|███████▎  | 44/60 [03:07<01:08,  4.30s/it]2025-12-23 07:55:16,413 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  75%|███████▌  | 45/60 [03:10<00:57,  3.81s/it]2025-12-23 07:55:18,641 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  77%|███████▋  | 46/60 [03:12<00:46,  3.33s/it]2025-12-23 07:55:21,281 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  78%|███████▊  | 47/60 [03:15<00:40,  3.13s/it]2025-12-23 07:55:24,598 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  80%|████████  | 48/60 [03:18<00:38,  3.19s/it]2025-12-23 07:55:26,179 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  82%|████████▏ | 49/60 [03:19<00:29,  2.70s/it]2025-12-23 07:55:31,238 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  83%|████████▎ | 50/60 [03:25<00:34,  3.41s/it]2025-12-23 07:55:34,008 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  85%|████████▌ | 51/60 [03:27<00:28,  3.22s/it]2025-12-23 07:55:35,545 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  87%|████████▋ | 52/60 [03:29<00:21,  2.71s/it]2025-12-23 07:55:42,194 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  88%|████████▊ | 53/60 [03:35<00:27,  3.90s/it]2025-12-23 07:55:44,368 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  90%|█████████ | 54/60 [03:38<00:20,  3.38s/it]2025-12-23 07:55:47,901 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  92%|█████████▏| 55/60 [03:41<00:17,  3.42s/it]2025-12-23 07:55:50,677 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  93%|█████████▎| 56/60 [03:44<00:12,  3.23s/it]2025-12-23 07:55:53,497 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  95%|█████████▌| 57/60 [03:47<00:09,  3.11s/it]2025-12-23 07:56:00,067 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  97%|█████████▋| 58/60 [03:53<00:08,  4.15s/it]2025-12-23 07:56:06,755 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  98%|█████████▊| 59/60 [04:00<00:04,  4.91s/it]2025-12-23 07:56:13,493 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8: 100%|██████████| 60/60 [04:07<00:00,  5.46s/it]   ivf/nprobe=8: 100%|██████████| 60/60 [04:07<00:00,  4.12s/it]
+
+   Testing nprobe=16...
+   ivf/nprobe=16:   0%|          | 0/60 [00:00<?, ?it/s]2025-12-23 07:56:20,135 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:   2%|▏         | 1/60 [00:06<06:31,  6.64s/it]2025-12-23 07:56:26,799 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:   3%|▎         | 2/60 [00:13<06:26,  6.67s/it]2025-12-23 07:56:30,836 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:   5%|▌         | 3/60 [00:17<05:10,  5.46s/it]2025-12-23 07:56:33,157 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:   7%|▋         | 4/60 [00:19<03:56,  4.22s/it]2025-12-23 07:56:36,021 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:   8%|▊         | 5/60 [00:22<03:25,  3.73s/it]2025-12-23 07:56:42,633 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  10%|█         | 6/60 [00:29<04:14,  4.72s/it]2025-12-23 07:56:49,379 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  12%|█▏        | 7/60 [00:35<04:44,  5.38s/it]2025-12-23 07:56:56,079 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  13%|█▎        | 8/60 [00:42<05:01,  5.80s/it]2025-12-23 07:56:58,819 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  15%|█▌        | 9/60 [00:45<04:06,  4.83s/it]2025-12-23 07:57:01,579 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  17%|█▋        | 10/60 [00:48<03:29,  4.19s/it]2025-12-23 07:57:08,088 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  18%|█▊        | 11/60 [00:54<04:00,  4.91s/it]2025-12-23 07:57:14,744 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  20%|██        | 12/60 [01:01<04:20,  5.44s/it]2025-12-23 07:57:16,352 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  22%|██▏       | 13/60 [01:02<03:20,  4.28s/it]2025-12-23 07:57:18,620 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  23%|██▎       | 14/60 [01:05<02:48,  3.67s/it]2025-12-23 07:57:25,241 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  25%|██▌       | 15/60 [01:11<03:25,  4.56s/it]2025-12-23 07:57:31,950 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  27%|██▋       | 16/60 [01:18<03:49,  5.21s/it]2025-12-23 07:57:34,155 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  28%|██▊       | 17/60 [01:20<03:04,  4.30s/it]2025-12-23 07:57:35,154 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  30%|███       | 18/60 [01:21<02:18,  3.31s/it]2025-12-23 07:57:38,897 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  32%|███▏      | 19/60 [01:25<02:21,  3.44s/it]2025-12-23 07:57:45,582 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  33%|███▎      | 20/60 [01:32<02:56,  4.42s/it]2025-12-23 07:57:48,672 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  35%|███▌      | 21/60 [01:35<02:36,  4.01s/it]2025-12-23 07:57:51,787 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  37%|███▋      | 22/60 [01:38<02:22,  3.74s/it]2025-12-23 07:57:58,530 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  38%|███▊      | 23/60 [01:45<02:51,  4.65s/it]2025-12-23 07:58:01,137 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  40%|████      | 24/60 [01:47<02:25,  4.03s/it]2025-12-23 07:58:07,826 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  42%|████▏     | 25/60 [01:54<02:49,  4.83s/it]2025-12-23 07:58:10,062 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  43%|████▎     | 26/60 [01:56<02:17,  4.05s/it]2025-12-23 07:58:16,733 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  45%|████▌     | 27/60 [02:03<02:39,  4.84s/it]2025-12-23 07:58:23,359 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  47%|████▋     | 28/60 [02:09<02:52,  5.38s/it]2025-12-23 07:58:24,458 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  48%|████▊     | 29/60 [02:10<02:06,  4.09s/it]2025-12-23 07:58:25,930 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  50%|█████     | 30/60 [02:12<01:39,  3.31s/it]2025-12-23 07:58:28,421 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  52%|█████▏    | 31/60 [02:14<01:28,  3.06s/it]2025-12-23 07:58:35,057 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  53%|█████▎    | 32/60 [02:21<01:55,  4.14s/it]2025-12-23 07:58:41,654 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  55%|█████▌    | 33/60 [02:28<02:11,  4.88s/it]2025-12-23 07:58:45,250 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  57%|█████▋    | 34/60 [02:31<01:56,  4.49s/it]2025-12-23 07:58:49,258 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  58%|█████▊    | 35/60 [02:35<01:48,  4.35s/it]2025-12-23 07:58:53,253 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  60%|██████    | 36/60 [02:39<01:41,  4.24s/it]2025-12-23 07:58:56,706 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  62%|██████▏   | 37/60 [02:43<01:32,  4.00s/it]2025-12-23 07:58:58,523 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  63%|██████▎   | 38/60 [02:45<01:13,  3.34s/it]2025-12-23 07:59:05,183 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  65%|██████▌   | 39/60 [02:51<01:31,  4.34s/it]2025-12-23 07:59:11,870 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  67%|██████▋   | 40/60 [02:58<01:40,  5.05s/it]2025-12-23 07:59:15,785 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  68%|██████▊   | 41/60 [03:02<01:29,  4.71s/it]2025-12-23 07:59:22,393 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  70%|███████   | 42/60 [03:08<01:35,  5.28s/it]2025-12-23 07:59:24,455 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  72%|███████▏  | 43/60 [03:10<01:13,  4.31s/it]2025-12-23 07:59:29,432 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  73%|███████▎  | 44/60 [03:15<01:12,  4.51s/it]2025-12-23 07:59:30,987 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  75%|███████▌  | 45/60 [03:17<00:54,  3.62s/it]2025-12-23 07:59:33,198 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  77%|███████▋  | 46/60 [03:19<00:44,  3.20s/it]2025-12-23 07:59:35,802 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  78%|███████▊  | 47/60 [03:22<00:39,  3.02s/it]2025-12-23 07:59:39,112 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  80%|████████  | 48/60 [03:25<00:37,  3.11s/it]2025-12-23 07:59:40,699 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  82%|████████▏ | 49/60 [03:27<00:29,  2.65s/it]2025-12-23 07:59:45,757 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  83%|████████▎ | 50/60 [03:32<00:33,  3.38s/it]2025-12-23 07:59:48,585 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  85%|████████▌ | 51/60 [03:35<00:28,  3.21s/it]2025-12-23 07:59:50,087 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  87%|████████▋ | 52/60 [03:36<00:21,  2.70s/it]2025-12-23 07:59:56,696 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  88%|████████▊ | 53/60 [03:43<00:27,  3.87s/it]2025-12-23 07:59:58,885 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  90%|█████████ | 54/60 [03:45<00:20,  3.36s/it]2025-12-23 08:00:02,455 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  92%|█████████▏| 55/60 [03:48<00:17,  3.43s/it]2025-12-23 08:00:05,226 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  93%|█████████▎| 56/60 [03:51<00:12,  3.23s/it]2025-12-23 08:00:08,072 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  95%|█████████▌| 57/60 [03:54<00:09,  3.11s/it]2025-12-23 08:00:14,804 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  97%|█████████▋| 58/60 [04:01<00:08,  4.20s/it]2025-12-23 08:00:21,583 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  98%|█████████▊| 59/60 [04:08<00:04,  4.98s/it]2025-12-23 08:00:25,345 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16: 100%|██████████| 60/60 [04:11<00:00,  4.61s/it]   ivf/nprobe=16: 100%|██████████| 60/60 [04:11<00:00,  4.20s/it]
+
+📦 Building IVF index...
+  ⚠️ Adjusted nlist from 256 to 56 (need 39*nlist training points)
+   ✓ Index built: 2199 vectors, 3.32 MB
+
+   Testing nprobe=4...
+   ivf/nprobe=4:   0%|          | 0/60 [00:00<?, ?it/s]2025-12-23 08:00:32,063 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:   2%|▏         | 1/60 [00:06<06:34,  6.68s/it]2025-12-23 08:00:38,837 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:   3%|▎         | 2/60 [00:13<06:31,  6.74s/it]2025-12-23 08:00:45,529 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:   5%|▌         | 3/60 [00:20<06:22,  6.71s/it]2025-12-23 08:00:47,868 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:   7%|▋         | 4/60 [00:22<04:38,  4.98s/it]2025-12-23 08:00:50,764 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:   8%|▊         | 5/60 [00:25<03:52,  4.23s/it]2025-12-23 08:00:57,490 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  10%|█         | 6/60 [00:32<04:34,  5.09s/it]2025-12-23 08:01:04,175 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  12%|█▏        | 7/60 [00:38<04:57,  5.61s/it]2025-12-23 08:01:10,844 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  13%|█▎        | 8/60 [00:45<05:09,  5.95s/it]2025-12-23 08:01:13,605 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  15%|█▌        | 9/60 [00:48<04:12,  4.94s/it]2025-12-23 08:01:16,404 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  17%|█▋        | 10/60 [00:51<03:34,  4.28s/it]2025-12-23 08:01:23,009 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  18%|█▊        | 11/60 [00:57<04:04,  5.00s/it]2025-12-23 08:01:29,590 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  20%|██        | 12/60 [01:04<04:22,  5.48s/it]2025-12-23 08:01:31,190 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  22%|██▏       | 13/60 [01:05<03:22,  4.30s/it]2025-12-23 08:01:33,474 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  23%|██▎       | 14/60 [01:08<02:49,  3.69s/it]2025-12-23 08:01:40,051 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  25%|██▌       | 15/60 [01:14<03:25,  4.56s/it]2025-12-23 08:01:46,711 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  27%|██▋       | 16/60 [01:21<03:48,  5.20s/it]2025-12-23 08:01:48,899 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  28%|██▊       | 17/60 [01:23<03:04,  4.29s/it]2025-12-23 08:01:49,917 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  30%|███       | 18/60 [01:24<02:18,  3.30s/it]2025-12-23 08:01:52,923 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  32%|███▏      | 19/60 [01:27<02:11,  3.22s/it]2025-12-23 08:01:59,562 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  33%|███▎      | 20/60 [01:34<02:49,  4.25s/it]2025-12-23 08:02:02,658 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  35%|███▌      | 21/60 [01:37<02:31,  3.90s/it]2025-12-23 08:02:05,742 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  37%|███▋      | 22/60 [01:40<02:18,  3.65s/it]2025-12-23 08:02:12,339 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  38%|███▊      | 23/60 [01:46<02:47,  4.54s/it]2025-12-23 08:02:14,917 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  40%|████      | 24/60 [01:49<02:22,  3.95s/it]2025-12-23 08:02:21,551 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  42%|████▏     | 25/60 [01:56<02:46,  4.75s/it]2025-12-23 08:02:23,759 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  43%|████▎     | 26/60 [01:58<02:15,  3.99s/it]2025-12-23 08:02:30,270 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  45%|████▌     | 27/60 [02:04<02:36,  4.75s/it]2025-12-23 08:02:36,902 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  47%|████▋     | 28/60 [02:11<02:50,  5.32s/it]2025-12-23 08:02:38,006 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  48%|████▊     | 29/60 [02:12<02:05,  4.05s/it]2025-12-23 08:02:39,458 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  50%|█████     | 30/60 [02:14<01:38,  3.27s/it]2025-12-23 08:02:42,324 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  52%|█████▏    | 31/60 [02:16<01:31,  3.15s/it]2025-12-23 08:02:48,871 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  53%|█████▎    | 32/60 [02:23<01:56,  4.17s/it]2025-12-23 08:02:53,130 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  55%|█████▌    | 33/60 [02:27<01:53,  4.19s/it]2025-12-23 08:02:56,655 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  57%|█████▋    | 34/60 [02:31<01:43,  3.99s/it]2025-12-23 08:03:00,691 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  58%|█████▊    | 35/60 [02:35<01:40,  4.01s/it]2025-12-23 08:03:04,649 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  60%|██████    | 36/60 [02:39<01:35,  3.99s/it]2025-12-23 08:03:07,664 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  62%|██████▏   | 37/60 [02:42<01:25,  3.70s/it]2025-12-23 08:03:09,496 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  63%|██████▎   | 38/60 [02:44<01:09,  3.14s/it]2025-12-23 08:03:12,063 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  65%|██████▌   | 39/60 [02:46<01:02,  2.96s/it]2025-12-23 08:03:18,631 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  67%|██████▋   | 40/60 [02:53<01:21,  4.05s/it]2025-12-23 08:03:22,538 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  68%|██████▊   | 41/60 [02:57<01:16,  4.01s/it]2025-12-23 08:03:29,097 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  70%|███████   | 42/60 [03:03<01:25,  4.77s/it]2025-12-23 08:03:31,152 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  72%|███████▏  | 43/60 [03:05<01:07,  3.96s/it]2025-12-23 08:03:36,164 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  73%|███████▎  | 44/60 [03:10<01:08,  4.27s/it]2025-12-23 08:03:38,144 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  75%|███████▌  | 45/60 [03:12<00:53,  3.58s/it]2025-12-23 08:03:40,351 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  77%|███████▋  | 46/60 [03:14<00:44,  3.17s/it]2025-12-23 08:03:42,943 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  78%|███████▊  | 47/60 [03:17<00:38,  3.00s/it]2025-12-23 08:03:46,215 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  80%|████████  | 48/60 [03:20<00:36,  3.08s/it]2025-12-23 08:03:47,791 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  82%|████████▏ | 49/60 [03:22<00:28,  2.63s/it]2025-12-23 08:03:52,830 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  83%|████████▎ | 50/60 [03:27<00:33,  3.35s/it]2025-12-23 08:03:55,621 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  85%|████████▌ | 51/60 [03:30<00:28,  3.18s/it]2025-12-23 08:04:02,216 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  87%|████████▋ | 52/60 [03:36<00:33,  4.21s/it]2025-12-23 08:04:08,846 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  88%|████████▊ | 53/60 [03:43<00:34,  4.94s/it]2025-12-23 08:04:11,035 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  90%|█████████ | 54/60 [03:45<00:24,  4.11s/it]2025-12-23 08:04:14,622 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  92%|█████████▏| 55/60 [03:49<00:19,  3.95s/it]2025-12-23 08:04:17,373 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  93%|█████████▎| 56/60 [03:51<00:14,  3.59s/it]2025-12-23 08:04:20,168 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  95%|█████████▌| 57/60 [03:54<00:10,  3.35s/it]2025-12-23 08:04:26,845 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  97%|█████████▋| 58/60 [04:01<00:08,  4.35s/it]2025-12-23 08:04:33,515 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4:  98%|█████████▊| 59/60 [04:08<00:05,  5.05s/it]2025-12-23 08:04:40,222 INFO [absl] Using default tokenizer.
+   ivf/nprobe=4: 100%|██████████| 60/60 [04:14<00:00,  5.54s/it]   ivf/nprobe=4: 100%|██████████| 60/60 [04:14<00:00,  4.25s/it]
+
+   Testing nprobe=8...
+   ivf/nprobe=8:   0%|          | 0/60 [00:00<?, ?it/s]2025-12-23 08:04:46,847 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:   2%|▏         | 1/60 [00:06<06:30,  6.62s/it]2025-12-23 08:04:53,510 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:   3%|▎         | 2/60 [00:13<06:26,  6.66s/it]2025-12-23 08:05:00,124 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:   5%|▌         | 3/60 [00:19<06:17,  6.63s/it]2025-12-23 08:05:02,429 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:   7%|▋         | 4/60 [00:22<04:35,  4.92s/it]2025-12-23 08:05:05,246 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:   8%|▊         | 5/60 [00:25<03:49,  4.16s/it]2025-12-23 08:05:11,890 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  10%|█         | 6/60 [00:31<04:30,  5.02s/it]2025-12-23 08:05:18,636 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  12%|█▏        | 7/60 [00:38<04:55,  5.58s/it]2025-12-23 08:05:25,236 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  13%|█▎        | 8/60 [00:45<05:07,  5.91s/it]2025-12-23 08:05:27,962 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  15%|█▌        | 9/60 [00:47<04:09,  4.90s/it]2025-12-23 08:05:30,715 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  17%|█▋        | 10/60 [00:50<03:31,  4.24s/it]2025-12-23 08:05:37,306 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  18%|█▊        | 11/60 [00:57<04:03,  4.96s/it]2025-12-23 08:05:40,543 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  20%|██        | 12/60 [01:00<03:32,  4.43s/it]2025-12-23 08:05:42,146 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  22%|██▏       | 13/60 [01:01<02:48,  3.58s/it]2025-12-23 08:05:44,398 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  23%|██▎       | 14/60 [01:04<02:26,  3.18s/it]2025-12-23 08:05:50,865 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  25%|██▌       | 15/60 [01:10<03:07,  4.17s/it]2025-12-23 08:05:57,462 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  27%|██▋       | 16/60 [01:17<03:35,  4.90s/it]2025-12-23 08:05:59,654 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  28%|██▊       | 17/60 [01:19<02:55,  4.08s/it]2025-12-23 08:06:00,650 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  30%|███       | 18/60 [01:20<02:12,  3.15s/it]2025-12-23 08:06:03,165 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  32%|███▏      | 19/60 [01:22<02:01,  2.96s/it]2025-12-23 08:06:09,830 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  33%|███▎      | 20/60 [01:29<02:43,  4.08s/it]2025-12-23 08:06:12,933 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  35%|███▌      | 21/60 [01:32<02:27,  3.78s/it]2025-12-23 08:06:16,012 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  37%|███▋      | 22/60 [01:35<02:15,  3.57s/it]2025-12-23 08:06:22,590 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  38%|███▊      | 23/60 [01:42<02:45,  4.48s/it]2025-12-23 08:06:25,187 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  40%|████      | 24/60 [01:44<02:20,  3.91s/it]2025-12-23 08:06:31,787 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  42%|████▏     | 25/60 [01:51<02:45,  4.72s/it]2025-12-23 08:06:33,994 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  43%|████▎     | 26/60 [01:53<02:14,  3.96s/it]2025-12-23 08:06:40,580 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  45%|████▌     | 27/60 [02:00<02:36,  4.75s/it]2025-12-23 08:06:47,173 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  47%|████▋     | 28/60 [02:06<02:49,  5.31s/it]2025-12-23 08:06:48,275 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  48%|████▊     | 29/60 [02:08<02:05,  4.04s/it]2025-12-23 08:06:49,740 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  50%|█████     | 30/60 [02:09<01:38,  3.27s/it]2025-12-23 08:06:52,274 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  52%|█████▏    | 31/60 [02:12<01:28,  3.05s/it]2025-12-23 08:06:58,851 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  53%|█████▎    | 32/60 [02:18<01:55,  4.11s/it]2025-12-23 08:07:05,456 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  55%|█████▌    | 33/60 [02:25<02:11,  4.86s/it]2025-12-23 08:07:09,012 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  57%|█████▋    | 34/60 [02:28<01:56,  4.46s/it]2025-12-23 08:07:13,046 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  58%|█████▊    | 35/60 [02:32<01:48,  4.34s/it]2025-12-23 08:07:17,019 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  60%|██████    | 36/60 [02:36<01:41,  4.23s/it]2025-12-23 08:07:19,402 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  62%|██████▏   | 37/60 [02:39<01:24,  3.67s/it]2025-12-23 08:07:21,236 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  63%|██████▎   | 38/60 [02:40<01:08,  3.12s/it]2025-12-23 08:07:23,836 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  65%|██████▌   | 39/60 [02:43<01:02,  2.96s/it]2025-12-23 08:07:30,463 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  67%|██████▋   | 40/60 [02:50<01:21,  4.07s/it]2025-12-23 08:07:34,393 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  68%|██████▊   | 41/60 [02:54<01:16,  4.02s/it]2025-12-23 08:07:40,954 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  70%|███████   | 42/60 [03:00<01:26,  4.79s/it]2025-12-23 08:07:43,018 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  72%|███████▏  | 43/60 [03:02<01:07,  3.97s/it]2025-12-23 08:07:48,030 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  73%|███████▎  | 44/60 [03:07<01:08,  4.28s/it]2025-12-23 08:07:50,683 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  75%|███████▌  | 45/60 [03:10<00:56,  3.79s/it]2025-12-23 08:07:52,905 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  77%|███████▋  | 46/60 [03:12<00:46,  3.32s/it]2025-12-23 08:07:55,480 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  78%|███████▊  | 47/60 [03:15<00:40,  3.10s/it]2025-12-23 08:07:58,812 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  80%|████████  | 48/60 [03:18<00:38,  3.17s/it]2025-12-23 08:08:00,390 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  82%|████████▏ | 49/60 [03:20<00:29,  2.69s/it]2025-12-23 08:08:05,472 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  83%|████████▎ | 50/60 [03:25<00:34,  3.41s/it]2025-12-23 08:08:08,287 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  85%|████████▌ | 51/60 [03:28<00:29,  3.23s/it]2025-12-23 08:08:09,849 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  87%|████████▋ | 52/60 [03:29<00:21,  2.73s/it]2025-12-23 08:08:16,456 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  88%|████████▊ | 53/60 [03:36<00:27,  3.90s/it]2025-12-23 08:08:18,681 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  90%|█████████ | 54/60 [03:38<00:20,  3.39s/it]2025-12-23 08:08:22,270 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  92%|█████████▏| 55/60 [03:42<00:17,  3.45s/it]2025-12-23 08:08:25,055 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  93%|█████████▎| 56/60 [03:44<00:13,  3.25s/it]2025-12-23 08:08:27,874 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  95%|█████████▌| 57/60 [03:47<00:09,  3.12s/it]2025-12-23 08:08:34,584 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  97%|█████████▋| 58/60 [03:54<00:08,  4.20s/it]2025-12-23 08:08:41,195 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8:  98%|█████████▊| 59/60 [04:00<00:04,  4.93s/it]2025-12-23 08:08:47,786 INFO [absl] Using default tokenizer.
+   ivf/nprobe=8: 100%|██████████| 60/60 [04:07<00:00,  5.42s/it]   ivf/nprobe=8: 100%|██████████| 60/60 [04:07<00:00,  4.13s/it]
+
+   Testing nprobe=16...
+   ivf/nprobe=16:   0%|          | 0/60 [00:00<?, ?it/s]2025-12-23 08:08:54,492 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:   2%|▏         | 1/60 [00:06<06:35,  6.71s/it]2025-12-23 08:09:01,104 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:   3%|▎         | 2/60 [00:13<06:26,  6.66s/it]2025-12-23 08:09:05,094 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:   5%|▌         | 3/60 [00:17<05:09,  5.43s/it]2025-12-23 08:09:07,391 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:   7%|▋         | 4/60 [00:19<03:54,  4.19s/it]2025-12-23 08:09:10,272 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:   8%|▊         | 5/60 [00:22<03:24,  3.72s/it]2025-12-23 08:09:16,941 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  10%|█         | 6/60 [00:29<04:15,  4.73s/it]2025-12-23 08:09:23,610 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  12%|█▏        | 7/60 [00:35<04:44,  5.36s/it]2025-12-23 08:09:30,305 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  13%|█▎        | 8/60 [00:42<05:00,  5.79s/it]2025-12-23 08:09:33,054 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  15%|█▌        | 9/60 [00:45<04:06,  4.83s/it]2025-12-23 08:09:35,858 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  17%|█▋        | 10/60 [00:48<03:30,  4.21s/it]2025-12-23 08:09:42,459 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  18%|█▊        | 11/60 [00:54<04:02,  4.94s/it]2025-12-23 08:09:49,107 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  20%|██        | 12/60 [01:01<04:21,  5.46s/it]2025-12-23 08:09:50,714 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  22%|██▏       | 13/60 [01:02<03:21,  4.29s/it]2025-12-23 08:09:52,995 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  23%|██▎       | 14/60 [01:05<02:49,  3.68s/it]2025-12-23 08:09:59,575 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  25%|██▌       | 15/60 [01:11<03:25,  4.56s/it]2025-12-23 08:10:06,199 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  27%|██▋       | 16/60 [01:18<03:48,  5.19s/it]2025-12-23 08:10:08,406 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  28%|██▊       | 17/60 [01:20<03:04,  4.28s/it]2025-12-23 08:10:09,412 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  30%|███       | 18/60 [01:21<02:18,  3.30s/it]2025-12-23 08:10:13,241 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  32%|███▏      | 19/60 [01:25<02:21,  3.46s/it]2025-12-23 08:10:19,922 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  33%|███▎      | 20/60 [01:32<02:57,  4.43s/it]2025-12-23 08:10:23,057 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  35%|███▌      | 21/60 [01:35<02:37,  4.04s/it]2025-12-23 08:10:26,204 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  37%|███▋      | 22/60 [01:38<02:23,  3.77s/it]2025-12-23 08:10:32,972 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  38%|███▊      | 23/60 [01:45<02:52,  4.67s/it]2025-12-23 08:10:35,549 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  40%|████      | 24/60 [01:47<02:25,  4.04s/it]2025-12-23 08:10:42,076 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  42%|████▏     | 25/60 [01:54<02:47,  4.79s/it]2025-12-23 08:10:44,264 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  43%|████▎     | 26/60 [01:56<02:16,  4.01s/it]2025-12-23 08:10:50,883 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  45%|████▌     | 27/60 [02:03<02:38,  4.79s/it]2025-12-23 08:10:57,541 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  47%|████▋     | 28/60 [02:09<02:51,  5.35s/it]2025-12-23 08:10:58,638 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  48%|████▊     | 29/60 [02:10<02:06,  4.07s/it]2025-12-23 08:11:00,110 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  50%|█████     | 30/60 [02:12<01:38,  3.29s/it]2025-12-23 08:11:02,643 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  52%|█████▏    | 31/60 [02:14<01:28,  3.07s/it]2025-12-23 08:11:09,238 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  53%|█████▎    | 32/60 [02:21<01:55,  4.13s/it]2025-12-23 08:11:15,897 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  55%|█████▌    | 33/60 [02:28<02:11,  4.89s/it]2025-12-23 08:11:19,520 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  57%|█████▋    | 34/60 [02:31<01:57,  4.51s/it]2025-12-23 08:11:23,499 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  58%|█████▊    | 35/60 [02:35<01:48,  4.35s/it]2025-12-23 08:11:27,449 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  60%|██████    | 36/60 [02:39<01:41,  4.23s/it]2025-12-23 08:11:30,868 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  62%|██████▏   | 37/60 [02:43<01:31,  3.98s/it]2025-12-23 08:11:32,677 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  63%|██████▎   | 38/60 [02:44<01:13,  3.33s/it]2025-12-23 08:11:39,246 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  65%|██████▌   | 39/60 [02:51<01:30,  4.30s/it]2025-12-23 08:11:45,904 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  67%|██████▋   | 40/60 [02:58<01:40,  5.01s/it]2025-12-23 08:11:49,784 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  68%|██████▊   | 41/60 [03:01<01:28,  4.67s/it]2025-12-23 08:11:56,346 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  70%|███████   | 42/60 [03:08<01:34,  5.24s/it]2025-12-23 08:11:58,408 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  72%|███████▏  | 43/60 [03:10<01:12,  4.28s/it]2025-12-23 08:12:03,396 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  73%|███████▎  | 44/60 [03:15<01:11,  4.49s/it]2025-12-23 08:12:04,922 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  75%|███████▌  | 45/60 [03:17<00:54,  3.60s/it]2025-12-23 08:12:07,093 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  77%|███████▋  | 46/60 [03:19<00:44,  3.17s/it]2025-12-23 08:12:09,648 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  78%|███████▊  | 47/60 [03:21<00:38,  2.99s/it]2025-12-23 08:12:12,922 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  80%|████████  | 48/60 [03:25<00:36,  3.08s/it]2025-12-23 08:12:14,495 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  82%|████████▏ | 49/60 [03:26<00:28,  2.62s/it]2025-12-23 08:12:19,567 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  83%|████████▎ | 50/60 [03:31<00:33,  3.36s/it]2025-12-23 08:12:22,390 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  85%|████████▌ | 51/60 [03:34<00:28,  3.20s/it]2025-12-23 08:12:23,892 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  87%|████████▋ | 52/60 [03:36<00:21,  2.69s/it]2025-12-23 08:12:30,490 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  88%|████████▊ | 53/60 [03:42<00:27,  3.87s/it]2025-12-23 08:12:32,682 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  90%|█████████ | 54/60 [03:44<00:20,  3.36s/it]2025-12-23 08:12:36,249 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  92%|█████████▏| 55/60 [03:48<00:17,  3.42s/it]2025-12-23 08:12:38,997 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  93%|█████████▎| 56/60 [03:51<00:12,  3.22s/it]2025-12-23 08:12:41,770 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  95%|█████████▌| 57/60 [03:53<00:09,  3.08s/it]2025-12-23 08:12:48,361 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  97%|█████████▋| 58/60 [04:00<00:08,  4.14s/it]2025-12-23 08:12:54,999 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16:  98%|█████████▊| 59/60 [04:07<00:04,  4.89s/it]2025-12-23 08:12:58,654 INFO [absl] Using default tokenizer.
+   ivf/nprobe=16: 100%|██████████| 60/60 [04:10<00:00,  4.52s/it]   ivf/nprobe=16: 100%|██████████| 60/60 [04:10<00:00,  4.18s/it]
+2025-12-23 08:12:58,743 WARNING [src.models.retriever_advanced] PQ training: 2199 vectors < recommended 4096
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+
+📦 Building IVF_PQ index...
+  ⚠️ PQ training: 2199 vectors, recommended ≥4096 for stable PQ training
+  ⚠️ Adjusted nlist from 64 to 56 (need 39*nlist training points)
+   ✓ Index built: 2199 vectors, 0.58 MB
+
+   Testing nprobe=4...
+   ivf_pq/nprobe=4:   0%|          | 0/60 [00:00<?, ?it/s]2025-12-23 08:13:05,547 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:   2%|▏         | 1/60 [00:06<06:38,  6.76s/it]2025-12-23 08:13:08,830 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:   3%|▎         | 2/60 [00:10<04:32,  4.71s/it]2025-12-23 08:13:11,317 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:   5%|▌         | 3/60 [00:12<03:30,  3.69s/it]2025-12-23 08:13:13,610 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:   7%|▋         | 4/60 [00:14<02:55,  3.14s/it]2025-12-23 08:13:16,462 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:   8%|▊         | 5/60 [00:17<02:47,  3.04s/it]2025-12-23 08:13:23,061 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  10%|█         | 6/60 [00:24<03:49,  4.25s/it]2025-12-23 08:13:29,785 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  12%|█▏        | 7/60 [00:31<04:28,  5.06s/it]2025-12-23 08:13:36,510 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  13%|█▎        | 8/60 [00:37<04:50,  5.59s/it]2025-12-23 08:13:39,052 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  15%|█▌        | 9/60 [00:40<03:56,  4.63s/it]2025-12-23 08:13:41,597 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  17%|█▋        | 10/60 [00:42<03:19,  3.99s/it]2025-12-23 08:13:45,321 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  18%|█▊        | 11/60 [00:46<03:11,  3.91s/it]2025-12-23 08:13:48,208 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  20%|██        | 12/60 [00:49<02:52,  3.59s/it]2025-12-23 08:13:49,759 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  22%|██▏       | 13/60 [00:50<02:19,  2.98s/it]2025-12-23 08:13:52,909 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  23%|██▎       | 14/60 [00:54<02:19,  3.03s/it]2025-12-23 08:13:59,488 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  25%|██▌       | 15/60 [01:00<03:04,  4.10s/it]2025-12-23 08:14:06,122 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  27%|██▋       | 16/60 [01:07<03:34,  4.87s/it]2025-12-23 08:14:08,221 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  28%|██▊       | 17/60 [01:09<02:53,  4.03s/it]2025-12-23 08:14:09,995 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  30%|███       | 18/60 [01:11<02:20,  3.35s/it]2025-12-23 08:14:11,500 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  32%|███▏      | 19/60 [01:12<01:54,  2.80s/it]2025-12-23 08:14:18,150 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  33%|███▎      | 20/60 [01:19<02:38,  3.96s/it]2025-12-23 08:14:24,853 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  35%|███▌      | 21/60 [01:26<03:06,  4.78s/it]2025-12-23 08:14:27,935 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  37%|███▋      | 22/60 [01:29<02:42,  4.27s/it]2025-12-23 08:14:34,522 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  38%|███▊      | 23/60 [01:35<03:03,  4.97s/it]2025-12-23 08:14:36,652 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  40%|████      | 24/60 [01:37<02:28,  4.11s/it]2025-12-23 08:14:43,337 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  42%|████▏     | 25/60 [01:44<02:50,  4.88s/it]2025-12-23 08:14:45,542 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  43%|████▎     | 26/60 [01:46<02:18,  4.08s/it]2025-12-23 08:14:48,927 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  45%|████▌     | 27/60 [01:50<02:07,  3.87s/it]2025-12-23 08:14:52,095 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  47%|████▋     | 28/60 [01:53<01:57,  3.66s/it]2025-12-23 08:14:53,186 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  48%|████▊     | 29/60 [01:54<01:29,  2.89s/it]2025-12-23 08:14:54,566 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  50%|█████     | 30/60 [01:55<01:13,  2.44s/it]2025-12-23 08:15:01,146 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  52%|█████▏    | 31/60 [02:02<01:46,  3.68s/it]2025-12-23 08:15:07,775 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  53%|█████▎    | 32/60 [02:08<02:07,  4.57s/it]2025-12-23 08:15:14,435 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  55%|█████▌    | 33/60 [02:15<02:20,  5.20s/it]2025-12-23 08:15:19,180 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  57%|█████▋    | 34/60 [02:20<02:11,  5.06s/it]2025-12-23 08:15:23,503 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  58%|█████▊    | 35/60 [02:24<02:00,  4.84s/it]2025-12-23 08:15:27,496 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  60%|██████    | 36/60 [02:28<01:50,  4.59s/it]2025-12-23 08:15:30,066 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  62%|██████▏   | 37/60 [02:31<01:31,  3.98s/it]2025-12-23 08:15:33,308 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  63%|██████▎   | 38/60 [02:34<01:22,  3.76s/it]2025-12-23 08:15:34,659 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  65%|██████▌   | 39/60 [02:35<01:03,  3.03s/it]2025-12-23 08:15:38,339 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  67%|██████▋   | 40/60 [02:39<01:04,  3.23s/it]2025-12-23 08:15:42,209 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  68%|██████▊   | 41/60 [02:43<01:05,  3.42s/it]2025-12-23 08:15:45,365 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  70%|███████   | 42/60 [02:46<01:00,  3.34s/it]2025-12-23 08:15:47,728 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  72%|███████▏  | 43/60 [02:48<00:51,  3.05s/it]2025-12-23 08:15:51,190 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  73%|███████▎  | 44/60 [02:52<00:50,  3.17s/it]2025-12-23 08:15:53,960 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  75%|███████▌  | 45/60 [02:55<00:45,  3.05s/it]2025-12-23 08:15:57,240 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  77%|███████▋  | 46/60 [02:58<00:43,  3.12s/it]2025-12-23 08:15:59,558 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  78%|███████▊  | 47/60 [03:00<00:37,  2.88s/it]2025-12-23 08:16:02,889 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  80%|████████  | 48/60 [03:04<00:36,  3.02s/it]2025-12-23 08:16:03,994 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  82%|████████▏ | 49/60 [03:05<00:26,  2.44s/it]2025-12-23 08:16:09,077 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  83%|████████▎ | 50/60 [03:10<00:32,  3.24s/it]2025-12-23 08:16:11,684 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  85%|████████▌ | 51/60 [03:12<00:27,  3.05s/it]2025-12-23 08:16:15,385 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  87%|████████▋ | 52/60 [03:16<00:25,  3.24s/it]2025-12-23 08:16:21,966 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  88%|████████▊ | 53/60 [03:23<00:29,  4.25s/it]2025-12-23 08:16:24,477 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  90%|█████████ | 54/60 [03:25<00:22,  3.72s/it]2025-12-23 08:16:31,124 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  92%|█████████▏| 55/60 [03:32<00:23,  4.60s/it]2025-12-23 08:16:33,697 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  93%|█████████▎| 56/60 [03:34<00:15,  3.99s/it]2025-12-23 08:16:36,201 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  95%|█████████▌| 57/60 [03:37<00:10,  3.54s/it]2025-12-23 08:16:42,867 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  97%|█████████▋| 58/60 [03:44<00:08,  4.48s/it]2025-12-23 08:16:49,417 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  98%|█████████▊| 59/60 [03:50<00:05,  5.10s/it]2025-12-23 08:16:56,069 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4: 100%|██████████| 60/60 [03:57<00:00,  5.57s/it]   ivf_pq/nprobe=4: 100%|██████████| 60/60 [03:57<00:00,  3.95s/it]
+
+   Testing nprobe=8...
+   ivf_pq/nprobe=8:   0%|          | 0/60 [00:00<?, ?it/s]2025-12-23 08:17:02,705 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:   2%|▏         | 1/60 [00:06<06:31,  6.64s/it]2025-12-23 08:17:05,971 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:   3%|▎         | 2/60 [00:09<04:29,  4.65s/it]2025-12-23 08:17:08,889 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:   5%|▌         | 3/60 [00:12<03:39,  3.86s/it]2025-12-23 08:17:11,202 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:   7%|▋         | 4/60 [00:15<03:01,  3.24s/it]2025-12-23 08:17:14,095 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:   8%|▊         | 5/60 [00:18<02:51,  3.12s/it]2025-12-23 08:17:20,688 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  10%|█         | 6/60 [00:24<03:52,  4.31s/it]2025-12-23 08:17:27,437 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  12%|█▏        | 7/60 [00:31<04:30,  5.10s/it]2025-12-23 08:17:34,081 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  13%|█▎        | 8/60 [00:38<04:50,  5.59s/it]2025-12-23 08:17:36,641 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  15%|█▌        | 9/60 [00:40<03:56,  4.64s/it]2025-12-23 08:17:39,193 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  17%|█▋        | 10/60 [00:43<03:19,  4.00s/it]2025-12-23 08:17:42,899 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  18%|█▊        | 11/60 [00:46<03:11,  3.91s/it]2025-12-23 08:17:49,519 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  20%|██        | 12/60 [00:53<03:47,  4.73s/it]2025-12-23 08:17:51,099 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  22%|██▏       | 13/60 [00:55<02:57,  3.78s/it]2025-12-23 08:17:52,890 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  23%|██▎       | 14/60 [00:56<02:26,  3.18s/it]2025-12-23 08:17:59,431 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  25%|██▌       | 15/60 [01:03<03:08,  4.20s/it]2025-12-23 08:18:06,029 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  27%|██▋       | 16/60 [01:09<03:36,  4.92s/it]2025-12-23 08:18:08,111 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  28%|██▊       | 17/60 [01:12<02:54,  4.06s/it]2025-12-23 08:18:09,915 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  30%|███       | 18/60 [01:13<02:21,  3.38s/it]2025-12-23 08:18:11,650 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  32%|███▏      | 19/60 [01:15<01:58,  2.89s/it]2025-12-23 08:18:18,315 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  33%|███▎      | 20/60 [01:22<02:41,  4.03s/it]2025-12-23 08:18:24,922 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  35%|███▌      | 21/60 [01:28<03:07,  4.80s/it]2025-12-23 08:18:28,011 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  37%|███▋      | 22/60 [01:31<02:42,  4.28s/it]2025-12-23 08:18:34,671 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  38%|███▊      | 23/60 [01:38<03:05,  5.00s/it]2025-12-23 08:18:36,803 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  40%|████      | 24/60 [01:40<02:28,  4.14s/it]2025-12-23 08:18:43,495 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  42%|████▏     | 25/60 [01:47<02:51,  4.90s/it]2025-12-23 08:18:45,705 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  43%|████▎     | 26/60 [01:49<02:19,  4.09s/it]2025-12-23 08:18:47,235 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  45%|████▌     | 27/60 [01:51<01:49,  3.33s/it]2025-12-23 08:18:50,407 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  47%|████▋     | 28/60 [01:54<01:44,  3.28s/it]2025-12-23 08:18:51,489 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  48%|████▊     | 29/60 [01:55<01:21,  2.62s/it]2025-12-23 08:18:52,900 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  50%|█████     | 30/60 [01:56<01:07,  2.26s/it]2025-12-23 08:18:59,539 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  52%|█████▏    | 31/60 [02:03<01:43,  3.58s/it]2025-12-23 08:19:06,099 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  53%|█████▎    | 32/60 [02:10<02:05,  4.47s/it]2025-12-23 08:19:12,836 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  55%|█████▌    | 33/60 [02:16<02:19,  5.15s/it]2025-12-23 08:19:17,619 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  57%|█████▋    | 34/60 [02:21<02:10,  5.04s/it]2025-12-23 08:19:21,918 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  58%|█████▊    | 35/60 [02:25<02:00,  4.82s/it]2025-12-23 08:19:25,931 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  60%|██████    | 36/60 [02:29<01:49,  4.58s/it]2025-12-23 08:19:28,131 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  62%|██████▏   | 37/60 [02:32<01:28,  3.86s/it]2025-12-23 08:19:31,390 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  63%|██████▎   | 38/60 [02:35<01:20,  3.68s/it]2025-12-23 08:19:32,760 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  65%|██████▌   | 39/60 [02:36<01:02,  2.98s/it]2025-12-23 08:19:39,410 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  67%|██████▋   | 40/60 [02:43<01:21,  4.09s/it]2025-12-23 08:19:43,343 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  68%|██████▊   | 41/60 [02:47<01:16,  4.04s/it]2025-12-23 08:19:46,519 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  70%|███████   | 42/60 [02:50<01:08,  3.78s/it]2025-12-23 08:19:48,877 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  72%|███████▏  | 43/60 [02:52<00:57,  3.35s/it]2025-12-23 08:19:52,334 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  73%|███████▎  | 44/60 [02:56<00:54,  3.38s/it]2025-12-23 08:19:54,805 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  75%|███████▌  | 45/60 [02:58<00:46,  3.11s/it]2025-12-23 08:19:58,133 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  77%|███████▋  | 46/60 [03:02<00:44,  3.18s/it]2025-12-23 08:20:00,456 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  78%|███████▊  | 47/60 [03:04<00:37,  2.92s/it]2025-12-23 08:20:03,783 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  80%|████████  | 48/60 [03:07<00:36,  3.04s/it]2025-12-23 08:20:04,913 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  82%|████████▏ | 49/60 [03:08<00:27,  2.47s/it]2025-12-23 08:20:09,992 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  83%|████████▎ | 50/60 [03:13<00:32,  3.25s/it]2025-12-23 08:20:12,576 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  85%|████████▌ | 51/60 [03:16<00:27,  3.05s/it]2025-12-23 08:20:16,224 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  87%|████████▋ | 52/60 [03:20<00:25,  3.23s/it]2025-12-23 08:20:20,745 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  88%|████████▊ | 53/60 [03:24<00:25,  3.62s/it]2025-12-23 08:20:23,237 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  90%|█████████ | 54/60 [03:27<00:19,  3.28s/it]2025-12-23 08:20:29,937 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  92%|█████████▏| 55/60 [03:33<00:21,  4.31s/it]2025-12-23 08:20:32,450 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  93%|█████████▎| 56/60 [03:36<00:15,  3.77s/it]2025-12-23 08:20:34,998 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  95%|█████████▌| 57/60 [03:38<00:10,  3.40s/it]2025-12-23 08:20:41,680 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  97%|█████████▋| 58/60 [03:45<00:08,  4.39s/it]2025-12-23 08:20:48,293 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  98%|█████████▊| 59/60 [03:52<00:05,  5.06s/it]2025-12-23 08:20:54,901 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8: 100%|██████████| 60/60 [03:58<00:00,  5.52s/it]   ivf_pq/nprobe=8: 100%|██████████| 60/60 [03:58<00:00,  3.98s/it]
+
+   Testing nprobe=16...
+   ivf_pq/nprobe=16:   0%|          | 0/60 [00:00<?, ?it/s]2025-12-23 08:21:01,558 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:   2%|▏         | 1/60 [00:06<06:32,  6.66s/it]2025-12-23 08:21:04,797 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:   3%|▎         | 2/60 [00:09<04:29,  4.64s/it]2025-12-23 08:21:07,686 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:   5%|▌         | 3/60 [00:12<03:38,  3.84s/it]2025-12-23 08:21:09,961 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:   7%|▋         | 4/60 [00:15<03:00,  3.22s/it]2025-12-23 08:21:12,806 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:   8%|▊         | 5/60 [00:17<02:49,  3.09s/it]2025-12-23 08:21:19,312 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  10%|█         | 6/60 [00:24<03:49,  4.25s/it]2025-12-23 08:21:25,979 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  12%|█▏        | 7/60 [00:31<04:27,  5.04s/it]2025-12-23 08:21:32,507 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  13%|█▎        | 8/60 [00:37<04:46,  5.51s/it]2025-12-23 08:21:35,059 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  15%|█▌        | 9/60 [00:40<03:53,  4.58s/it]2025-12-23 08:21:37,607 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  17%|█▋        | 10/60 [00:42<03:17,  3.96s/it]2025-12-23 08:21:41,290 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  18%|█▊        | 11/60 [00:46<03:09,  3.87s/it]2025-12-23 08:21:47,897 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  20%|██        | 12/60 [00:52<03:45,  4.70s/it]2025-12-23 08:21:49,485 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  22%|██▏       | 13/60 [00:54<02:56,  3.76s/it]2025-12-23 08:21:51,268 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  23%|██▎       | 14/60 [00:56<02:25,  3.16s/it]2025-12-23 08:21:57,822 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  25%|██▌       | 15/60 [01:02<03:08,  4.19s/it]2025-12-23 08:22:04,450 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  27%|██▋       | 16/60 [01:09<03:36,  4.93s/it]2025-12-23 08:22:07,418 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  28%|██▊       | 17/60 [01:12<03:06,  4.33s/it]2025-12-23 08:22:09,182 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  30%|███       | 18/60 [01:14<02:29,  3.56s/it]2025-12-23 08:22:11,292 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  32%|███▏      | 19/60 [01:16<02:08,  3.12s/it]2025-12-23 08:22:17,899 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  33%|███▎      | 20/60 [01:23<02:47,  4.18s/it]2025-12-23 08:22:24,528 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  35%|███▌      | 21/60 [01:29<03:11,  4.91s/it]2025-12-23 08:22:27,625 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  37%|███▋      | 22/60 [01:32<02:45,  4.36s/it]2025-12-23 08:22:34,183 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  38%|███▊      | 23/60 [01:39<03:05,  5.03s/it]2025-12-23 08:22:36,316 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  40%|████      | 24/60 [01:41<02:29,  4.15s/it]2025-12-23 08:22:43,008 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  42%|████▏     | 25/60 [01:48<02:52,  4.91s/it]2025-12-23 08:22:45,223 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  43%|████▎     | 26/60 [01:50<02:19,  4.10s/it]2025-12-23 08:22:46,764 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  45%|████▌     | 27/60 [01:51<01:50,  3.34s/it]2025-12-23 08:22:49,905 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  47%|████▋     | 28/60 [01:54<01:44,  3.28s/it]2025-12-23 08:22:50,987 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  48%|████▊     | 29/60 [01:56<01:21,  2.62s/it]2025-12-23 08:22:52,392 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  50%|█████     | 30/60 [01:57<01:07,  2.25s/it]2025-12-23 08:22:58,992 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  52%|█████▏    | 31/60 [02:04<01:43,  3.56s/it]2025-12-23 08:23:05,548 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  53%|█████▎    | 32/60 [02:10<02:04,  4.46s/it]2025-12-23 08:23:12,179 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  55%|█████▌    | 33/60 [02:17<02:18,  5.11s/it]2025-12-23 08:23:16,891 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  57%|█████▋    | 34/60 [02:21<02:09,  4.99s/it]2025-12-23 08:23:21,107 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  58%|█████▊    | 35/60 [02:26<01:58,  4.76s/it]2025-12-23 08:23:25,104 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  60%|██████    | 36/60 [02:30<01:48,  4.53s/it]2025-12-23 08:23:27,280 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  62%|██████▏   | 37/60 [02:32<01:27,  3.82s/it]2025-12-23 08:23:30,588 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  63%|██████▎   | 38/60 [02:35<01:20,  3.67s/it]2025-12-23 08:23:31,946 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  65%|██████▌   | 39/60 [02:37<01:02,  2.97s/it]2025-12-23 08:23:38,612 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  67%|██████▋   | 40/60 [02:43<01:21,  4.09s/it]2025-12-23 08:23:42,534 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  68%|██████▊   | 41/60 [02:47<01:16,  4.03s/it]2025-12-23 08:23:49,055 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  70%|███████   | 42/60 [02:54<01:26,  4.78s/it]2025-12-23 08:23:51,429 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  72%|███████▏  | 43/60 [02:56<01:08,  4.06s/it]2025-12-23 08:23:54,909 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  73%|███████▎  | 44/60 [02:59<01:02,  3.88s/it]2025-12-23 08:23:56,441 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  75%|███████▌  | 45/60 [03:01<00:47,  3.17s/it]2025-12-23 08:23:59,768 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  77%|███████▋  | 46/60 [03:04<00:45,  3.22s/it]2025-12-23 08:24:02,091 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  78%|███████▊  | 47/60 [03:07<00:38,  2.95s/it]2025-12-23 08:24:05,390 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  80%|████████  | 48/60 [03:10<00:36,  3.06s/it]2025-12-23 08:24:06,505 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  82%|████████▏ | 49/60 [03:11<00:27,  2.47s/it]2025-12-23 08:24:11,535 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  83%|████████▎ | 50/60 [03:16<00:32,  3.24s/it]2025-12-23 08:24:14,077 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  85%|████████▌ | 51/60 [03:19<00:27,  3.03s/it]2025-12-23 08:24:17,719 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  87%|████████▋ | 52/60 [03:22<00:25,  3.22s/it]2025-12-23 08:24:22,168 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  88%|████████▊ | 53/60 [03:27<00:25,  3.59s/it]2025-12-23 08:24:24,614 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  90%|█████████ | 54/60 [03:29<00:19,  3.24s/it]2025-12-23 08:24:31,308 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  92%|█████████▏| 55/60 [03:36<00:21,  4.28s/it]2025-12-23 08:24:33,875 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  93%|█████████▎| 56/60 [03:38<00:15,  3.76s/it]2025-12-23 08:24:36,396 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  95%|█████████▌| 57/60 [03:41<00:10,  3.39s/it]2025-12-23 08:24:43,052 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  97%|█████████▋| 58/60 [03:48<00:08,  4.37s/it]2025-12-23 08:24:49,646 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  98%|█████████▊| 59/60 [03:54<00:05,  5.04s/it]2025-12-23 08:24:56,310 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16: 100%|██████████| 60/60 [04:01<00:00,  5.53s/it]   ivf_pq/nprobe=16: 100%|██████████| 60/60 [04:01<00:00,  4.02s/it]
+2025-12-23 08:24:56,406 WARNING [src.models.retriever_advanced] PQ training: 2199 vectors < recommended 4096
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+WARNING clustering 2199 points to 256 centroids: please provide at least 9984 training points
+
+📦 Building IVF_PQ index...
+  ⚠️ PQ training: 2199 vectors, recommended ≥4096 for stable PQ training
+  ⚠️ Adjusted nlist from 256 to 56 (need 39*nlist training points)
+   ✓ Index built: 2199 vectors, 0.58 MB
+
+   Testing nprobe=4...
+   ivf_pq/nprobe=4:   0%|          | 0/60 [00:00<?, ?it/s]2025-12-23 08:25:03,129 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:   2%|▏         | 1/60 [00:06<06:34,  6.69s/it]2025-12-23 08:25:06,406 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:   3%|▎         | 2/60 [00:09<04:30,  4.67s/it]2025-12-23 08:25:08,860 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:   5%|▌         | 3/60 [00:12<03:28,  3.66s/it]2025-12-23 08:25:11,185 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:   7%|▋         | 4/60 [00:14<02:55,  3.13s/it]2025-12-23 08:25:14,065 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:   8%|▊         | 5/60 [00:17<02:47,  3.04s/it]2025-12-23 08:25:20,574 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  10%|█         | 6/60 [00:24<03:48,  4.23s/it]2025-12-23 08:25:27,236 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  12%|█▏        | 7/60 [00:30<04:26,  5.02s/it]2025-12-23 08:25:33,874 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  13%|█▎        | 8/60 [00:37<04:47,  5.53s/it]2025-12-23 08:25:36,436 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  15%|█▌        | 9/60 [00:39<03:54,  4.60s/it]2025-12-23 08:25:38,981 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  17%|█▋        | 10/60 [00:42<03:18,  3.97s/it]2025-12-23 08:25:42,708 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  18%|█▊        | 11/60 [00:46<03:10,  3.89s/it]2025-12-23 08:25:45,640 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  20%|██        | 12/60 [00:49<02:52,  3.60s/it]2025-12-23 08:25:47,201 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  22%|██▏       | 13/60 [00:50<02:20,  2.98s/it]2025-12-23 08:25:50,367 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  23%|██▎       | 14/60 [00:53<02:19,  3.04s/it]2025-12-23 08:25:57,054 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  25%|██▌       | 15/60 [01:00<03:06,  4.14s/it]2025-12-23 08:26:03,729 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  27%|██▋       | 16/60 [01:07<03:35,  4.91s/it]2025-12-23 08:26:05,800 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  28%|██▊       | 17/60 [01:09<02:53,  4.05s/it]2025-12-23 08:26:07,583 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  30%|███       | 18/60 [01:11<02:21,  3.36s/it]2025-12-23 08:26:09,087 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  32%|███▏      | 19/60 [01:12<01:55,  2.81s/it]2025-12-23 08:26:15,789 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  33%|███▎      | 20/60 [01:19<02:39,  3.98s/it]2025-12-23 08:26:22,397 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  35%|███▌      | 21/60 [01:25<03:05,  4.77s/it]2025-12-23 08:26:25,494 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  37%|███▋      | 22/60 [01:29<02:42,  4.26s/it]2025-12-23 08:26:32,121 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  38%|███▊      | 23/60 [01:35<03:04,  4.98s/it]2025-12-23 08:26:34,255 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  40%|████      | 24/60 [01:37<02:28,  4.12s/it]2025-12-23 08:26:40,986 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  42%|████▏     | 25/60 [01:44<02:51,  4.90s/it]2025-12-23 08:26:43,198 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  43%|████▎     | 26/60 [01:46<02:19,  4.10s/it]2025-12-23 08:26:46,542 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  45%|████▌     | 27/60 [01:50<02:07,  3.87s/it]2025-12-23 08:26:49,662 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  47%|████▋     | 28/60 [01:53<01:56,  3.65s/it]2025-12-23 08:26:50,752 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  48%|████▊     | 29/60 [01:54<01:29,  2.88s/it]2025-12-23 08:26:52,165 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  50%|█████     | 30/60 [01:55<01:13,  2.44s/it]2025-12-23 08:26:58,723 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  52%|█████▏    | 31/60 [02:02<01:46,  3.68s/it]2025-12-23 08:27:05,279 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  53%|█████▎    | 32/60 [02:08<02:07,  4.54s/it]2025-12-23 08:27:11,920 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  55%|█████▌    | 33/60 [02:15<02:19,  5.17s/it]2025-12-23 08:27:16,663 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  57%|█████▋    | 34/60 [02:20<02:11,  5.04s/it]2025-12-23 08:27:20,901 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  58%|█████▊    | 35/60 [02:24<02:00,  4.80s/it]2025-12-23 08:27:24,918 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  60%|██████    | 36/60 [02:28<01:49,  4.57s/it]2025-12-23 08:27:27,451 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  62%|██████▏   | 37/60 [02:30<01:30,  3.95s/it]2025-12-23 08:27:30,708 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  63%|██████▎   | 38/60 [02:34<01:22,  3.74s/it]2025-12-23 08:27:32,076 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  65%|██████▌   | 39/60 [02:35<01:03,  3.03s/it]2025-12-23 08:27:35,806 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  67%|██████▋   | 40/60 [02:39<01:04,  3.24s/it]2025-12-23 08:27:39,679 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  68%|██████▊   | 41/60 [02:43<01:05,  3.43s/it]2025-12-23 08:27:42,856 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  70%|███████   | 42/60 [02:46<01:00,  3.36s/it]2025-12-23 08:27:45,248 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  72%|███████▏  | 43/60 [02:48<00:52,  3.07s/it]2025-12-23 08:27:48,730 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  73%|███████▎  | 44/60 [02:52<00:51,  3.19s/it]2025-12-23 08:27:51,512 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  75%|███████▌  | 45/60 [02:55<00:45,  3.07s/it]2025-12-23 08:27:54,867 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  77%|███████▋  | 46/60 [02:58<00:44,  3.15s/it]2025-12-23 08:27:57,188 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  78%|███████▊  | 47/60 [03:00<00:37,  2.90s/it]2025-12-23 08:28:00,458 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  80%|████████  | 48/60 [03:03<00:36,  3.02s/it]2025-12-23 08:28:01,577 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  82%|████████▏ | 49/60 [03:05<00:26,  2.44s/it]2025-12-23 08:28:06,667 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  83%|████████▎ | 50/60 [03:10<00:32,  3.24s/it]2025-12-23 08:28:09,288 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  85%|████████▌ | 51/60 [03:12<00:27,  3.06s/it]2025-12-23 08:28:12,959 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  87%|████████▋ | 52/60 [03:16<00:25,  3.24s/it]2025-12-23 08:28:19,554 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  88%|████████▊ | 53/60 [03:23<00:29,  4.25s/it]2025-12-23 08:28:22,069 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  90%|█████████ | 54/60 [03:25<00:22,  3.72s/it]2025-12-23 08:28:28,769 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  92%|█████████▏| 55/60 [03:32<00:23,  4.62s/it]2025-12-23 08:28:31,313 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  93%|█████████▎| 56/60 [03:34<00:15,  4.00s/it]2025-12-23 08:28:33,812 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  95%|█████████▌| 57/60 [03:37<00:10,  3.54s/it]2025-12-23 08:28:40,390 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  97%|█████████▋| 58/60 [03:43<00:08,  4.46s/it]2025-12-23 08:28:46,931 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  98%|█████████▊| 59/60 [03:50<00:05,  5.08s/it]2025-12-23 08:28:53,550 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4: 100%|██████████| 60/60 [03:57<00:00,  5.55s/it]   ivf_pq/nprobe=4: 100%|██████████| 60/60 [03:57<00:00,  3.95s/it]
+
+   Testing nprobe=8...
+   ivf_pq/nprobe=8:   0%|          | 0/60 [00:00<?, ?it/s]2025-12-23 08:29:00,170 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:   2%|▏         | 1/60 [00:06<06:31,  6.63s/it]2025-12-23 08:29:03,431 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:   3%|▎         | 2/60 [00:09<04:28,  4.64s/it]2025-12-23 08:29:06,324 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:   5%|▌         | 3/60 [00:12<03:38,  3.84s/it]2025-12-23 08:29:08,615 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:   7%|▋         | 4/60 [00:15<03:00,  3.23s/it]2025-12-23 08:29:11,452 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:   8%|▊         | 5/60 [00:17<02:49,  3.09s/it]2025-12-23 08:29:17,924 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  10%|█         | 6/60 [00:24<03:49,  4.24s/it]2025-12-23 08:29:24,520 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  12%|█▏        | 7/60 [00:30<04:25,  5.01s/it]2025-12-23 08:29:31,145 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  13%|█▎        | 8/60 [00:37<04:47,  5.52s/it]2025-12-23 08:29:33,691 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  15%|█▌        | 9/60 [00:40<03:53,  4.59s/it]2025-12-23 08:29:36,260 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  17%|█▋        | 10/60 [00:42<03:18,  3.96s/it]2025-12-23 08:29:39,980 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  18%|█▊        | 11/60 [00:46<03:10,  3.89s/it]2025-12-23 08:29:46,708 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  20%|██        | 12/60 [00:53<03:48,  4.75s/it]2025-12-23 08:29:48,256 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  22%|██▏       | 13/60 [00:54<02:57,  3.78s/it]2025-12-23 08:29:50,058 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  23%|██▎       | 14/60 [00:56<02:26,  3.18s/it]2025-12-23 08:29:56,668 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  25%|██▌       | 15/60 [01:03<03:09,  4.22s/it]2025-12-23 08:30:03,235 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  27%|██▋       | 16/60 [01:09<03:36,  4.93s/it]2025-12-23 08:30:05,570 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  28%|██▊       | 17/60 [01:12<02:58,  4.14s/it]2025-12-23 08:30:07,943 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  30%|███       | 18/60 [01:14<02:31,  3.61s/it]2025-12-23 08:30:10,267 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  32%|███▏      | 19/60 [01:16<02:12,  3.23s/it]2025-12-23 08:30:18,874 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  33%|███▎      | 20/60 [01:25<03:13,  4.85s/it]2025-12-23 08:30:27,757 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  35%|███▌      | 21/60 [01:34<03:56,  6.05s/it]2025-12-23 08:30:31,960 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  37%|███▋      | 22/60 [01:38<03:28,  5.50s/it]2025-12-23 08:30:40,764 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  38%|███▊      | 23/60 [01:47<04:00,  6.50s/it]2025-12-23 08:30:43,609 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  40%|████      | 24/60 [01:50<03:14,  5.39s/it]2025-12-23 08:30:52,556 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  42%|████▏     | 25/60 [01:58<03:46,  6.46s/it]2025-12-23 08:30:55,544 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  43%|████▎     | 26/60 [02:01<03:04,  5.42s/it]2025-12-23 08:30:57,560 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  45%|████▌     | 27/60 [02:04<02:25,  4.40s/it]2025-12-23 08:31:01,783 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  47%|████▋     | 28/60 [02:08<02:19,  4.35s/it]2025-12-23 08:31:03,227 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  48%|████▊     | 29/60 [02:09<01:47,  3.47s/it]2025-12-23 08:31:05,123 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  50%|█████     | 30/60 [02:11<01:30,  3.00s/it]2025-12-23 08:31:13,919 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  52%|█████▏    | 31/60 [02:20<02:17,  4.74s/it]2025-12-23 08:31:22,818 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  53%|█████▎    | 32/60 [02:29<02:47,  6.00s/it]2025-12-23 08:31:31,768 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  55%|█████▌    | 33/60 [02:38<03:05,  6.88s/it]2025-12-23 08:31:38,002 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  57%|█████▋    | 34/60 [02:44<02:53,  6.68s/it]2025-12-23 08:31:43,699 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  58%|█████▊    | 35/60 [02:50<02:39,  6.39s/it]2025-12-23 08:31:49,073 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  60%|██████    | 36/60 [02:55<02:26,  6.09s/it]2025-12-23 08:31:51,972 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  62%|██████▏   | 37/60 [02:58<01:57,  5.13s/it]2025-12-23 08:31:56,228 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  63%|██████▎   | 38/60 [03:02<01:46,  4.86s/it]2025-12-23 08:31:58,051 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  65%|██████▌   | 39/60 [03:04<01:22,  3.95s/it]2025-12-23 08:32:06,924 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  67%|██████▋   | 40/60 [03:13<01:48,  5.43s/it]2025-12-23 08:32:12,082 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  68%|██████▊   | 41/60 [03:18<01:41,  5.35s/it]2025-12-23 08:32:16,313 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  70%|███████   | 42/60 [03:22<01:30,  5.02s/it]2025-12-23 08:32:19,528 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  72%|███████▏  | 43/60 [03:25<01:16,  4.47s/it]2025-12-23 08:32:24,236 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  73%|███████▎  | 44/60 [03:30<01:12,  4.54s/it]2025-12-23 08:32:27,513 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  75%|███████▌  | 45/60 [03:33<01:02,  4.16s/it]2025-12-23 08:32:32,088 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  77%|███████▋  | 46/60 [03:38<01:00,  4.29s/it]2025-12-23 08:32:35,281 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  78%|███████▊  | 47/60 [03:41<00:51,  3.96s/it]2025-12-23 08:32:39,734 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  80%|████████  | 48/60 [03:46<00:49,  4.11s/it]2025-12-23 08:32:41,229 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  82%|████████▏ | 49/60 [03:47<00:36,  3.32s/it]2025-12-23 08:32:48,125 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  83%|████████▎ | 50/60 [03:54<00:43,  4.40s/it]2025-12-23 08:32:51,622 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  85%|████████▌ | 51/60 [03:58<00:37,  4.13s/it]2025-12-23 08:32:56,601 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  87%|████████▋ | 52/60 [04:03<00:35,  4.38s/it]2025-12-23 08:33:02,531 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  88%|████████▊ | 53/60 [04:08<00:33,  4.85s/it]2025-12-23 08:33:05,811 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  90%|█████████ | 54/60 [04:12<00:26,  4.37s/it]2025-12-23 08:33:14,652 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  92%|█████████▏| 55/60 [04:21<00:28,  5.72s/it]2025-12-23 08:33:18,017 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  93%|█████████▎| 56/60 [04:24<00:20,  5.01s/it]2025-12-23 08:33:21,393 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  95%|█████████▌| 57/60 [04:27<00:13,  4.52s/it]2025-12-23 08:33:30,328 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  97%|█████████▋| 58/60 [04:36<00:11,  5.85s/it]2025-12-23 08:33:39,191 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8:  98%|█████████▊| 59/60 [04:45<00:06,  6.75s/it]2025-12-23 08:33:48,151 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=8: 100%|██████████| 60/60 [04:54<00:00,  7.42s/it]   ivf_pq/nprobe=8: 100%|██████████| 60/60 [04:54<00:00,  4.91s/it]
+
+   Testing nprobe=16...
+   ivf_pq/nprobe=16:   0%|          | 0/60 [00:00<?, ?it/s]2025-12-23 08:33:57,116 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:   2%|▏         | 1/60 [00:08<08:49,  8.97s/it]2025-12-23 08:34:01,501 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:   3%|▎         | 2/60 [00:13<06:03,  6.26s/it]2025-12-23 08:34:05,393 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:   5%|▌         | 3/60 [00:17<04:55,  5.18s/it]2025-12-23 08:34:08,469 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:   7%|▋         | 4/60 [00:20<04:03,  4.35s/it]2025-12-23 08:34:12,271 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:   8%|▊         | 5/60 [00:24<03:48,  4.15s/it]2025-12-23 08:34:21,032 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  10%|█         | 6/60 [00:32<05:09,  5.72s/it]2025-12-23 08:34:29,950 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  12%|█▏        | 7/60 [00:41<05:58,  6.77s/it]2025-12-23 08:34:38,789 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  13%|█▎        | 8/60 [00:50<06:26,  7.43s/it]2025-12-23 08:34:42,161 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  15%|█▌        | 9/60 [00:53<05:13,  6.15s/it]2025-12-23 08:34:45,572 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  17%|█▋        | 10/60 [00:57<04:25,  5.31s/it]2025-12-23 08:34:50,563 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  18%|█▊        | 11/60 [01:02<04:15,  5.21s/it]2025-12-23 08:34:59,607 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  20%|██        | 12/60 [01:11<05:06,  6.38s/it]2025-12-23 08:35:01,762 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  22%|██▏       | 13/60 [01:13<03:59,  5.10s/it]2025-12-23 08:35:04,165 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  23%|██▎       | 14/60 [01:15<03:17,  4.28s/it]2025-12-23 08:35:13,018 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  25%|██▌       | 15/60 [01:24<04:14,  5.66s/it]2025-12-23 08:35:22,065 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  27%|██▋       | 16/60 [01:33<04:54,  6.69s/it]2025-12-23 08:35:26,119 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  28%|██▊       | 17/60 [01:37<04:13,  5.89s/it]2025-12-23 08:35:28,488 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  30%|███       | 18/60 [01:40<03:22,  4.83s/it]2025-12-23 08:35:31,363 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  32%|███▏      | 19/60 [01:43<02:53,  4.24s/it]2025-12-23 08:35:40,522 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  33%|███▎      | 20/60 [01:52<03:49,  5.73s/it]2025-12-23 08:35:49,578 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  35%|███▌      | 21/60 [02:01<04:22,  6.72s/it]2025-12-23 08:35:53,753 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  37%|███▋      | 22/60 [02:05<03:46,  5.95s/it]2025-12-23 08:36:02,834 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  38%|███▊      | 23/60 [02:14<04:15,  6.90s/it]2025-12-23 08:36:05,778 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  40%|████      | 24/60 [02:17<03:25,  5.71s/it]2025-12-23 08:36:14,894 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  42%|████▏     | 25/60 [02:26<03:55,  6.73s/it]2025-12-23 08:36:17,891 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  43%|████▎     | 26/60 [02:29<03:10,  5.61s/it]2025-12-23 08:36:19,978 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  45%|████▌     | 27/60 [02:31<02:30,  4.55s/it]2025-12-23 08:36:24,386 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  47%|████▋     | 28/60 [02:36<02:24,  4.51s/it]2025-12-23 08:36:25,815 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  48%|████▊     | 29/60 [02:37<01:51,  3.58s/it]2025-12-23 08:36:27,723 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  50%|█████     | 30/60 [02:39<01:32,  3.08s/it]2025-12-23 08:36:36,964 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  52%|█████▏    | 31/60 [02:48<02:23,  4.93s/it]2025-12-23 08:36:46,075 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  53%|█████▎    | 32/60 [02:57<02:53,  6.19s/it]2025-12-23 08:36:55,083 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  55%|█████▌    | 33/60 [03:06<03:09,  7.04s/it]2025-12-23 08:37:01,534 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  57%|█████▋    | 34/60 [03:13<02:58,  6.85s/it]2025-12-23 08:37:07,356 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  58%|█████▊    | 35/60 [03:19<02:43,  6.55s/it]2025-12-23 08:37:12,662 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  60%|██████    | 36/60 [03:24<02:28,  6.18s/it]2025-12-23 08:37:15,556 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  62%|██████▏   | 37/60 [03:27<01:59,  5.19s/it]2025-12-23 08:37:19,854 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  63%|██████▎   | 38/60 [03:31<01:48,  4.92s/it]2025-12-23 08:37:21,693 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  65%|██████▌   | 39/60 [03:33<01:23,  3.99s/it]2025-12-23 08:37:30,703 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  67%|██████▋   | 40/60 [03:42<01:50,  5.51s/it]2025-12-23 08:37:35,926 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  68%|██████▊   | 41/60 [03:47<01:42,  5.42s/it]2025-12-23 08:37:44,874 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  70%|███████   | 42/60 [03:56<01:56,  6.48s/it]2025-12-23 08:37:48,140 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  72%|███████▏  | 43/60 [03:59<01:33,  5.51s/it]2025-12-23 08:37:52,861 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  73%|███████▎  | 44/60 [04:04<01:24,  5.28s/it]2025-12-23 08:37:54,968 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  75%|███████▌  | 45/60 [04:06<01:04,  4.32s/it]2025-12-23 08:37:59,493 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  77%|███████▋  | 46/60 [04:11<01:01,  4.39s/it]2025-12-23 08:38:02,692 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  78%|███████▊  | 47/60 [04:14<00:52,  4.03s/it]2025-12-23 08:38:07,125 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  80%|████████  | 48/60 [04:18<00:49,  4.15s/it]2025-12-23 08:38:08,611 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  82%|████████▏ | 49/60 [04:20<00:36,  3.35s/it]2025-12-23 08:38:15,452 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  83%|████████▎ | 50/60 [04:27<00:44,  4.40s/it]2025-12-23 08:38:18,956 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  85%|████████▌ | 51/60 [04:30<00:37,  4.13s/it]2025-12-23 08:38:23,889 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  87%|████████▋ | 52/60 [04:35<00:34,  4.37s/it]2025-12-23 08:38:29,998 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  88%|████████▊ | 53/60 [04:41<00:34,  4.89s/it]2025-12-23 08:38:33,302 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  90%|█████████ | 54/60 [04:45<00:26,  4.42s/it]2025-12-23 08:38:42,381 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  92%|█████████▏| 55/60 [04:54<00:29,  5.81s/it]2025-12-23 08:38:45,719 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  93%|█████████▎| 56/60 [04:57<00:20,  5.07s/it]2025-12-23 08:38:49,034 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  95%|█████████▌| 57/60 [05:00<00:13,  4.54s/it]2025-12-23 08:38:57,999 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  97%|█████████▋| 58/60 [05:09<00:11,  5.87s/it]2025-12-23 08:39:06,883 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16:  98%|█████████▊| 59/60 [05:18<00:06,  6.78s/it]2025-12-23 08:39:15,918 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=16: 100%|██████████| 60/60 [05:27<00:00,  7.46s/it]   ivf_pq/nprobe=16: 100%|██████████| 60/60 [05:27<00:00,  5.46s/it]
+2025-12-23 08:39:16,031 WARNING [src.models.retriever_advanced] PQ training: 2199 vectors < recommended 4096
+
+📦 Building IVF_PQ index...
+  ⚠️ PQ training: 2199 vectors, recommended ≥4096 for stable PQ training
+  ⚠️ Adjusted nlist from 64 to 56 (need 39*nlist training points)
+   ✓ Index built: 2199 vectors, 0.17 MB
+
+   Testing nprobe=4...
+   ivf_pq/nprobe=4:   0%|          | 0/60 [00:00<?, ?it/s]2025-12-23 08:39:24,987 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:   2%|▏         | 1/60 [00:08<08:45,  8.91s/it]2025-12-23 08:39:29,822 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:   3%|▎         | 2/60 [00:13<06:17,  6.51s/it]2025-12-23 08:39:33,148 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:   5%|▌         | 3/60 [00:17<04:48,  5.06s/it]2025-12-23 08:39:36,109 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:   7%|▋         | 4/60 [00:20<03:56,  4.23s/it]2025-12-23 08:39:41,414 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:   8%|▊         | 5/60 [00:25<04:14,  4.62s/it]2025-12-23 08:39:43,852 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  10%|█         | 6/60 [00:27<03:29,  3.88s/it]2025-12-23 08:39:47,592 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  12%|█▏        | 7/60 [00:31<03:23,  3.83s/it]2025-12-23 08:39:51,959 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  13%|█▎        | 8/60 [00:35<03:28,  4.01s/it]2025-12-23 08:39:55,375 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  15%|█▌        | 9/60 [00:39<03:14,  3.82s/it]2025-12-23 08:40:04,273 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  17%|█▋        | 10/60 [00:48<04:29,  5.39s/it]2025-12-23 08:40:13,325 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  18%|█▊        | 11/60 [00:57<05:19,  6.51s/it]2025-12-23 08:40:18,191 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  20%|██        | 12/60 [01:02<04:48,  6.01s/it]2025-12-23 08:40:20,470 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  22%|██▏       | 13/60 [01:04<03:49,  4.87s/it]2025-12-23 08:40:23,326 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  23%|██▎       | 14/60 [01:07<03:16,  4.27s/it]2025-12-23 08:40:28,090 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  25%|██▌       | 15/60 [01:12<03:18,  4.42s/it]2025-12-23 08:40:37,146 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  27%|██▋       | 16/60 [01:21<04:15,  5.82s/it]2025-12-23 08:40:40,201 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  28%|██▊       | 17/60 [01:24<03:34,  4.98s/it]2025-12-23 08:40:41,812 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  30%|███       | 18/60 [01:25<02:46,  3.96s/it]2025-12-23 08:40:44,451 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  32%|███▏      | 19/60 [01:28<02:26,  3.57s/it]2025-12-23 08:40:48,509 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  33%|███▎      | 20/60 [01:32<02:28,  3.72s/it]2025-12-23 08:40:51,736 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  35%|███▌      | 21/60 [01:35<02:19,  3.57s/it]2025-12-23 08:40:56,067 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  37%|███▋      | 22/60 [01:39<02:24,  3.80s/it]2025-12-23 08:41:05,111 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  38%|███▊      | 23/60 [01:49<03:19,  5.38s/it]2025-12-23 08:41:07,669 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  40%|████      | 24/60 [01:51<02:42,  4.52s/it]2025-12-23 08:41:17,861 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  42%|████▏     | 25/60 [02:01<03:38,  6.24s/it]2025-12-23 08:41:21,483 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  43%|████▎     | 26/60 [02:05<03:05,  5.44s/it]2025-12-23 08:41:32,492 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  45%|████▌     | 27/60 [02:16<03:54,  7.12s/it]2025-12-23 08:41:37,511 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  47%|████▋     | 28/60 [02:21<03:27,  6.48s/it]2025-12-23 08:41:40,341 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  48%|████▊     | 29/60 [02:24<02:47,  5.40s/it]2025-12-23 08:41:42,585 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  50%|█████     | 30/60 [02:26<02:13,  4.44s/it]2025-12-23 08:41:45,235 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  52%|█████▏    | 31/60 [02:29<01:53,  3.90s/it]2025-12-23 08:41:56,188 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  53%|█████▎    | 32/60 [02:40<02:48,  6.02s/it]2025-12-23 08:42:07,161 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  55%|█████▌    | 33/60 [02:51<03:22,  7.51s/it]2025-12-23 08:42:13,842 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  57%|█████▋    | 34/60 [02:57<03:08,  7.26s/it]2025-12-23 08:42:18,998 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  58%|█████▊    | 35/60 [03:02<02:45,  6.63s/it]2025-12-23 08:42:28,012 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  60%|██████    | 36/60 [03:11<02:56,  7.35s/it]2025-12-23 08:42:37,108 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  62%|██████▏   | 37/60 [03:21<03:00,  7.87s/it]2025-12-23 08:42:39,851 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  63%|██████▎   | 38/60 [03:23<02:19,  6.33s/it]2025-12-23 08:42:41,691 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  65%|██████▌   | 39/60 [03:25<01:44,  4.98s/it]2025-12-23 08:42:50,645 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  67%|██████▋   | 40/60 [03:34<02:03,  6.18s/it]2025-12-23 08:42:54,123 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  68%|██████▊   | 41/60 [03:38<01:41,  5.37s/it]2025-12-23 08:42:59,317 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  70%|███████   | 42/60 [03:43<01:35,  5.32s/it]2025-12-23 08:43:03,996 INFO [absl] Using default tokenizer.
+   ivf_pq/nprobe=4:  72%|███████▏  | 43/60 [03:47<01:27,  5.12s/it]

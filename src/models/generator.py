@@ -72,10 +72,10 @@ def generate_from_chunks(
     device: str = "cuda"
 ) -> str:
     """
-    Generate summary from concatenated chunks using LED/LongT5.
+    Generate summary from concatenated chunks using LED/BigBird/LongT5.
     
     Args:
-        model: Loaded summarization model (LED or LongT5)
+        model: Loaded summarization model (LED, BigBird, or LongT5)
         tokenizer: Model tokenizer
         context_text: Concatenated chunk text
         gen_max_tokens: Maximum tokens to generate
@@ -86,17 +86,39 @@ def generate_from_chunks(
     """
     model.eval()
     
+    # Detect model type for proper configuration
+    is_led = hasattr(model.config, "model_type") and "led" in model.config.model_type.lower()
+    is_bigbird = hasattr(model.config, "model_type") and "bigbird" in model.config.model_type.lower()
+    is_longt5 = hasattr(model.config, "model_type") and "longt5" in model.config.model_type.lower()
+    
+    # Set max_length based on model
+    if is_bigbird:
+        max_length = 4096  # BigBird-Pegasus max input
+    elif is_longt5:
+        max_length = 16384  # LongT5 supports up to 16K
+    else:
+        max_length = 16384  # LED max input
+    
     # Tokenize input
     inputs = tokenizer(
         context_text,
         return_tensors="pt",
         truncation=True,
-        max_length=16384,  # LED max input
+        max_length=max_length,
         padding=False
     ).to(device)
     
-    # Check if LED model (for global attention)
-    is_led = hasattr(model.config, "model_type") and "led" in model.config.model_type.lower()
+    # BigBird requires sequence length divisible by block_size (64)
+    if is_bigbird:
+        seq_len = inputs["input_ids"].shape[1]
+        block_size = 64
+        if seq_len % block_size != 0:
+            padding_length = block_size - (seq_len % block_size)
+            pad_ids = torch.full((1, padding_length), tokenizer.pad_token_id, dtype=torch.long, device=device)
+            inputs["input_ids"] = torch.cat([inputs["input_ids"], pad_ids], dim=1)
+            if "attention_mask" in inputs:
+                pad_mask = torch.zeros((1, padding_length), dtype=torch.long, device=device)
+                inputs["attention_mask"] = torch.cat([inputs["attention_mask"], pad_mask], dim=1)
     
     if is_led:
         # Add global attention to first token (BOS)

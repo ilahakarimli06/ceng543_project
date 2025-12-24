@@ -1,0 +1,245 @@
+{
+  "config": {
+    "model": "google/bigbird-pegasus-large-arxiv",
+    "model_family": "BigBird-Pegasus",
+    "attention": "default",
+    "window_size": 1024,
+    "overlap": 256,
+    "global_tokens": 0,
+    "aggregation": "hierarchical",
+    "category": "aggregation_test"
+  },
+  "summary_stats": {
+    "total_samples": 30,
+    "avg_rougeL": 0.20725605106104455,
+    "avg_bertscore": 0.839990746974945,
+    "min_rougeL": 0.12048192771084336,
+    "min_bertscore": 0.803327202796936
+  },
+  "samples": [
+    {
+      "sample_id": 0,
+      "doc_id": "dev_arxiv_191",
+      "source_preview": "coupled spin 1/2 chains have attracted much attention lately due to the large number of their experimental realizations , as well as to the variety of theoretical techniques , both analytical and numerical , available to study the relevant models . \n spin 1/2 chains , owing to the jordan - wigner transformation@xcite , show properties remarkably similar to those of interacting one dimensional fermions with their low energy properties described by an effective luttinger liquid theory@xcite . \n re",
+      "source_length": 69912,
+      "reference": "the low - energy effective hamiltonian of three coupled spin chains with periodic boundary conditions ( spin tube ) is expressed , in the limit of strong interchain coupling , in terms of xxz chains coupled by biquadratic exchange interaction . a similar effective model was also proposed to describe the coupling of spins to orbital degrees of freedom in materials such as @xmath0 . we investigate the effective model by means of bosonization and renormalization group techniques , and find that the generic phase diagram comprises a gapless region and gapped regions consisting of a spin liquid phase and various antiferromagnetic phases . we discuss the properties of the spin liquid phase , in particular the nature of the ground state and of the elementary excitations above it . we then study the effect of a magnetic field , and conclude that a strong enough magnetic field can suppress the dimerized phase leading to a two component luttinger liquid . the critical exponents at the transition gapful - gapless are calculated and shown to be _ non - universal _ in the spin tube case or the generic spin orbital problem . pacs numbers:75.10.jm , 75.30.kz , 75.40.gb _ keywords _ : spin - tube , bosonization and renormalization group , spin - liquid",
+      "generated": "we study the ground state properties and the phase diagram of a spin-1/2 three - leg ladder with periodic boundary conditions and a strong interchain coupling .<n> the model consists of two non - equivalent coupled xxz chains of spins and chiral degrees of freedom , in the presence of a biquadratic exchange . in the case of @xmath0<n> , we find that the dimer order can compete with the ising antiferromagnetic order , and we describe the resulting phase diagram . <n> # 1@xmath1#1 # 1#2#3#4#1 * # 2 * , # 3 ( # 4 )",
+      "metrics": {
+        "rougeL": 0.2175438596491228,
+        "bertscore_f1": 0.8426647186279297,
+        "latency": 13.882599353790283
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 1,
+      "doc_id": "dev_arxiv_762",
+      "source_preview": "gauge theories constitute the building blocks of our present understanding of natural phenomena . \n the standard model ( sm ) of high energy particle interactions is , in fact , entirely based on a semi - simple gauge group @xmath0 . \n the sm accounts for roughly four percent of the known universe . \n however , several puzzles remain still unexplained . \n for example , why do we observe , at least , three generations of elementary particles . besides , the remaining @xmath1 of the universe , of ",
+      "source_length": 56036,
+      "reference": "we establish the existence of fixed points for certain gauge theories candidate to be magnetic duals of qcd with one adjoint weyl fermion . in the perturbative regime of the magnetic theory the existence of a very large number of fixed points is unveiled . we classify them by analyzing their basin of attraction . the existence of several nonsupersymmetric fixed points for the magnetic gauge theory lends further support towards the existence of gauge - gauge duality beyond supersymmetry . we also discover that among these very many fixed points there are supersymmetric ones emerging from a generic nonsupersymmetric renormalization group flow . we therefore conclude that supersymmetry naturally emerges as a fixed point theory from a nonsupersymmetric lagrangian without the need for fine - tuning of the bare couplings . our results suggest that supersymmetry can be viewed as an emergent phenomenon in field theory . in particular there should be no need for fine - tuning the bare couplings when performing lattice simulations aimed to investigate supersymmetry on the lattice .",
+      "generated": "we investigate the existence of supersymmetric fixed points in the infrared sector of the magnetic dual for the electric theory constituted by a scalarless @xmath0 gauge theory with dirac fermions and an extra weyl adjoint fermion transforming according to the adjoint representation of the gauge group .<n> we discover , for the first time , a large number of calculable fixed points and classify them by analyzing their basin of attraction . among these very many fixed points , we discover supersymmetricfixed points to emerge in the infra - red along nonsupersymmetric flows . <n> we present a new method to extract the phase - space distribution of the electron - positron annihilation cross section in collisionless plasmas based on the use of the phase shift analysis of the collision data .",
+      "metrics": {
+        "rougeL": 0.3076923076923077,
+        "bertscore_f1": 0.865559995174408,
+        "latency": 15.93507695198059
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 2,
+      "doc_id": "dev_arxiv_89",
+      "source_preview": "disk galaxies exhibit many designs : bars , rings , and spiral structure . \n the structure and placement of rings and bars are widely believed , on numerical and analytical grounds , to be governed by resonance . \n a resonance is a rational relationship between two frequencies . \n inner and outer rings form at radii that are resonant with the angular frequency of the bar pattern ( schwarz 1981 ; buta 1986 ; buta & crocker 1991 ) . \n a strong bar ends near its corotation resonance ( contopoulos 1",
+      "source_length": 61837,
+      "reference": "spiral density wave theories demand that grand design spiral structure be bounded , at most , between the inner and outer lindblad resonances of the spiral pattern . the corotation resonance lies between the outer and inner lindblad resonances . the locations of the resonances are at radii whose ratios to each other are rather independent of the shape of the rotation curve . the measured ratio of outer to inner extent of spiral structure for a given spiral galaxy can be compared to the standard ratio of corotation to inner lindblad resonance radius . in the case that the measured ratio far exceeds the standard ratio , it is likely that the corotation resonance is within the bright optical disk . studying such galaxies can teach us how the action of resonances sculpts the appearance of spiral disks . this paper reports observations of 140 disk galaxies , leading to resonance ratio tests for 109 qualified spirals . it lists candidates that have a good chance of having the corotation resonance radius within the bright optical disk .",
+      "generated": "we present @xmath0 ccd images of 50 nearby regular two - armed spiral galaxies , most of which are large enough to be physically large .<n> the data were obtained as part of a larger program to image large galaxies with the _ wide field and planetary camera 2 _ ( wfpc2 ) on the hubble space telescope s advanced camera for surveys ( acs ) . <n> the sample was selected from the sloan digital sky survey ( sdss ) based on morphological and spectral criteria , and is the largest sample of barred galaxies for which both hi and optical data are available . in this paper , we present the images , along with a discussion of the physical properties of the galaxies and the implications of the data for galaxy formation and evolution .",
+      "metrics": {
+        "rougeL": 0.1591695501730104,
+        "bertscore_f1": 0.803327202796936,
+        "latency": 15.920949935913086
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 3,
+      "doc_id": "dev_arxiv_529",
+      "source_preview": "collective phenomena in systems far from thermal equilibrium have been of considerable interest in recent years @xcite . unlike systems in thermal equilibrium where the gibbs picture provides a theoretical framework within which such phenomena can be studied , here no such framework exists and one has to resort to studies of specific models in order to gain some understanding of the phenomena involved .    one class of such models is driven diffusive systems ( dds ) @xcite . driven by an externa",
+      "source_length": 67376,
+      "reference": "a driven system of three species of particle diffusing on a ring is studied in detail . the dynamics is _ local _ and conserves the three densities . a simple argument suggesting that the model should phase separate and break the translational symmetry is given . we show that for the special case where the three densities are equal the model obeys detailed balance and the steady - state distribution is governed by a hamiltonian with asymmetric long - range interactions . this provides an explicit demonstration of a simple mechanism for breaking of ergodicity in one dimension . the steady state of finite - size systems is studied using a generalized matrix product ansatz . the coarsening process leading to phase separation is studied numerically and in a mean - field model . the system exhibits slow dynamics due to trapping in metastable states whose number is exponentially large in the system size . the typical domain size is shown to grow logarithmically in time . generalizations to a larger number of species are discussed .",
+      "generated": "we consider a system of @xmath0 species of particles interacting via long - range asymmetric particle - particle interactions .<n> we show that , in the thermodynamic limit , this system exhibits phase separation into three domains , even when the densities of the three species are not equal . in the low - energy limit<n> , the system has a current which is proportional to the strength of the interaction . for a special case of the model ,<n> the hamiltonian describing the dynamics of the system satisfies detailed balance with respect to a _<n> long range asymmetric _ potential , and the steady - state distribution is found to have a non - trivial form . using the density matrix renormalization group , we calculate upper and lower bounds on the number of excitations of this metastable state . <n> # 1 # 1#1 # 1| # 1 | # 1",
+      "metrics": {
+        "rougeL": 0.22372881355932206,
+        "bertscore_f1": 0.849420964717865,
+        "latency": 13.498311758041382
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 4,
+      "doc_id": "dev_arxiv_95",
+      "source_preview": "the semiclassical quantisation of non - integrable systems using properties of their periodic orbits was triggered by m. gutzwiller @xcite and extended by several groups @xcite . \n it allows one to express the oscillating part @xmath7 of the quantum - mechanical density of states , given exactly in terms of a quantum spectrum @xmath8 and separated into two terms by g(e ) = _ n ( e - e_n ) = g(e)+g(e ) , [ gqm ] through a semiclassical trace formula of the form g_sc(e ) _ po a_po(e ) [ s_po(e)/-_",
+      "source_length": 78530,
+      "reference": "we develop a uniform semiclassical trace formula for the density of states of a three - dimensional isotropic harmonic oscillator ( ho ) , perturbed by a term @xmath0 . this term breaks the u(3 ) symmetry of the ho , resulting in a spherical system with so(3 ) symmetry . we first treat the anharmonic term for small @xmath1 in semiclassical perturbation theory by integration of the action of the perturbed periodic ho orbit families over the manifold @xmath2p@xmath3 which is covered by the parameters describing their four - fold degeneracy . then we obtain an analytical uniform trace formula for arbitrary @xmath1 which in the limit of strong perturbations ( or high energy ) asymptotically goes over into the correct trace formula of the full anharmonic system with so(3 ) symmetry , and in the limit @xmath1 ( or energy ) @xmath4 restores the ho trace formula with u(3 ) symmetry . we demonstrate that the gross - shell structure of this anharmonically perturbed system is dominated by the two - fold degenerate diameter and circular orbits , and _ not _ by the orbits with the largest classical degeneracy , which are the three - fold degenerate tori with rational ratios @xmath5 of radial and angular frequencies . the same holds also for the limit of a purely quartic spherical potential @xmath6 .",
+      "generated": "periodic orbit theory ( pot ) is applied to the perturbed spherical harmonic oscillator ( ho ) hamiltonian @xmath0 in three dimensions .<n> we develop an einstein - brillouin - keller ( ebk ) trace formula for the average part of the quantum - mechanical density of states in terms of the amplitudes of all periodic orbits , the maslov indices , and the energy . at symmetry - breaking and bifurcation points<n> we recover the extended thomas - fermi ( etf ) formula , but with an amplitude that differs from it by an amount that depends on the energy and the strength of the anharmonic term . for small enough anharmonicity<n> we obtain a trace formula similar to that of ozorio de almeida and hannay ( oad ) for the u(3 ) symmetric ho system , with amplitudes that are finite at the symmetry - broken points and converge to the oad formula at the bifurcating points . as an application<n> , we study the quantum oscillations of one - dimensional bose - einstein condensates with repulsive contact interactions , treated self - consistently in the hartree - fock approximation [ phys",
+      "metrics": {
+        "rougeL": 0.2,
+        "bertscore_f1": 0.8241934180259705,
+        "latency": 16.806249618530273
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 5,
+      "doc_id": "dev_arxiv_245",
+      "source_preview": "accretion provides the energy that powers radiation from the galactic center black hole , sagittarius a * @xcite . \n the vlt nir discovery of an infalling object onto sgr  a * , named g2 , offers an especially exciting possibility for probing the nature of that accretion flow via potential interactions as the object goes through periastron @xcite . \n if it is a pressure - confined gas cloud , the g2 object is estimated to have a gas mass of @xmath2 , which is comparable to the total accretion fl",
+      "source_length": 59145,
+      "reference": "we report new observations with the very large array , atacama large millimeter array , and submillimeter array at frequencies from 1.0 to 355 ghz of the galactic center black hole , sagittarius a*. these observations were conducted between october 2012 and november 2014 . while we see variability over the whole spectrum with an amplitude as large as a factor of 2 at millimeter wavelengths , we find no evidence for a change in the mean flux density or spectrum of sgr a * that can be attributed to interaction with the g2 source . the absence of a bow shock at low frequencies is consistent with a cross - sectional area for g2 that is less than @xmath0 @xmath1 . this result fits with several model predictions including a magnetically arrested cloud , a pressure - confined stellar wind , and a stellar photosphere of a binary merger . there is no evidence for enhanced accretion onto the black hole driving greater jet and/or accretion flow emission . finally , we measure the millimeter wavelength spectral index of sgr a * to be flat ; combined with previous measurements , this suggests that there is no spectral break between 230 and 690 ghz . the emission region is thus likely in a transition between optically thick and thin at these frequencies and requires a mix of lepton distributions with varying temperatures consistent with stratification .",
+      "generated": "we present the results of a multi - frequency , multi - epoch monitoring campaign of the radio continuum emission from sagittarius a * , the supermassive black hole at the center of the milky way , using the atacama large millimetre / submillimeter array ( alma ) and the very large array ( vla ) .<n> the observations were carried out between october 2012 and may 2014 , and span the time since the discovery of the microquasar g2 by the vlt in the near - infrared ( nir ) through periastron , with the total bandwidth of 2 ghz ( 1 ghz ) for each band . we find no evidence for significant changes in the flux density or activity of sgr a * between the end of 2012 and the beginning of this observing program , when g2 was still known as g2 - a*. in the first year after the vla discovery , g2 remained at an average flux density consistent with the value seen in the quiescent state , although with a reduced level of activity relative to historical variability . at 230 ghz<n> , we find evidence for a steepening of the spectrum toward compact sources , which we interpret as evidence",
+      "metrics": {
+        "rougeL": 0.2344139650872818,
+        "bertscore_f1": 0.8495945334434509,
+        "latency": 14.522926092147827
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 6,
+      "doc_id": "dev_arxiv_489",
+      "source_preview": "quenched disorder induces an extrinsic inhomogeneity in otherwise translationally invariant pure systems . as a result \n , the equilibrium and out - of - equilibrium physics of disordered systems may be influenced by rare collective events , such as `` avalanches '' , statistically unlikely regions , such as `` droplets '' or `` griffiths regions '' , and by the proliferation of `` metastable states '' . \n our objective is to develop a theory describing the long - distance physics of such system",
+      "source_length": 85515,
+      "reference": "we apply the nonperturbative functional renormalization group ( np - frg ) in the superfield formalism that we have developed in the preceding paper to study long - standing issues concerning the critical behavior of the random field ising model . through the introduction of an appropriate regulator and a supersymmetry - compatible nonperturbative approximation , we are able to follow the supersymmetry , more specifically the superrotational invariance first unveiled by parisi and sourlas [ phys . rev . lett . * 43 * , 744 ( 1979 ) ] , and its spontaneous breaking along the rg flow . breaking occurs below a critical dimension @xmath0 , and the supersymmetry - broken fixed point that controls the critical behavior then leads to a breakdown of the `` dimensional reduction '' property . we solve the np - frg flow equations numerically and determine the critical exponents as a function of dimension down to @xmath1 , with a good agreement in @xmath2 and @xmath3 with the existing numerical estimates .",
+      "generated": "we present a nonperturbative renormalization - group ( rg ) formalism for the calculation of the cumulants of a zero - temperature random - field ising model ( rfim ) in @xmath0 dimensions .<n> we show that the rg equations can be reduced to a system of two first - order ordinary differential equations ( odes ) , one of which contains superrotational invariance ( grassmannian ultralocality \" ) and the other which does not . in this limit<n> , the stochastic field equation reduces to the well - known schwinger - dyson equation ( wt ) for the one - loop superfluid density of states , and the wt relation is recovered . as a result ,<n> the superrotationally invariant rg flow is reduced . <n> we present an extension of the formalism of parisi and sourlas to the case of multiple copies of the same topological insulator , in order to include the effects of radiative corrections and the possibility of spontaneous breaking of supersymmetry ( susy )<n> . this problem can be treated as a collection of copies of a classical system , each copy of which is the same with respect to the",
+      "metrics": {
+        "rougeL": 0.22364217252396165,
+        "bertscore_f1": 0.836186945438385,
+        "latency": 17.84518027305603
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 7,
+      "doc_id": "dev_arxiv_230",
+      "source_preview": "an abelian cover is a finite morphism @xmath0 of varieties which is the quotient map for a generically faithful action of a finite abelian group @xmath1 . \n this means that for every component @xmath7 of @xmath2 the @xmath1-action on the restricted cover @xmath8 is faithful . \n the paper @xcite contains a comprehensive theory of such covers in the case when @xmath2 is smooth and @xmath3 is normal . \n the covers are described in terms of the _ building data _ consisting of branch divisors @xmath9",
+      "source_length": 93040,
+      "reference": "an abelian cover is a finite morphism @xmath0 of varieties which is the quotient map for a generically faithful action of a finite abelian group @xmath1 . abelian covers with @xmath2 smooth and @xmath3 normal were studied in @xcite . here we study the non - normal case , assuming that @xmath3 and @xmath2 are @xmath4 varieties that have at worst normal crossings outside a subset of codimension @xmath5 . special attention is paid to the case of @xmath6-covers of surfaces , which is used in @xcite to construct explicitly compactifications of some components of the moduli space of surfaces of general type .",
+      "generated": "we show that the inertia subgroup of a flat abelian cover of a variety is a variety , i.e. , it can be written as the sum of cyclic subgroups of the given building data with coefficients given by the local equations .<n> we prove that if a standard cover of the branch space of a @xmath0-dimensional variety is given , then so is the corresponding variety on the corresponding smooth surface . as a consequence ,<n> we obtain a characterization of the local structure of the cover in terms of the data : for every building data set , there exists a cover whose inertia subgroup is equal to the inertia of the set . <n> we also study the singularities of covers , determine the index of the divisor , describe the normal base case and the special case of smooth base when the group is g.d.c .",
+      "metrics": {
+        "rougeL": 0.19008264462809915,
+        "bertscore_f1": 0.8256344199180603,
+        "latency": 21.63065218925476
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 8,
+      "doc_id": "dev_arxiv_213",
+      "source_preview": "when an energetic quark or gluon propagates through a dense partonic system such as the quark - gluon plasma ( qgp ) , it interacts with the hot medium through multiple scattering and induced gluon bremsstrahlung , leading to transverse momentum broadening and energy loss of the propagating parton . as a consequence , spectra of large transverse momentum hadrons and jets in high - energy heavy - ion collisions should be suppressed if a dense partonic matter is formed in the early stage of the co",
+      "source_length": 69856,
+      "reference": "a linear boltzmann transport model within perturbative qcd is developed for the study of parton propagation inside the quark - gluon plasma . both leading partons and thermal recoil partons are tracked so that one can also study jet - induced medium excitations . in this study , we implement the complete set of elastic parton scattering processes and investigate elastic parton energy loss , transverse momentum broadening and their nontrivial energy and length dependence . we further investigate medium modifications of the jet shape and fragmentation functions of reconstructed jets . contributions from thermal recoil partons are found to have significant influences on jet shape , fragmentation functions and angular distribution of reconstructed jets .",
+      "generated": "we study jet quenching in ultrarelativistic heavy - ion collisions within the framework of the linear boltzmann transport ( lbt ) model .<n> we consider both jet - induced medium excitations in the form of thermal recoil partons and medium partons produced by energetic partons scattering in the medium . using the anti-@xmath0 algorithm in the fastjet jet finding package<n> , we study the propagation of a parton in a hot and dense quark - gluon plasma ( qgp ) by including parton hadronization effects and large - angle scatterings of jet - inducing partons in the leading parton model ( lbm ) . at hera ,<n> the energy loss and the average transverse momentum broadening of a leading partons transport in a quark gluonplasma at finite temperature is studied within the lbt model , and the energy dependence of the energy losses is shown to be larger than that from multiple scatterings over a long distance , especially for more energetic quarks . finally , contributions using the lbm and monte carlo simulations of the transport equation are used to study jet energy loss , parton distribution and reconstructed jet profiles in a static and uniform q",
+      "metrics": {
+        "rougeL": 0.23693379790940763,
+        "bertscore_f1": 0.8641555309295654,
+        "latency": 14.479560136795044
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 9,
+      "doc_id": "dev_arxiv_646",
+      "source_preview": "suppression of the low - energy part of bremsstrahlung from ultrarelativistic electrons passing through an amorphous scattering medium is the celebrated lpm - effect @xcite , named after landau and pomeranchuk who predicted it qualitatively @xcite , and migdal @xcite who provided an accurate theory for bremsstrahlung in a semi - infinite uniform medium . \n it has also been studied for finite - thickness targets @xcite , and for the opposite limit of thin target , which is of intrinsic interest @",
+      "source_length": 67047,
+      "reference": "we investigate the interference pattern in the spectrum of non - dipole bremsstrahlung on two amorphous foils . apart from suppression at lowest @xmath0 , the spectrum exhibits an enhancement adjacent to it . in classical electrodynamics , the net effect of suppression and enhancement proves to be zero . we study the location and the origin of the spectral features , comparing predictions of full molire averaging with those of the gaussian averaging with coulomb corrections to the rms multiple scattering angle . comparison with experimental data , and with previous theoretical predictions is presented .",
+      "generated": "low - frequency ( @xmath0 ) emission of electromagnetic radiation from metallic plates is studied theoretically .<n> it is shown that the spectrum exhibits a dip at low frequencies , which can be attributed to interference effects , and that the visibility of this dip scales with the inverse of the plate thickness . at large plate thicknesses ,<n> the spectrum is found to be independent of the scattering angle , but depends on it in a non - trivial way . in the case of radiation on two scattering foils with definite and macroscopic separation , the range of _ anti_-correlation is of order of the photon formation length . as an example<n> , we apply the method to the case in which the scattering is due to ionization or excitation of an atom by another atom , or , alternatively , to excitation of a single atom by a laser beam .",
+      "metrics": {
+        "rougeL": 0.19469026548672566,
+        "bertscore_f1": 0.8368075489997864,
+        "latency": 14.734642028808594
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 21,
+      "doc_id": "dev_arxiv_233",
+      "source_preview": "the theory of gravitational lensing has by now reached a considerable degree of sophistication @xcite . \n theorems have been found predicting ( or bounding ) the number of images in very general systems @xcite . \n shapes of stable caustics have been exhaustively classified @xcite , a non - perturbative notion of the lens map has been obtained @xcite , and various universal behaviors of images have been found for sources lying near caustics @xcite . \n these general results have been complemented ",
+      "source_length": 89448,
+      "reference": "plane - symmetric gravitational waves are considered as gravitational lenses . numbers of images , frequency shifts , mutual angles , and image distortion parameters are computed exactly in essentially all non - singular plane wave spacetimes . for a fixed observation event in a particular plane wave spacetime , the number of images is found to be the same for almost every source . this number can be any positive integer , including infinity . wavepackets of finite width are discussed in detail as well as waves which maintain a constant amplitude for all time . short wavepackets are found to generically produce up to two images of each source which appear ( separately ) only some time after the wave has passed . they are initially infinitely bright , infinitely blueshifted images of the infinitely distant past . later , these images become dim and acquire a rapidly - increasing redshift . for sufficiently weak wavepackets , one such `` flash '' almost always exists . the appearance of a second flash requires that the ricci tensor inside the wave exceed a certain threshold . this might occur if a gravitational plane wave is sourced by , e.g. , a sufficiently strong electromagnetic plane wave .",
+      "generated": "we present a new approach to the study of strong gravitational lensing in curved spacetimes .<n> we show that plane wave spacetimes may be divided into subsets according to their symmetries . in each subset , plane wave lensing is associated with a specific vector field , and the associated spacetime geometry is described by a conservation law . as an application<n> , we discuss the propagation of gravitational waves through spacetime .",
+      "metrics": {
+        "rougeL": 0.12048192771084336,
+        "bertscore_f1": 0.8275097012519836,
+        "latency": 15.715356588363647
+      },
+      "selection_reason": "worst_rouge"
+    },
+    {
+      "sample_id": 13,
+      "doc_id": "dev_arxiv_235",
+      "source_preview": "what is the most broad - ranging currently active field of applied probability ? \n measuring breadth by the number of different academic disciplines where it appears , it seems hard to beat a field appearing in physics , computer science and electrical engineering , economics and finance , psychology and sociology , population genetics and epidemiology and ecology . \n curiously , the field has no good name , though readers of _ bernoulli _ will most likely know it , under the continuing influenc",
+      "source_length": 68064,
+      "reference": "the style of mathematical models known to probabilists as interacting particle systems and exemplified by the voter , exclusion and contact processes have found use in many academic disciplines . in many such disciplines the underlying conceptual picture is of a social network , where individuals meet pairwise and update their `` state '' ( opinion , activity etc ) in a way depending on the two previous states . this picture motivates a precise general setup we call _ finite markov information exchange ( fmie ) processes_. we briefly describe a few less familiar models ( averaging , compulsive gambler , deference , fashionista ) suggested by the social network picture , as well as a few familiar ones .",
+      "generated": "in this note , i give a short survey of recent work in the field of finite markov information exchange .<n> i also discuss some open problems .",
+      "metrics": {
+        "rougeL": 0.125,
+        "bertscore_f1": 0.8312599658966064,
+        "latency": 15.072206974029541
+      },
+      "selection_reason": "worst_rouge"
+    },
+    {
+      "sample_id": 17,
+      "doc_id": "dev_arxiv_392",
+      "source_preview": "it has been known that the naive factorization assumption ( fa ) @xcite does not apply to exclusive @xmath6 meson decays into charmonia , such as @xmath7 @xcite . \n these modes belong to the color - suppressed category @xcite , for which predictions from fa are always small due to the vanishing wilson coefficient @xmath8 . however , the branching ratios measured by babar recently @xcite @xmath9 imply a larger parameter @xmath10 @xcite \n . the same difficulty has appeared in other similar decays ",
+      "source_length": 57014,
+      "reference": "we analyze the @xmath0 decays , which have small or even vanishing branching ratios in naive factorization assumption ( fa ) . we calculate nonfactorizable corrections to fa in the perturbative qcd approach based on @xmath1 factorization theorem . the charmonium distribution amplitudes are inferred from the non - relativistic heavy quarkonium wave functions . it is found that the nonfactorizable contributions enhance the branching ratios and generate the relative phases among helicity amplitudes of the above modes . most of the observed branching ratios , polarization fractions , and relative phases , except those of @xmath2 , are explained . our predictions for the @xmath3 decays can be compared with future data . 23.2 cm 17.0 cm = -1.5 cm = -1 cm = 0.2 cm 0.5 cm * .3 cm chuan - hung chen@xmath4 and hsiang - nan li@xmath5 * 2.0 cm 1.0 cm 2.0 cm",
+      "generated": "the search for the decays of charmonia has been one of the most important topics in the study of the quantum chromodynamics ( qcd ) and the nature of the quark - gluon plasma ( qgp ) since the original proposal by balitsky , kovchegov and lipatov ( kk ) in ref.@xcite .<n> recently , the belle collaboration has reported the first observation of the longitudinally and transversely polarized charmonium states . in this experiment ,<n> the polarized charmonia are produced in association with two oppositely charged bottomonium - like hadrons in electron - positron annihilations , and the transversely and longitudinally polarized photons are collected in the final state . by observing that the longitudinal polarizations of both the charmonia and the photons are significantly larger than the transverse ones , belle has established the existence of a new resonance with the spin - parity of the order of the strange quark , i.e. _ the _ rg_@xmath1=sqrt2n_cint_0 1 epsilon_l(x)to mathbbrt$ ] we study the @xmath0 decays in the next",
+      "metrics": {
+        "rougeL": 0.14814814814814817,
+        "bertscore_f1": 0.8152458667755127,
+        "latency": 17.177475214004517
+      },
+      "selection_reason": "worst_rouge"
+    },
+    {
+      "sample_id": 10,
+      "doc_id": "dev_arxiv_628",
+      "source_preview": "fifteen years , the area of channel coding has been revolutionized by the practical realization of capacity - approaching coding schemes , initiated by the invention of turbo codes and their associated decoding algorithms in 1993 @xcite . \n a few years after the invention of the turbo coding schemes , researchers became aware that gallager s low - density parity - check ( ldpc ) block codes and message - passing iterative decoding , first introduced in  @xcite , were also capable of capacity - a",
+      "source_length": 105194,
+      "reference": "low - density parity - check ( ldpc ) convolutional codes are capable of achieving excellent performance with low encoding and decoding complexity . in this paper we discuss several graph - cover - based methods for deriving families of time - invariant and time - varying ldpc convolutional codes from ldpc block codes and show how earlier proposed ldpc convolutional code constructions can be presented within this framework . some of the constructed convolutional codes significantly outperform the underlying ldpc block codes . we investigate some possible reasons for this `` convolutional gain , '' and we also discuss the mostly moderate decoder cost increase that is incurred by going from ldpc block to ldpc convolutional codes . pusane , smarandache , vontobel , costello block codes , convolutional codes , low - density parity - check ( ldpc ) codes , message - passing iterative decoding , pseudo - codewords , pseudo - weights , quasi - cyclic codes , unwrapping , wrapping .",
+      "generated": "in this paper , we introduce a new class of low - density parity - check ( ldpc ) convolutional codes .<n> these codes are constructed using two techniques : the first method is based on the unwrapping of the convolution - check matrix , while the second method uses the jimnez - feltstrm - zigangirov ( jfz ) technique to construct the convolutional code . <n> we present a variety of variations of this construction and compare their properties and performance with other recent code constructions in the literature .",
+      "metrics": {
+        "rougeL": 0.15384615384615385,
+        "bertscore_f1": 0.8492950797080994,
+        "latency": 21.621999263763428
+      },
+      "selection_reason": "worst_rouge"
+    },
+    {
+      "sample_id": 18,
+      "doc_id": "dev_arxiv_546",
+      "source_preview": "by studying variable stars in the small magellanic cloud ( smc ) , henrietta leavitt discovered a linear relation between the pulsation period and magnitudes of @xmath2 cepheids , in the sense of that the brightest cepheids have longer periods @xcite . \n this correlation , commonly called period - luminosity ( pl ) relation , was lately renamed as the leavitt law ( ll ) in honor to its discoverer @xcite . \n this linear statistical correlation is a cornerstone in the measurement of the extragalac",
+      "source_length": 72836,
+      "reference": "the investigation of the non - linearity of the leavitt law is a topic that began more than seven decades ago , when some of the studies in this field found that the leavitt law has a break at about ten days . + the goal of this work is to investigate a possible statistical cause of this non - linearity . by applying linear regressions to ogle - ii and ogle - iv data , we find that , in order to obtain the leavitt law by using linear regression , robust techniques to deal with influential points and/or outliers are needed instead of the ordinary least - squares regression traditionally used . in particular , by using @xmath0- and @xmath1-regressions we establish firmly and without doubts the linearity of the leavitt law in the large magellanic cloud , without rejecting or excluding cepheid data from the analysis . this implies that light curves of cepheids suggesting blending , bumps , eclipses or period changes , do not affect the leavitt law for this galaxy . for the smc , including this kind of cepheids , it is not possible to find an adequate model , probably due to the geometry of the galaxy . in that case , a possible influence of these stars could exist .",
+      "generated": "we present the results of a study of the period - luminosity ( pl ) relation of classical cepheids , based on data from the eso wide - field survey of variable stars ( wfs - variable stars ) .<n> we have selected a sample of more than @xmath0 variable stars covering a wide range of metallicities ( [ fe / h]@xmath1 ) and luminosities ( _ v , r , i _ , _ j , h , k , l , cl , and eu ] . for each variable star<n> , we have determined the period , the light curve , its peak - to - peak amplitude , as well as the color excess ( ce ) of the star . from the ce analysis ,<n> we find that the slope of the pl relation does not depend on the metallicity or on the color of the variable star , but only on its period and on its _ r _ - i ) absolute magnitude . on the other hand , from the light - curve analysis<n> we do not find any evidence of metallicity effect , nor of the companion effects .",
+      "metrics": {
+        "rougeL": 0.18233618233618232,
+        "bertscore_f1": 0.8210174441337585,
+        "latency": 15.724495649337769
+      },
+      "selection_reason": "worst_bertscore"
+    },
+    {
+      "sample_id": 25,
+      "doc_id": "dev_arxiv_585",
+      "source_preview": "in adiabatic quantum computation ( aqc ) @xcite quantum algorithms are implemented by initializing a system in an easily prepared ground state , followed by adiabatic evolution subject to a hamiltonian whose final ground state represents the solution to a computational problem . \n it is known that this model is computationally equivalent to the standard circuit model of quantum computation , in the sense that each model can simulate the other with polynomial resource overhead @xcite . while erro",
+      "source_length": 76293,
+      "reference": "adiabatic quantum algorithms are characterized by their run time and accuracy . the relation between the two is essential for quantifying adiabatic algorithmic performance , yet is often poorly understood . we study the dynamics of a continuous time , adiabatic quantum search algorithm , and find rigorous results relating the accuracy and the run time . proceeding with estimates , we show that under fairly general circumstances the adiabatic algorithmic error exhibits a behavior with two discernible regimes : the error decreases exponentially for short times , then decreases polynomially for longer times . we show that the well known quadratic speedup over classical search is associated only with the exponential error regime . we illustrate the results through examples of evolution paths derived by minimization of the adiabatic error . we also discuss specific strategies for controlling the adiabatic error and run time .",
+      "generated": "we present a detailed study of the adiabatic quantum search problem for ground - state eigenstates of closed quantum systems .<n> we show that the performance of such an algorithm is strongly affected by the degeneracy of the initial state . in the nondegenerate case , on the other hand ,<n> the performance is independent of the time elapsed from the initial preparation , whereas in the degenerate case the performance depends on @xmath0 , the trace distance between the instantaneous ground state and the actual state , as well as the trace norm of the evolution operator . as an example<n> , we consider the problem of a two - level system interacting with a jaynes - cummings type hamiltonian , for which we provide an accurate estimate for the error , valid in the large system - size limit .",
+      "metrics": {
+        "rougeL": 0.17557251908396945,
+        "bertscore_f1": 0.8253194689750671,
+        "latency": 16.89726710319519
+      },
+      "selection_reason": "worst_bertscore"
+    }
+  ]
+}

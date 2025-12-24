@@ -1,0 +1,18 @@
+# Aggregation Test: BigBird + arxiv_extra_long + hierarchical
+method: sliding
+model_name: google/bigbird-pegasus-large-arxiv
+attention_impl: default
+task: summ
+samples: 30
+gen_max_tokens: 256
+ctx_budget: 4096
+seed: 42
+domain: arxiv
+length_category: extra_long
+category: aggregation_test
+dataset_path: src/data/cleaned/cleaned_extra_long_examples_arxiv.jsonl
+window_size: 1024
+overlap: 256
+global_tokens: 0
+aggregation: hierarchical
+out_csv: results/aggregation_test/bigbird_arxiv_extra_long_hierarchical.csv

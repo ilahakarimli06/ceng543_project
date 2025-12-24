@@ -1,0 +1,73 @@
+# FAISS Benchmark v2 - Global Index Configuration
+# Uses global index architecture with all chunks indexed together
+
+method: faiss_benchmark_v2
+dataset_path: src/data/cleaned/cleaned_extra_long_examples_longform.jsonl
+samples: 17
+seed: 42
+
+# Chunking configuration (optimized)
+chunk_size: 384      # Smaller chunks = more vectors for IVF/PQ
+overlap: 128         # Context preservation
+
+segmentation_method: fixed
+
+# Retrieval configuration
+k_coarse: 100        # First-stage FAISS retrieval
+k_final: 10          # After optional reranking
+ground_truth_top_n: 5
+query_strategy: first_tokens
+
+# Two-stage retrieval (optional)
+use_reranking: false
+reranker_model: cross-encoder/ms-marco-MiniLM-L-6-v2
+
+# Embedding models
+embedding_models:
+  - sentence-transformers/all-MiniLM-L6-v2
+  - BAAI/bge-base-en-v1.5
+
+# Summarization model
+summarization_model: google/bigbird-pegasus-large-arxiv
+gen_max_tokens: 512
+
+# Index configurations (adjusted for global index)
+index_configs:
+  # Baseline
+  - type: flat
+  
+  # IVF with nlist suited for ~3000-5000 chunks
+  - type: ivf
+    nlist: 64
+  - type: ivf
+    nlist: 256
+    
+  # IVF-PQ 8-bit
+  - type: ivf_pq
+    nlist: 64
+    M: 48
+    nbits: 8
+  - type: ivf_pq
+    nlist: 256
+    M: 48
+    nbits: 8
+    
+  # IVF-PQ 4-bit (maximum compression)
+  - type: ivf_pq
+    nlist: 64
+    M: 48
+    nbits: 4
+  - type: ivf_pq
+    nlist: 256
+    M: 48
+    nbits: 4
+
+# nprobe values
+nprobe_values:
+  - 4
+  - 8
+  - 16
+
+# Output
+out_dir: results/faiss_benchmark_v2/longform
+cache_dir: cache/faiss_benchmark_v2

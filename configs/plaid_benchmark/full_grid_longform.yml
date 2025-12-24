@@ -1,0 +1,55 @@
+# PLAID Benchmark Configuration - Full Grid
+# Tests PLAID token pruning + PQ compression
+# Uses smaller chunks for more tokens per document
+
+method: plaid_benchmark
+dataset_path: src/data/cleaned/cleaned_extra_long_examples_longform.jsonl
+samples: 17
+seed: 42
+
+# Chunking configuration - smaller chunks for more tokens
+chunk_size: 384
+overlap: 128
+segmentation_method: fixed
+
+# Retrieval configuration
+top_k: 10
+ground_truth_top_n: 5
+query_strategy: first_tokens
+
+# ColBERT model configuration (base for PLAID)
+colbert_model: bert-base-uncased
+max_token_length: 512
+
+# PLAID configurations to test
+# Higher tokens_per_chunk to ensure minimum 64 vectors after pruning
+plaid_configs:
+  # Conservative: More tokens, moderate compression
+  - tokens_per_chunk: 64
+    M: 96
+    nbits: 8
+    
+  - tokens_per_chunk: 48
+    M: 96
+    nbits: 8
+    
+  # Moderate pruning (still safe)
+  - tokens_per_chunk: 32
+    M: 96
+    nbits: 8
+  - tokens_per_chunk: 32
+    M: 48
+    nbits: 8
+    
+  # More aggressive (use with caution)
+  - tokens_per_chunk: 24
+    M: 48
+    nbits: 8
+
+# Summarization model
+summarization_model: google/bigbird-pegasus-large-arxiv
+gen_max_tokens: 512
+
+# Output configuration
+out_dir: results/plaid_benchmark/longform
+cache_dir: cache/plaid_benchmark

@@ -1,0 +1,29 @@
+# Chunk Retrieval: BGE Embedding + LongT5-TGlobal Summarization
+# Embedding: BAAI/bge-base-en-v1.5 (high quality)
+# Summarization: LongT5-TGlobal (transient global attention, optimized for summarization)
+
+method: chunk_retrieval
+model_name: google/long-t5-tglobal-base
+attention_impl: default
+task: summ
+samples: 60
+gen_max_tokens: 384
+ctx_budget: 16384
+seed: 42
+
+domain: arxiv
+length_category: extra_long
+category: arxiv_extra_long
+dataset_path: src/data/cleaned/cleaned_extra_long_examples_arxiv.jsonl
+
+chunk_size: 1024
+overlap: 0
+segmentation_method: fixed
+embedding_model: BAAI/bge-base-en-v1.5
+top_k: 3
+query_strategy: first_tokens
+
+use_cache: true
+cache_dir: cache/embeddings
+
+out_csv: results/chunk_retrieval/arxiv_extra_long/longt5_c1024_bge_fixed.csv

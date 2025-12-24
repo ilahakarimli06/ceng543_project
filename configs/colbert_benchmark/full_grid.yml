@@ -1,0 +1,30 @@
+# ColBERT Benchmark Configuration - Full Grid
+# Tests ColBERT token-level late interaction retrieval
+
+method: colbert_benchmark
+dataset_path: src/data/cleaned/cleaned_extra_long_examples_arxiv.jsonl
+samples: 60
+seed: 42
+
+# Chunking configuration (same as FAISS benchmark)
+chunk_size: 384
+overlap: 128
+segmentation_method: fixed
+
+# Retrieval configuration
+top_k: 10
+ground_truth_top_n: 5
+query_strategy: first_tokens
+
+# ColBERT model configuration
+colbert_model: bert-base-uncased
+max_token_length: 512
+use_faiss_optimization: true
+
+# Summarization model (same as FAISS benchmark)
+summarization_model: google/bigbird-pegasus-large-arxiv
+gen_max_tokens: 512
+
+# Output configuration
+out_dir: results/colbert_benchmark/arxiv
+cache_dir: cache/colbert_benchmark

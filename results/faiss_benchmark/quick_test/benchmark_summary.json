@@ -1,0 +1,149 @@
+{
+  "config": {
+    "method": "faiss_benchmark",
+    "dataset_path": "src/data/dev_arxiv.jsonl",
+    "samples": 5,
+    "seed": 42,
+    "chunk_size": 1024,
+    "overlap": 0,
+    "segmentation_method": "fixed",
+    "top_k": 5,
+    "ground_truth_top_n": 3,
+    "query_strategy": "first_tokens",
+    "embedding_models": [
+      "sentence-transformers/all-MiniLM-L6-v2"
+    ],
+    "summarization_model": "google/bigbird-pegasus-large-arxiv",
+    "gen_max_tokens": 256,
+    "index_configs": [
+      {
+        "type": "flat"
+      },
+      {
+        "type": "ivf",
+        "nlist": 128,
+        "nprobe": 8
+      },
+      {
+        "type": "ivf_pq",
+        "nlist": 128,
+        "M": 48,
+        "nbits": 8,
+        "nprobe": 8
+      }
+    ],
+    "nprobe_values": [
+      4,
+      8
+    ],
+    "out_dir": "results/faiss_benchmark/quick_test",
+    "cache_dir": "cache/faiss_benchmark"
+  },
+  "num_samples": 5,
+  "embedding_models": [
+    "sentence-transformers/all-MiniLM-L6-v2"
+  ],
+  "index_configs": [
+    {
+      "type": "flat"
+    },
+    {
+      "type": "ivf",
+      "nlist": 128,
+      "nprobe": 8
+    },
+    {
+      "type": "ivf_pq",
+      "nlist": 128,
+      "M": 48,
+      "nbits": 8,
+      "nprobe": 8
+    }
+  ],
+  "nprobe_values": [
+    4,
+    8
+  ],
+  "aggregated_results": [
+    {
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "index_type": "flat",
+      "nlist": 0,
+      "M": 0,
+      "nbits": 0,
+      "nprobe": 0,
+      "recall_at_1": 0.2667,
+      "recall_at_5": 0.6667,
+      "recall_at_10": 0.6667,
+      "mrr": 0.9,
+      "retrieval_latency_ms": 0.0326,
+      "index_size_mb": 0.0121,
+      "downstream_rouge_l": 0.2675,
+      "downstream_bertscore": 0.8403
+    },
+    {
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "index_type": "ivf",
+      "nlist": 128,
+      "M": 0,
+      "nbits": 0,
+      "nprobe": 4,
+      "recall_at_1": 0.2667,
+      "recall_at_5": 0.6667,
+      "recall_at_10": 0.6667,
+      "mrr": 0.9,
+      "retrieval_latency_ms": 0.0278,
+      "index_size_mb": 0.0121,
+      "downstream_rouge_l": 0.2675,
+      "downstream_bertscore": 0.8403
+    },
+    {
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "index_type": "ivf",
+      "nlist": 128,
+      "M": 0,
+      "nbits": 0,
+      "nprobe": 8,
+      "recall_at_1": 0.2667,
+      "recall_at_5": 0.6667,
+      "recall_at_10": 0.6667,
+      "mrr": 0.9,
+      "retrieval_latency_ms": 0.0354,
+      "index_size_mb": 0.0121,
+      "downstream_rouge_l": 0.2675,
+      "downstream_bertscore": 0.8403
+    },
+    {
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "index_type": "ivf_pq",
+      "nlist": 128,
+      "M": 48,
+      "nbits": 8,
+      "nprobe": 4,
+      "recall_at_1": 0.2667,
+      "recall_at_5": 0.6667,
+      "recall_at_10": 0.6667,
+      "mrr": 0.9,
+      "retrieval_latency_ms": 0.0264,
+      "index_size_mb": 0.0121,
+      "downstream_rouge_l": 0.2675,
+      "downstream_bertscore": 0.8403
+    },
+    {
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "index_type": "ivf_pq",
+      "nlist": 128,
+      "M": 48,
+      "nbits": 8,
+      "nprobe": 8,
+      "recall_at_1": 0.2667,
+      "recall_at_5": 0.6667,
+      "recall_at_10": 0.6667,
+      "mrr": 0.9,
+      "retrieval_latency_ms": 0.033,
+      "index_size_mb": 0.0121,
+      "downstream_rouge_l": 0.2675,
+      "downstream_bertscore": 0.8403
+    }
+  ]
+}

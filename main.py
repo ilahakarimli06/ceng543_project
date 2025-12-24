@@ -32,6 +32,11 @@ def run_sliding(cfg, attention_override=None, model_override=None):
             model_suffix = "led"
         out_path = out_path.replace(".csv", f"_{model_suffix}.csv")
     
+    # Add aggregation suffix to output path if hierarchical
+    aggregation = cfg.get("aggregation", "concat")
+    if aggregation == "hierarchical":
+        out_path = out_path.replace(".csv", "_hierarchical.csv")
+    
     import os
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     
@@ -48,7 +53,7 @@ def run_sliding(cfg, attention_override=None, model_override=None):
         t0 = start_prof()
         base_tok = build_tokenizer(cfg["model_name"])
         wins = make_windows(doc, base_tok, cfg["window_size"], cfg["overlap"])
-        pred = generate_with_windows(model, tok, wins, cfg["gen_max_tokens"], cfg.get("global_tokens",0))
+        pred = generate_with_windows(model, tok, wins, cfg["gen_max_tokens"], cfg.get("global_tokens",0), aggregation=aggregation)
         lat, mem = stop_prof(t0)
         mets = text_metrics([pred],[ref])
         throughput = 3600 / lat if lat > 0 else 0  # docs per hour
@@ -65,6 +70,7 @@ def run_sliding(cfg, attention_override=None, model_override=None):
           "flash_attn_version": metadata.get("flash_attn_version", "N/A"),
           "window": cfg["window_size"], "overlap": cfg["overlap"],
           "global_tokens": cfg.get("global_tokens", 0),
+          "aggregation": aggregation,
           "latency": lat, "gpu_peak_gb": mem,
           "throughput_docs_per_hour": throughput,
           "seed": cfg.get("seed", 42),
@@ -137,6 +143,7 @@ def run_sliding(cfg, attention_override=None, model_override=None):
             "window_size": cfg["window_size"],
             "overlap": cfg["overlap"],
             "global_tokens": cfg.get("global_tokens", 0),
+            "aggregation": aggregation,
             "category": cfg.get("category", "unknown")
         },
         "summary_stats": {

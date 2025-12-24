@@ -1,0 +1,6 @@
+colbert_model,tokens_per_chunk,M,nbits,recall_at_1,recall_at_5,recall_at_10,recall_at_20,mrr,retrieval_latency_ms,plaid_index_size_mb,size_reduction_ratio,compression_ratio,downstream_rouge_l,downstream_bertscore
+bert-base-uncased,24,48,8,0.0433,0.1967,0.38,0.38,0.4003,16.8305,0.2422,365.4963,377.5754,0.2392,0.8385
+bert-base-uncased,32,48,8,0.06,0.25,0.4133,0.4133,0.4631,17.5064,0.3232,273.8995,282.7566,0.2336,0.8408
+bert-base-uncased,32,96,8,0.0467,0.25,0.4133,0.4133,0.4483,14.9988,0.4422,200.2074,204.825,0.2419,0.8437
+bert-base-uncased,48,96,8,0.06,0.2267,0.4367,0.4367,0.4724,15.8531,0.6635,133.4139,136.4243,0.2326,0.8383
+bert-base-uncased,64,96,8,0.0467,0.2167,0.43,0.43,0.3941,15.9028,0.8852,99.9959,102.2262,0.2398,0.8403

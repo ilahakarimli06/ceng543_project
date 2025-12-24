@@ -1,0 +1,31 @@
+# FAISS Benchmark - Flat Baseline Only
+# Use for quick baseline comparison
+
+method: faiss_benchmark
+dataset_path: src/data/cleaned/cleaned_extra_long_examples_arxiv.jsonl
+samples: 60
+seed: 42
+
+chunk_size: 1024
+overlap: 0
+segmentation_method: fixed
+
+top_k: 10
+ground_truth_top_n: 5
+query_strategy: first_tokens
+
+embedding_models:
+  - sentence-transformers/all-MiniLM-L6-v2
+  - BAAI/bge-base-en-v1.5
+
+summarization_model: google/bigbird-pegasus-large-arxiv
+gen_max_tokens: 512
+
+index_configs:
+  - type: flat
+
+nprobe_values:
+  - 1
+
+out_dir: results/faiss_benchmark
+cache_dir: cache/faiss_benchmark

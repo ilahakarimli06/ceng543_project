@@ -1,4 +1,4 @@
-from transformers import LEDForConditionalGeneration, BigBirdPegasusForConditionalGeneration, AutoTokenizer
+from transformers import LEDForConditionalGeneration, BigBirdPegasusForConditionalGeneration, AutoTokenizer, AutoModelForSeq2SeqLM
 import torch
 
 def load_model(name, attention_impl="default", device="cuda", use_bf16=True, use_compile=True):
@@ -7,7 +7,8 @@ def load_model(name, attention_impl="default", device="cuda", use_bf16=True, use
     
     Supports:
         - LED (BART-based): allenai/led-base-16384
-        - LongT5 (T5-based): google/long-t5-local-base
+        - BigBird-Pegasus: google/bigbird-pegasus-large-arxiv
+        - LongT5 (T5-based): google/long-t5-tglobal-base
     
     Args:
         attention_impl: "default" (standard PyTorch) or "flash_attention_2" (optimized)
@@ -30,6 +31,7 @@ def load_model(name, attention_impl="default", device="cuda", use_bf16=True, use
     name_lower = name.lower()
     is_led = "led" in name_lower
     is_bigbird = "bigbird" in name_lower
+    is_longt5 = "long-t5" in name_lower or "longt5" in name_lower
     
     # H100 optimization: Use BF16 for faster inference
     dtype = torch.bfloat16 if use_bf16 else torch.float32
@@ -87,8 +89,28 @@ def load_model(name, attention_impl="default", device="cuda", use_bf16=True, use
         tok = AutoTokenizer.from_pretrained(name)
         print(f"✓ Using BigBird-Pegasus with block_sparse attention")
         
+    elif is_longt5:
+        metadata["model_family"] = "LongT5"
+        # LongT5 with transient global attention - optimized for summarization
+        model = AutoModelForSeq2SeqLM.from_pretrained(name, torch_dtype=dtype)
+        
+        # Detect attention type from model name
+        if "tglobal" in name_lower:
+            metadata["attention_backend"] = "transient_global"
+            metadata["attention_type"] = "transient_global"
+        elif "local" in name_lower:
+            metadata["attention_backend"] = "local"
+            metadata["attention_type"] = "local"
+        else:
+            metadata["attention_backend"] = "default"
+        
+        metadata["max_length"] = 16384  # LongT5 supports up to 16K tokens
+        
+        tok = AutoTokenizer.from_pretrained(name)
+        print(f"✓ Using LongT5 with {metadata['attention_backend']} attention")
+        
     else:
-        raise ValueError(f"Unsupported model: {name}. Use LED or BigBird models.")
+        raise ValueError(f"Unsupported model: {name}. Use LED, BigBird, or LongT5 models.")
 
     # PAD token setup
     if tok.pad_token is None:
@@ -124,7 +146,7 @@ def load_model(name, attention_impl="default", device="cuda", use_bf16=True, use
     
     return model, tok, metadata
 
-def generate_with_windows(model, tokenizer, windows, gen_max=256, global_tokens=0, device="cuda", batch_size=32):
+def generate_with_windows(model, tokenizer, windows, gen_max=256, global_tokens=0, device="cuda", batch_size=32, aggregation="concat"):
     """
     Process windows in batches for better H100 GPU utilization.
     Token-ID seviyesinde çalışır - decode/re-tokenize akışını kullanmaz.
@@ -132,11 +154,12 @@ def generate_with_windows(model, tokenizer, windows, gen_max=256, global_tokens=
     Args:
         global_tokens: LED için ilk N token'a global attention ver (0, 16, 64)
         batch_size: Number of windows to process simultaneously (H100 optimization)
+        aggregation: "concat" (default, just join summaries) or "hierarchical" (summarize the summaries)
     """
     # Route BigBird models to dedicated generation function
     is_bigbird = hasattr(model.config, "model_type") and "bigbird" in model.config.model_type.lower()
     if is_bigbird:
-        return generate_with_windows_bigbird(model, tokenizer, windows, gen_max, device, batch_size)
+        return generate_with_windows_bigbird(model, tokenizer, windows, gen_max, device, batch_size, aggregation)
     model.eval()
     outputs = []
 
@@ -267,9 +290,49 @@ def generate_with_windows(model, tokenizer, windows, gen_max=256, global_tokens=
             )
             outputs.append(summary.strip())
 
+    # Aggregation strategy
+    if aggregation == "hierarchical" and len(outputs) > 1:
+        # Hierarchical: summarize the concatenated summaries
+        combined_text = " ".join(outputs)
+        
+        # Tokenize the combined summaries
+        combined_ids = tokenizer.encode(combined_text, add_special_tokens=False)
+        
+        # Check if it fits in model capacity
+        is_led_model = hasattr(model.config, "model_type") and "led" in model.config.model_type.lower()
+        cap = 16384 if is_led_model else 4096
+        
+        # Truncate if needed
+        combined_ids = combined_ids[:cap]
+        
+        # Create input tensors
+        input_ids = torch.tensor([combined_ids], dtype=torch.long, device=device)
+        attention_mask = torch.ones_like(input_ids)
+        
+        inputs = {"input_ids": input_ids, "attention_mask": attention_mask}
+        
+        # Add global attention for LED
+        if is_led_model and global_tokens > 0:
+            global_attention_mask = torch.zeros_like(input_ids)
+            n_global = min(global_tokens, len(combined_ids))
+            global_attention_mask[0, :n_global] = 1
+            inputs["global_attention_mask"] = global_attention_mask
+        
+        # Generate final summary
+        with torch.no_grad():
+            final_ids = model.generate(
+                **inputs,
+                max_new_tokens=gen_max,
+                num_beams=4,
+                early_stopping=True
+            )
+        
+        return tokenizer.decode(final_ids[0], skip_special_tokens=True, clean_up_tokenization_spaces=False).strip()
+    
+    # Default: concat (original behavior)
     return " ".join(outputs)
 
-def generate_with_windows_bigbird(model, tokenizer, windows, gen_max=256, device="cuda", batch_size=32):
+def generate_with_windows_bigbird(model, tokenizer, windows, gen_max=256, device="cuda", batch_size=32, aggregation="concat"):
     """
     Generate summaries with BigBird-Pegasus using batch processing for H100 optimization.
     BigBird-Pegasus max input: 4096 tokens
@@ -287,6 +350,7 @@ def generate_with_windows_bigbird(model, tokenizer, windows, gen_max=256, device
         gen_max: Max tokens to generate per window
         device: Device to run on
         batch_size: Number of windows to process simultaneously (H100 optimization)
+        aggregation: "concat" (default) or "hierarchical" (summarize the summaries)
     """
     cap = 4096  # BigBird-Pegasus max input length
     summaries = []
@@ -347,7 +411,41 @@ def generate_with_windows_bigbird(model, tokenizer, windows, gen_max=256, device
             summary = tokenizer.decode(outputs[i], skip_special_tokens=True)
             summaries.append(summary)
     
-    # Concatenate all window summaries
+    # Aggregation strategy
+    if aggregation == "hierarchical" and len(summaries) > 1:
+        # Hierarchical: summarize the concatenated summaries
+        combined_text = " ".join(summaries)
+        
+        # Tokenize the combined summaries
+        combined_ids = tokenizer.encode(combined_text, add_special_tokens=False)
+        
+        # Truncate to BigBird capacity
+        combined_ids = combined_ids[:cap]
+        
+        # Ensure block size alignment
+        block_size = 64
+        if len(combined_ids) % block_size != 0:
+            padding_length = block_size - (len(combined_ids) % block_size)
+            combined_ids = combined_ids + [tokenizer.pad_token_id] * padding_length
+        
+        # Create input tensors
+        input_ids = torch.tensor([combined_ids], dtype=torch.long, device=device)
+        attention_mask = torch.tensor([[1 if tid != tokenizer.pad_token_id else 0 for tid in combined_ids]], 
+                                       dtype=torch.long, device=device)
+        
+        # Generate final summary
+        with torch.no_grad():
+            final_ids = model.generate(
+                input_ids=input_ids,
+                attention_mask=attention_mask,
+                max_length=gen_max,
+                num_beams=4,
+                early_stopping=True,
+                no_repeat_ngram_size=3
+            )
+        
+        return tokenizer.decode(final_ids[0], skip_special_tokens=True).strip()
+    
+    # Default: concat (original behavior)
     final_summary = " ".join(summaries)
     return final_summary
-

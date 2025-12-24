@@ -1,0 +1,18 @@
+# Aggregation Test: LED + arxiv_long + hierarchical (shorter docs for quick test)
+method: sliding
+model_name: allenai/led-base-16384
+attention_impl: default
+task: summ
+samples: 30
+gen_max_tokens: 256
+ctx_budget: 16000
+seed: 42
+domain: arxiv
+length_category: long
+category: aggregation_test
+dataset_path: src/data/cleaned/cleaned_long_examples_arxiv.jsonl
+window_size: 2048
+overlap: 0
+global_tokens: 0
+aggregation: hierarchical
+out_csv: results/aggregation_test/led_arxiv_long_w2048_hierarchical.csv

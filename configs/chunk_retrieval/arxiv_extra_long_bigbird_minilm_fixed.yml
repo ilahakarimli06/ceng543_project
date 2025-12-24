@@ -1,0 +1,29 @@
+# Chunk Retrieval: MiniLM Embedding + BigBird Summarization
+# Embedding: MiniLM (fast baseline)
+# Summarization: BigBird-Pegasus (4K context, block_sparse attention)
+
+method: chunk_retrieval
+model_name: google/bigbird-pegasus-large-arxiv
+attention_impl: default
+task: summ
+samples: 60
+gen_max_tokens: 384
+ctx_budget: 4096
+seed: 42
+
+domain: arxiv
+length_category: extra_long
+category: arxiv_extra_long
+dataset_path: src/data/cleaned/cleaned_extra_long_examples_arxiv.jsonl
+
+chunk_size: 1024
+overlap: 0
+segmentation_method: fixed
+embedding_model: sentence-transformers/all-MiniLM-L6-v2
+top_k: 3
+query_strategy: first_tokens
+
+use_cache: true
+cache_dir: cache/embeddings
+
+out_csv: results/chunk_retrieval/arxiv_extra_long/bigbird_c1024_minilm_fixed.csv
