@@ -26,4 +26,4 @@ query_strategy: first_tokens
 use_cache: true
 cache_dir: cache/embeddings
 
-out_csv: results/chunk_retrieval/arxiv_extra_long/longt5_c1024_bge_fixed.csv
+out_csv: results/chunk_retrieval/longform_extra_long/longt5_c1024_bge_fixed.csv

@@ -1,0 +1,226 @@
+{
+  "config": {
+    "model": "jordiclive/flan-t5-3b-summarizer",
+    "model_family": "FLAN-T5",
+    "window_size": 1024,
+    "overlap": 256,
+    "category": "aggregation_test"
+  },
+  "summary_stats": {
+    "total_samples": 30,
+    "avg_rougeL": 0.13941095438051535,
+    "avg_bertscore": 0.8321807265281678,
+    "min_rougeL": 0.057692307692307696,
+    "min_bertscore": 0.7758005261421204
+  },
+  "samples": [
+    {
+      "sample_id": 0,
+      "doc_id": "dev_longform_331",
+      "source_preview": "conventional phenomenological quark models widely used for describing low - energy properties of baryons treat nucleon as consisting of only up and down quarks ; intrinsically , there is no strange quark in the nucleon . considering the success of the constituent quark models @xcite , it may come as a surprise when some recent measurements and theoretical analyses indicate a possible existence of a significant strange quark content in the nucleon .    for example , analyses of the sigma term @xc",
+      "reference": "we analyze the process @xmath0 near the threshold within @xmath1-@xmath2 cluster model as a probe of the strangeness content of proton . our consideration is based on the relativistic harmonic oscillator quark model which takes into account the lorentz - contraction effect of the hadron wavefunctions . we find that the knockout mechanisms are comparable to the diffractive production of vector - meson - dominance model when only ( 35)% strange quark admixture is assumed , which should be compared with ( 1020)% of the nonrelativistic quark model prediction . the cross sections of the @xmath1- and @xmath2-knockout processes have qualitatively different dependence on the four - momentum transfer squared to the proton and may be distinguished experimentally . we also briefly discuss a way to determine the strangeness content of proton in 5-quark cluster model .",
+      "generated": "we improve the work of ref . @xcite by including relativistic effects based on the relativistic harmonic oscillator model which describes successfully the hadron form factors in a wide range of @xmath13.",
+      "metrics": {
+        "rougeL": 0.18867924528301885,
+        "bertscore_f1": 0.8354668617248535,
+        "latency": 28.79957151412964
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 1,
+      "doc_id": "dev_longform_605",
+      "source_preview": "SECTION 1. SHORT TITLE.\n\n    This Act may be cited as the ``Sectoral Market Assessment for \nRegional Training Enhancement and Revitalization Act''.\n\nSEC. 2. FINDINGS.\n\n    Congress makes the following findings:\n            (1) More than \\1/3\\ of the Nation's current workforce lacks \n        the basic skills necessary to succeed in today's labor market.\n            (2) Globalization of the economy is leading to losses of \n        jobs in key domestic industries, as well as challenges to \n        ",
+      "reference": "Sectoral Market Assessment for Regional Training Enhancement and Revitalization Act - Amends the Workforce Investment Act of 1998 to direct the Secretary of Labor to make skills gap capacity grants to states to assist local boards and regional consortia, through certain partnerships, to make: (1) strategic sectoral skills gap assessments; (2) strategic skills gap action plans; and (3) strategic training capacity enhancement seed grants to providers of training services.",
+      "generated": "Amends the Workforce Investment Act of 1998 to direct the Secretary of Labor to make grants to States and local boards to assist them in better focusing funds on activities and programs that address labor shortages and meet the emerging demand for skills in high-quality jobs in area industries. Authorizes the Secretary to make such grants to providers of training services, one-stop operators, and other appropriate intermediaries to pay for the Federal share of the cost of developing curricula to meet needs identified in the assessment, modifying the programs of training providers in order to meet those needs and overcome those barriers, operating pilot training efforts that demonstrate new curricular, or modifications to curriculation, in the sector or group of related occupations",
+      "metrics": {
+        "rougeL": 0.3020833333333333,
+        "bertscore_f1": 0.8552192449569702,
+        "latency": 12.836827754974365
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 2,
+      "doc_id": "dev_longform_631",
+      "source_preview": "( g29.70.3 ) @xcite is a composite supernova remnant ( snr ) in our galaxy that harbors one of the youngest known neutron stars . at the center of the 3  diameter snr shell\n, there is a pulsar wind nebula ( pwn ) powered by the source . in radio frequencies ,\nthe vla and the berkeley - illinois - maryland association ( bima ) array images show a diffuse snr shell with a flat spectrum core @xcite .\nx - ray observations with asca revealed the thermal and non - thermal spectral components of kes  7",
+      "reference": "we present the results of detailed spatial and spectral analysis of the pulsar wind nebula ( pwn ) in supernova remnant kes 75 ( g29.70.3 ) using a deep exposure with chandra x - ray observatory . the pwn shows a complex morphology with clear axisymmetric structure . we identified a one - sided jet and two bright clumps aligned with the overall nebular elongation , and an arc - like feature perpendicular to the jet direction . we interpret the arc as an equatorial torus or wisp and the clumps could be shock interaction between the jets and the surrounding medium . spatial modeling of the features with a torus and jet model indicates a position angle @xmath0 for the pwn symmetry axis . the lack of any observable counter jet implies a flow velocity larger than 0.4@xmath1 . comparing to an archival observation 6 years earlier , some small - scale features in the pwn demonstrate strong variability : the flux of the inner jet doubles , and the peak of the northern clump broadens and shifts 2 outward . as recently reported from rxte observations , magnetar - like bursts of the central pulsar occurred coincidentally 7 days before the chandra exposure . accompanied with the bursts is a temporary increase in the pulsar flux : during the chandra observation , the pulsar luminosity is 6 times larger than in quiescent state , and shows substantial spectral softening from @xmath2 to 1.9 with an emerging thermal component .",
+      "generated": "we investigate the variability of a pulsar wind nebula in kes 75 by comparing exposures from different epochs .",
+      "metrics": {
+        "rougeL": 0.08870967741935484,
+        "bertscore_f1": 0.8356067538261414,
+        "latency": 36.97082710266113
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 3,
+      "doc_id": "dev_longform_87",
+      "source_preview": "statistical decision problems in engineering applications require to perform state estimation of a dynamic system under uncertainty as to signal presence @xcite .\nthis includes fault detection and diagnosis in a dynamical system control @xcite , target detection and tracking @xcite , image and speech segmentation @xcite , speaker identification and source separation , blind deconvolution of communication channels .\napplication of sequential decision rules to the above scenario arouses much inter",
+      "reference": "the problem of detection and possible estimation of a signal generated by a dynamic system when a variable number of noisy measurements can be taken is here considered . assuming a markov evolution of the system ( in particular , the pair signal - observation forms a hidden markov model ) , a sequential procedure is proposed , wherein the detection part is a sequential probability ratio test ( sprt ) and the estimation part relies upon a maximum - a - posteriori ( map ) criterion , gated by the detection stage ( the parameter to be estimated is the trajectory of the state evolution of the system itself ) . a thorough analysis of the asymptotic behaviour of the test in this new scenario is given , and sufficient conditions for its asymptotic optimality are stated , i.e. for almost sure minimization of the stopping time and for ( first - order ) minimization of any moment of its distribution . an application to radar surveillance problems is also examined . asymptotic optimality , hidden markov models ( hmm ) , sequential detection and estimation , sprt .",
+      "generated": "a deep asymptotic analysis for the detection part of the general problem of multi - frame target detection and tracking for radar surveillance is given and sufficient conditions under which these properties hold , consistent with previous results in @xcite",
+      "metrics": {
+        "rougeL": 0.1306532663316583,
+        "bertscore_f1": 0.8262960910797119,
+        "latency": 38.74796199798584
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 4,
+      "doc_id": "dev_longform_540",
+      "source_preview": "quantum electrodynamics ( qed ) lies at the heart of modern quantum theory .\nqed is a well established and experimentally confirmed theory @xcite but even fifty years after its foundation many features of the atom  field interaction remain extremely intriguing . in particular , the character of the atom \nfield interaction can be substantially modified in _ confined spaces _\n( e.g. the high-@xmath0 cavity of a micromaser ) due to the fact that local properties of the electromagnetic ( em ) field ",
+      "reference": "we present results of numerical investigation of a microscopic dynamics of a two - level atom embedded into a `` linear crystal '' of other two - level atoms . these additional atoms play a rle of a material media . all atoms interact with a multimode cavity field . we study how the decay of the initially excited atom is affected by the presence of material media and spectral properties of the cavity field . 2",
+      "generated": "a model of a cavity qed system in which two level atoms interact with the cavity modes in the dipole and the rotating - wave approximations . we investigate the modification of the spontaneous emission and the propagation ( scattering ) of photon wave packets within this crystal '' . the hamiltonian of the form _ tot=_f+_a+ _ int can be solved exactly because the total number of excitations @xmath32 is an integral of motion, but it is impossible in general to find a closed analytical solution for the system under consideration .",
+      "metrics": {
+        "rougeL": 0.21935483870967742,
+        "bertscore_f1": 0.8317703008651733,
+        "latency": 38.69014120101929
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 5,
+      "doc_id": "dev_longform_368",
+      "source_preview": "the paper by dorfman @xcite introduced the idea of _ group testing _ and also presented a simple analysis , which indicates advantages of the idea .\nhis main motivation was to devise an _ economical way _ to detect infected persons within a population by using blood tests .\nit is assumed that the outcome of a blood test determines if the blood used in the test contains certain target viruses ( or bacteria ) .    of course\n, blood tests for every person in the population would clearly distinguish",
+      "reference": "in this paper , an information theoretic analysis on non - adaptive group testing schemes based on sparse pooling graphs is presented . the binary status of the objects to be tested are modeled by i.i.d . bernoulli random variables with probability @xmath0 . an @xmath1-regular pooling graph is a bipartite graph with left node degree @xmath2 and right node degree @xmath3 , where @xmath4 is the number of left nodes . two scenarios are considered : a noiseless setting and a noisy one . the main contributions of this paper are direct part theorems that give conditions for the existence of an estimator achieving arbitrary small estimation error probability . the direct part theorems are proved by averaging an upper bound on estimation error probability of the typical set estimator over an @xmath5-regular pooling graph ensemble . numerical results indicate sharp threshold behaviors in the asymptotic regime .",
+      "generated": "this paper provides an information theoretic analysis of non - adaptive group testing based on sparse pooling graphs. the key to the proofs is fano s inequality, which ties the estimate error probability to the conditional entropy .",
+      "metrics": {
+        "rougeL": 0.24858757062146894,
+        "bertscore_f1": 0.853837788105011,
+        "latency": 36.82008242607117
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 6,
+      "doc_id": "dev_longform_25",
+      "source_preview": "since the discovery of a planet around 51 peg b in 1995 ( mayor & queloz 1995 ) , the field of extrasolar planetary research has grown steadily .\nradial velocity surveys ( e.g. , marcy et al .\n2003 ; santos et al . 2000 ; tinney et al .\n2002 ) have found over 100 extrasolar giant planets ( egps ) orbiting nearby stars .\nin addition , @xmath2 10 of these systems contain planets with semi - major axes @xmath3  au , here after called close - in egps ( cegps ) .\nthe radial velocity surveys provide t",
+      "reference": "the ultra - precise photometric space satellite most ( microvariability and oscillations of stars ) will provide the first opportunity to measure the albedos and scattered light curves from known short - period extrasolar planets . due to the changing phases of an extrasolar planet as it orbits its parent star , the combined light of the planet - star system will vary on the order of tens of micromagnitudes . the amplitude and shape of the resulting light curve is sensitive to the planet s radius and orbital inclination , as well as the composition and size distribution of the scattering particles in the planet s atmosphere . to predict the capabilities of most and other planned space missions , we have constructed a series of models of such light curves , improving upon earlier work by incorporating more realistic details such as : limb darkening of the star , intrinsic granulation noise in the star itself , tidal distortion and back - heating , higher angular resolution of the light scattering from the planet , and exploration of the significance of the angular size of the star as seen from the planet . we use photometric performance simulations of the most satellite , with the light curve models as inputs , for one of the mission s primary targets , @xmath0 botis . these simulations demonstrate that , even adopting a very conservative signal detection limit of 4.2 @xmath1mag in amplitude ( not power ) , we will be able to either detect the @xmath0 botis planet light curve or put severe constraints on possible extrasolar planet atmospheric models . # 1_#1 _ # 1_#1 _ = # 1 1.25 in .125 in .25 in",
+      "generated": "we present the results of physically more complete models of cegp scattered light curves that include various types of noise , and we evaluate most s capability to detect them .",
+      "metrics": {
+        "rougeL": 0.09790209790209792,
+        "bertscore_f1": 0.8179766535758972,
+        "latency": 33.67325139045715
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 7,
+      "doc_id": "dev_longform_573",
+      "source_preview": "the effective mass ( em ) schrdinger equation with position dependent mass is a very useful model in many applied branches of modern physics , e.  g.   semiconductors @xcite , quantum dots @xcite , and @xmath0he clusters @xcite . in these cases\n, the envelope wave function actually provides a macroscopic description of the motion of carrier electrons with position dependent ( or equivalently material - composition dependent ) mass .\nrecent interest in this field [ 417 ] stems from extraordinary ",
+      "reference": "second order supersymmetric approach is taken to the system describing motion of a quantum particle in a potential endowed with position - dependent effective mass . it is shown that the intertwining relations between second order partner hamiltonians may be exploited to obtain a simple shape - invariant condition . indeed a novel relation between potential and mass functions is derived , which leads to a class of exactly solvable model . as an illustration of our procedure , two examples are given for which one obtains whole spectra algebraically . both shape - invariant potentials exhibit harmonic - oscillator - like or singular - oscillator - like spectra depending on the values of the shape - invariant parameter .",
+      "generated": "we set up first order susy for em hamiltonians , and study in detail the connection of the second order scheme with the standard one.",
+      "metrics": {
+        "rougeL": 0.10852713178294573,
+        "bertscore_f1": 0.8308485746383667,
+        "latency": 22.732693910598755
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 8,
+      "doc_id": "dev_longform_119",
+      "source_preview": "very recently , there has been an increasing interest in the study of nonlinear partial differential equations involving fractional operators .\nsuch problems arise naturally in applications , like fluid dynamics @xcite , strange kinetics and anomalous transport @xcite , financial mathematics @xcite , among many others .\nfractional operators are very well - known from the functional analysis point of view , see the classical book by k. yosida @xcite . nevertheless , there are some issues in these",
+      "reference": "in this paper we study the fractional laplacian @xmath0 on the @xmath1-dimensional torus @xmath2 , @xmath3 . our approach is based on the semigroup language . we obtain a pointwise integro - differential formula for @xmath4 , @xmath5 , @xmath6 , that is derived via the heat kernel on @xmath2 . the limits as @xmath7 and @xmath8 are computed . regularity estimates on hlder , lipschitz and zygmund spaces are deduced . we also present a general extension problem to characterize _ any _ fractional power of an operator @xmath9 , @xmath10 . here @xmath11 is a general nonnegative selfadjoint operator defined in an @xmath12-space . in particular , @xmath11 can be taken to be the laplace beltrami operator on a riemannian manifold or a divergence form elliptic operator with measurable coefficients on a bounded domain . this generalizes to all @xmath10 and a large class of operators @xmath11 previous known results by caffarelli silvestre . this extension result is of independent interest . the extension problem and the theory of degenerate elliptic equations is applied to prove interior and boundary harnack s inequalities for @xmath0 .",
+      "generated": "we study properties and regularity estimates of fractional powers of the laplacian @xmath13 on the @xma1-dimensional torus , and prove that the limits actually hold in a _ pointwise _ sense for a large class of functions. interior and boundary harnak s inequalities for @xmast19 is classical @xcite , while for @math0 on @mathem2 can be proved using an extension problem due to stinga and torrea.",
+      "metrics": {
+        "rougeL": 0.19913419913419914,
+        "bertscore_f1": 0.8531405329704285,
+        "latency": 46.65403628349304
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 9,
+      "doc_id": "dev_longform_618",
+      "source_preview": "the formation of galaxies and their influence on the physical state of the inter - galactic medium ( igm ) is often studied using semi - analytical models of structure formation ( for example @xcite ) .\nsuch studies will allow one to extensively explore the unknown parameter space related to physical conditions in a high redshift galaxy and its star formation , with limited computational resources .\nsemi - analytical models together with available observations can be used to understand the evolu",
+      "reference": "the form of the halo mass function is a basic ingredient in any semi - analytical galaxy formation model . we study the existing forms of the mass functions in the literature and compare their predictions for semi - analytical galaxy formation models . two methods are used in the literature to compute the net formation rate of halos , one by simply taking the derivative of the halo mass function and the other using the prescription due to sasaki ( 1994 ) . for the historically used press - schechter ( ps ) mass function , we compare various model predictions , using these two methods . however , as the sasaki formalism can not be easily generalized for other mass functions , we use the derivative while comparing model predictions of different mass functions . we show that the reionization history and uv luminosity function of lyman break galaxies ( lbgs ) predicted by the ps mass function differs from those using any other existing mass function , like sheth - tormen ( st ) mass function . in particular the reionization efficiency of molecular cooled halos has to be substantially reduced when one uses the st and other mass functions obtained from the simulation instead of the ps mass function . using @xmath0-minimization , we find that the observed uv luminosity functions of lbgs at @xmath1 are better reproduced by models using the st mass function compared to models that use the ps mass function . on the other hand , the volume filling factor of the metals expelled from the galaxies through supernovae driven outflows differs very little between models with different mass functions . it depends on the way we treat merging outflows . we also show that the porosity weighted average quantities related to the outflow are not very sensitive to the differences in the halo mass function . cosmology : theory - early universe , galaxies : abundances - evolution - formation galaxies - high - redshift - intergalactic medium - luminosity function , mass function - stars : winds , outflows",
+      "generated": "we show the effect of the halo mass function on the predicted uv luminosity functions of high redshift lbgs and also the global effect of galactic outflows on the igm.",
+      "metrics": {
+        "rougeL": 0.11343283582089554,
+        "bertscore_f1": 0.8265119791030884,
+        "latency": 42.46548247337341
+      },
+      "selection_reason": "first_10"
+    },
+    {
+      "sample_id": 12,
+      "doc_id": "dev_longform_352",
+      "source_preview": "serious complications including damage to the neural elements , stroke and death have been reported with epidural corticosteroid injections ( esis ) but are mostly anecdotal . \n their true incidence is unknown , but such outcomes seem to be rare.vascular penetration is possible , relatively more frequent in the cervical segments and potentially hazardous . \n intravascular injection can be reduced by use of injected contrast media.the use of a blunt needle , live fluoroscopy , digital subtraction",
+      "reference": "background and objectiveepidural corticosteroid injections ( esis ) have been used for several decades and now represent the most common intervention performed for the management of back pain with a radicular component . however , several reports have presented devastating complications and adverse effects , which fuelled concerns over the risk versus clinical effectiveness . the authors offer a comprehensive review of the available literature and analyse the data derived from studies and case reports.methodsstudies were identified by searching pubmed medline , ovid medline , embase , scopus , google scholar and the cochrane library to retrieve all available relevant articles . publications from the last 20 years ( september 1994 to september 2014 ) were considered for further analysis . studies selected were english - language original articles publishing results on complications related to the technique used for cervical and lumbar esis . the studies had to specify the approach used for injection . all studies that did not fulfil these eligibility criteria were excluded from further analysis.resultsoverall , the available literature supports the view that serious complications following injections of corticosteroid suspensions into the cervical and lumbar epidural space are uncommon , but if they occur they can be devastating.conclusionsthe true incidence of such complications remains unclear . direct vascular injury and/or administration of injectates intra - arterially represent a major concern and could account for the vast majority of the adverse events reported . accurate placement of the needle , use of a non - particulate corticosteroid , live fluoroscopy , digital subtraction angiography , and familiarisation of the operator with contrast patterns on fluoroscopy should minimise these risks . the available literature has several limitations including incomplete documentation , unreported data and inherent bias . large registries and well - structured observational studies are needed to determine the true incidence of adverse events and address the safety concerns .",
+      "generated": "transforaminal epidural corticosteroid injections ( esis ) have not resulted in any adverse effects . 78 complications have been reported, among which there were 30 brain or spinal cord infarcts.",
+      "metrics": {
+        "rougeL": 0.057692307692307696,
+        "bertscore_f1": 0.8179643154144287,
+        "latency": 42.70973014831543
+      },
+      "selection_reason": "worst_rouge"
+    },
+    {
+      "sample_id": 13,
+      "doc_id": "dev_longform_252",
+      "source_preview": "the much used differential schrdinger equation  is normally solved by means of a finite difference method , such as numerov or runge - kutta , while the equivalent integral lippmann - schwinger ( ls ) equation is rarely solved .\nthe reason , of course , is that the former is easier  to implement than the latter .\nhowever , a good method for solving the ls equation has recently been developed @xcite , and applications to various atomic systems have been presented @xcite , @xcite .\nthis method , d",
+      "reference": "pacs number the method is an extension to negative energies of a spectral integral equation method to solve the schroedinger equation , developed previously for scattering applications . one important innovation is a re - scaling procedure in order to compensate for the exponential behaviour of the negative energy green s function . another is the need to find approximate energy eigenvalues , to serve as starting values for a subsequent iteration procedure . in order to illustrate the new method , the binding energy of the he - he dimer is calculated , using the he - he tty potential . in view of the small value of the binding energy , the wave function has to be calculated out to a distance of 3000 a.u two hundred mesh points were sufficient to obtain an accuracy of three significant figures for the binding energy , and with 320 mesh points the accuracy increased to six significant figures . an application to a potential with two wells , separated by a barrier , is also made .",
+      "generated": "a mesh search algorithm for the partial wave of angular momentum @xmath8 for atomic physics applications",
+      "metrics": {
+        "rougeL": 0.06779661016949153,
+        "bertscore_f1": 0.814200222492218,
+        "latency": 27.731353044509888
+      },
+      "selection_reason": "worst_rouge"
+    },
+    {
+      "sample_id": 21,
+      "doc_id": "dev_longform_527",
+      "source_preview": "near - field acoustic holography ( nah ) was first documented in @xmath1 @xcite as a method for reconstructing acoustic radiation from vibrating structures based on acoustic pressures measured in a hologram plane .\nthis was originally carried out using fourier acoustics and so was only suitable for geometries corresponding to the separable geometries of the acoustic wave equation such as an infinite plane , an infinite cylinder or a sphere in a free field .\nrecent progress @xcite has seen ideas ",
+      "reference": "the method of superposition is proposed in combination with a sparse @xmath0 optimisation algorithm with the aim of finding a sparse basis to accurately reconstruct the structural vibrations of a radiating object from a set of acoustic pressure values on a conformal surface in the near - field . the nature of the reconstructions generated by the method differs fundamentally from those generated via standard tikhonov regularisation in terms of the level of sparsity in the distribution of charge strengths specifying the basis . in many cases , the @xmath0 optimisation leads to a solution basis whose size is only a small fraction of the total number of measured data points . the effects of changing the wavenumber , the internal source surface and the ( noisy ) acoustic pressure data in general will all be studied with reference to a numerical study on a cuboid of similar dimensions to a typical loudspeaker cabinet . the development of sparse and accurate reconstructions has a number of advantageous consequences including improved reconstructions from reduced data sets , the enhancement of numerical solution methods and wider applications in source identification problems .",
+      "generated": "koopman _ @xcite suggests the feasibility of sparse solution representations for a large range of wavenumbers using the superposition method.",
+      "metrics": {
+        "rougeL": 0.0707070707070707,
+        "bertscore_f1": 0.8295116424560547,
+        "latency": 28.34205937385559
+      },
+      "selection_reason": "worst_rouge"
+    },
+    {
+      "sample_id": 17,
+      "doc_id": "dev_longform_246",
+      "source_preview": "aperture synthesis in radio interferometry is a powerful technique in radio astronomy , allowing observations of the sky with otherwise inaccessible angular resolutions and sensitivities .\nthis technique dates back to more than sixty years ago @xcite . in this context\n, the portion of the celestial sphere around the pointing direction tracked by a radio telescope array during observation defines the original real signal or image probed @xmath0 .\nthe field of view observed is limited by a primary",
+      "reference": "we consider the probe of astrophysical signals through radio interferometers with small field of view and baselines with non - negligible and constant component in the pointing direction . in this context , the visibilities measured essentially identify with a noisy and incomplete fourier coverage of the product of the planar signals with a linear chirp modulation . in light of the recent theory of compressed sensing and in the perspective of defining the best possible imaging techniques for sparse signals , we analyze the related spread spectrum phenomenon and suggest its universality relative to the sparsity dictionary . our results rely both on theoretical considerations related to the mutual coherence between the sparsity and sensing dictionaries , as well as on numerical simulations . [ firstpage ] techniques : image processing techniques : interferometric .",
+      "generated": "inverse problem for sparse signals considered in the compressed sensing framework",
+      "metrics": {
+        "rougeL": 0.07462686567164178,
+        "bertscore_f1": 0.8331312537193298,
+        "latency": 35.54443144798279
+      },
+      "selection_reason": "worst_rouge"
+    },
+    {
+      "sample_id": 16,
+      "doc_id": "dev_longform_383",
+      "source_preview": "the tendency for large groups of individual units to reach consensus despite having heterogeneous dynamical properties has served as strong motivation for scientists to study synchronization of coupled dynamical systems  @xcite .\na paradigmatic model for studying synchronization and the emergence of collective behavior was developed by kuramoto  @xcite , who showed that under appropriate conditions , the dynamics of @xmath0 oscillators can be reduced to the evolution of @xmath0 phases , @xmath1 ",
+      "reference": "we study optimal synchronization of networks of coupled phase oscillators . we extend previous theory for optimizing the synchronization properties of undirected networks to the important case of directed networks . we derive a generalized synchrony alignment function that encodes the interplay between network structure and the oscillators natural frequencies and serves as an objective measure for the network s degree of synchronization . using the generalized synchrony alignment function , we show that a network s synchronization properties can be systematically optimized . this framework also allows us to study the properties of synchrony - optimized networks , and in particular , investigate the role of directed network properties such as nodal in- and out - degrees . for instance , we find that in optimally rewired networks the heterogeneity of the in - degree distribution roughly matches the heterogeneity of the natural frequency distribution , but no such relationship emerges for out - degrees . we also observe that a network s synchronization properties are promoted by a strong correlation between the nodal in - degrees and the natural frequencies of oscillators , whereas the relationship between the nodal out - degrees and the natural frequencies has comparatively little effect . this result is supported by our theory , which indicates that synchronization is promoted by a strong alignment of the natural frequencies with the left singular vectors corresponding to the largest singular values of the laplacian matrix . _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ synchronization is vital to the functionality of many natural and engineered systems @xcite , including cardiac pacemaker cells @xcite , circadian rhythms @xcite , josephson junction arrays @xcite , and power grids @xcite . this has generated considerable interest in optimizing the synchronization properties of networks @xcite . in a recent publication , we developed a theoretical framework for optimizing the synchronization properties of undirected networks of heterogeneous oscillators @xcite . here , we extend this theory to the important case of directed networks and derive a generalized synchrony alignment function ( saf ) that can be used to systematically optimize a network s synchronization properties . furthermore , this approach allows us to examine which structural properties promote synchronization in directed networks . potential applications include systems where strong synchronization is essential for efficient functionality , including cardiac electrophysiology @xcite , synthetic cell engineering @xcite , and power grid dynamics @xcite . _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _",
+      "generated": "we derive a generalized saf and demonstrate its utility with several examples . we investigate the role of directed network structure in the optimization of synchronousization .",
+      "metrics": {
+        "rougeL": 0.07894736842105261,
+        "bertscore_f1": 0.7758005261421204,
+        "latency": 23.059622287750244
+      },
+      "selection_reason": "worst_rouge"
+    },
+    {
+      "sample_id": 19,
+      "doc_id": "dev_longform_348",
+      "source_preview": "nanomaterials are a new type of biomedical material that may have a wide range of advantages as medical dressings , including strong adsorption and the ability to assume variable shapes \n . they can act as antimicrobial barrier films to prevent wound infection and bleeding , and to promote wound healing.1 electrospinning ( es ) is a simple and effective nanofabrication method for preparing nanofibers , with diameters ranging from 5 to 500 nm , 10 to 10 times smaller than those prepared by tradit",
+      "reference": "purpose : the objective of the present investigation was to evaluate the antibacterial properties and the biocompatibility of composite electrospun nanofibrous membranes ( nfms ) with low - molecular - weight fish scale collagen peptides ( fscp ) and chito - oligosaccharide ( cos ) , to determine their potential for use as wound dressings.methods:low-molecular-weight fscp were combined with cos to prepare nanofibers by electrospinning , and polyvinyl alcohol ( pva ) was used for enhancing fiber - forming ability . transmission electron microscope and scanning electron microscope methods were used to observe bacterial adhesion and the bacterial cell membrane . fibroblast cell viability was determined using the 3-(4,5-dimethylthiazol-2-yl)-2,5-diphenyltetrazolium bromide ( mtt ) assay.results:the best fscp / cos mass ratio for electrospinning was 2:1 , and the nanofibers had small dimensions ranging from 50 to 100 nm . the nfm showed good antibacterial activities against gram - positive staphylococcus aureus and gram - negative escherichia coli . the antibacterial activity against s. aureus was higher than against e. coli . the pili and adhesive fimbriae of e. coli promoted bacterial adhesion to the nfm surfaces , and s. aureus biofilms aided s. aureus adhesion on the surface of nfms . damage to the bacterial cell membrane indicates that the nfms could lead to the release of intracellular materials , particularly with s. aureus . in addition , fscp / cos nfm rapidly increased the permeability of the outer membranes of e. coli . the electrospun nfm with fscp and cos had good biocompatibility in vitro and supported proliferation of human skin fibroblasts.conclusion:fscp are superior to mammalian collagen , and have feasibility and potency for wound dressings . fscp / cos nfms had good anti - bactericidal activity that improved with increased cos , and showed good biocompatibility in vitro and supported the proliferation of fibroblasts .",
+      "generated": "nanofibers are a new type of biomedical material that may have a wide range of advantages as medical dressings , including strong adsorption and the ability to assume variable shapes. 1 electrospinning ( es ) is a simple and effective nanofabrication method for preparing nanofibrous fibers with diameters ranging from 5 to 500 nm , 10 to 10 times smaller than those prepared by traditional methods. 2 high - molecular - weight ( mw ) polymers are good materials for nanofiber preparation, but to date chitosan oligomer, cos, and pva solutions was prepared by dis",
+      "metrics": {
+        "rougeL": 0.09703504043126684,
+        "bertscore_f1": 0.8175921440124512,
+        "latency": 35.87054133415222
+      },
+      "selection_reason": "worst_bertscore"
+    }
+  ]
+}

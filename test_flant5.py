@@ -37,10 +37,13 @@ def load_flan_t5(model_name="jordiclive/flan-t5-3b-summarizer", device="cuda"):
     
     return model.to(device), tokenizer, metadata
 
-def generate_with_windows_flant5(model, tokenizer, windows, gen_max=256, device="cuda"):
+def generate_with_windows_flant5(model, tokenizer, windows, gen_max=256, device="cuda", aggregation="concat"):
     """
-    Generate summaries for each window and concatenate (same as LED approach)
-    FLAN-T5 max input: 512 tokens (much shorter than LED!)
+    Generate summaries for each window with configurable aggregation.
+    FLAN-T5 max input: 512 tokens
+    
+    Args:
+        aggregation: "concat" (default, join summaries) or "hierarchical" (summarize the summaries)
     """
     cap = 512  # FLAN-T5 max input length
     summaries = []
@@ -68,9 +71,36 @@ def generate_with_windows_flant5(model, tokenizer, windows, gen_max=256, device=
         summary = tokenizer.decode(outputs[0], skip_special_tokens=True)
         summaries.append(summary)
     
-    # Concatenate all window summaries
-    final_summary = " ".join(summaries)
-    return final_summary
+    # Aggregation strategy (same logic as sliding.py)
+    if aggregation == "hierarchical" and len(summaries) > 1:
+        # Hierarchical: summarize the concatenated summaries
+        combined_text = " ".join(summaries)
+        
+        # Tokenize the combined summaries
+        combined_ids = tokenizer.encode(combined_text, add_special_tokens=False)
+        
+        # Truncate to FLAN-T5 capacity
+        combined_ids = combined_ids[:cap]
+        
+        # Create input tensors
+        input_ids = torch.tensor([combined_ids], dtype=torch.long, device=device)
+        attention_mask = torch.ones_like(input_ids)
+        
+        # Generate final summary from combined summaries
+        with torch.no_grad():
+            final_ids = model.generate(
+                input_ids=input_ids,
+                attention_mask=attention_mask,
+                max_length=gen_max,
+                num_beams=4,
+                early_stopping=True,
+                no_repeat_ngram_size=3
+            )
+        
+        return tokenizer.decode(final_ids[0], skip_special_tokens=True).strip()
+    
+    # Default: concat (original behavior)
+    return " ".join(summaries)
 
 def run_flant5_test(config_path):
     """Run FLAN-T5 test with same setup as LED"""
@@ -80,8 +110,18 @@ def run_flant5_test(config_path):
     # Override model
     model_name = "jordiclive/flan-t5-3b-summarizer"
     
-    # Setup paths
-    out_path = cfg.get("out_csv", "results/output.csv").replace("led_", "flant5_")
+    # Setup paths - replace any model name with flant5
+    original_out = cfg.get("out_csv", "results/output.csv")
+    # Replace known model prefixes with flant5
+    out_path = original_out
+    for model_prefix in ["led_", "bigbird_", "longt5_"]:
+        out_path = out_path.replace(model_prefix, "flant5_")
+    # If no replacement happened, add flant5_ prefix to filename
+    if out_path == original_out:
+        import os as os_path
+        dirname = os_path.dirname(out_path)
+        basename = os_path.basename(out_path)
+        out_path = os_path.join(dirname, f"flant5_{basename}")
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     
     rows = []
@@ -99,12 +139,12 @@ def run_flant5_test(config_path):
         
         t0 = start_prof()
         
-        # Create windows using FLAN-T5 tokenizer
-        base_tok = AutoTokenizer.from_pretrained(model_name)
-        wins = make_windows(doc, base_tok, cfg["window_size"], cfg["overlap"])
+        # Create windows using FLAN-T5 tokenizer (tok is already loaded)
+        wins = make_windows(doc, tok, cfg["window_size"], cfg["overlap"])
         
-        # Generate summary
-        pred = generate_with_windows_flant5(model, tok, wins, cfg["gen_max_tokens"])
+        # Generate summary (with aggregation from config)
+        aggregation = cfg.get("aggregation", "concat")
+        pred = generate_with_windows_flant5(model, tok, wins, cfg["gen_max_tokens"], aggregation=aggregation)
         
         lat, mem = stop_prof(t0)
         mets = text_metrics([pred], [ref])
