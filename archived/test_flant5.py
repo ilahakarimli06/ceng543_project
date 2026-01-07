@@ -3,6 +3,14 @@ Test script for FLAN-T5 XL Summarizer
 Fine-tuned model: jordiclive/flan-t5-3b-summarizer
 Uses same cleaned ArXiv data as LED experiments
 """
+import sys
+from pathlib import Path
+
+# Add project root to path (allows running from archived/ directory)
+_project_root = Path(__file__).resolve().parent.parent
+if str(_project_root) not in sys.path:
+    sys.path.insert(0, str(_project_root))
+
 import yaml
 import torch
 import json
