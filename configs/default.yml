@@ -1,0 +1,61 @@
+# Default Configuration - Reproducibility Reference
+# All experiments should use these default values unless explicitly overriding
+# This file documents the standard hyperparameters used across all experiments
+
+# =============================================================================
+# REPRODUCIBILITY SETTINGS
+# =============================================================================
+
+seed: 42                    # Random seed for reproducibility
+samples: 60                 # Number of documents per experiment
+
+# =============================================================================
+# SUMMARIZATION PARAMETERS
+# =============================================================================
+
+# Default summarization model
+model_name: allenai/led-base-16384
+
+# Generation parameters
+gen_max_tokens: 384         # Maximum tokens to generate per summary
+attention_impl: default     # Attention implementation (default, flash_attention_2)
+
+# =============================================================================
+# SLIDING WINDOW PARAMETERS
+# =============================================================================
+
+window_size: 1024           # Tokens per window
+overlap: 256                # Overlap between windows
+global_tokens: 16           # Global attention tokens
+aggregation: concat         # Aggregation method (concat, hierarchical)
+
+# =============================================================================
+# CHUNK RETRIEVAL PARAMETERS
+# =============================================================================
+
+chunk_size: 1024            # Tokens per chunk
+segmentation_method: fixed  # Chunking method (fixed, semantic, sentence)
+top_k: 3                    # Number of chunks to retrieve
+query_strategy: first_tokens  # Query generation strategy
+
+# Default embedding model
+embedding_model: BAAI/bge-base-en-v1.5
+
+# =============================================================================
+# FAISS INDEX PARAMETERS
+# =============================================================================
+
+# IVF parameters
+nlist: 64                   # Number of clusters for IVF
+nprobe: 8                   # Number of clusters to search
+
+# IVF-PQ parameters  
+M: 48                       # Number of subquantizers
+nbits: 8                    # Bits per subquantizer
+
+# =============================================================================
+# CACHE SETTINGS
+# =============================================================================
+
+use_cache: true
+cache_dir: cache/embeddings
